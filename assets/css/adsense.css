@@ -1,0 +1,366 @@
+/**
+ * Smart Finance Hub - Google AdSense Styles
+ * Compliant ad placements with proper spacing and labeling
+ */
+
+/* ==========================================================================
+   Base Ad Container Styles
+   ========================================================================== */
+
+.ad-container {
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ad-container.loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Advertisement Label */
+.ad-label {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    z-index: 10;
+}
+
+/* ==========================================================================
+   Header Banner Ads (728x90 / Responsive)
+   ========================================================================== */
+
+.ad-header-banner {
+    width: 100%;
+    max-width: 728px;
+    height: 90px;
+    margin: 1rem auto;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.ad-header-banner .ad-placeholder {
+    opacity: 0.8;
+}
+
+/* Ensure proper spacing from navigation */
+.ad-header-banner {
+    margin-top: 2rem;
+}
+
+/* ==========================================================================
+   Sidebar Rectangle Ads (300x250)
+   ========================================================================== */
+
+.ad-sidebar-rectangle {
+    width: 300px;
+    height: 250px;
+    margin: 2rem auto;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.sidebar .ad-sidebar-rectangle {
+    width: 100%;
+    max-width: 300px;
+}
+
+/* ==========================================================================
+   In-Content Ads (Responsive/320x100)
+   ========================================================================== */
+
+.ad-in-content {
+    width: 100%;
+    max-width: 600px;
+    height: 100px;
+    margin: 3rem auto;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    position: relative;
+    clear: both;
+}
+
+/* Ensure proper spacing from content */
+.ad-in-content {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+/* ==========================================================================
+   Footer Banner Ads (728x90 / Responsive)
+   ========================================================================== */
+
+.ad-footer-banner {
+    width: 100%;
+    max-width: 728px;
+    height: 90px;
+    margin: 2rem auto;
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+/* ==========================================================================
+   Mobile Ad Sizes
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* Mobile Banner (320x50) */
+    .ad-header-banner,
+    .ad-footer-banner {
+        max-width: 320px;
+        height: 50px;
+        font-size: 0.8rem;
+    }
+    
+    /* Mobile Rectangle becomes smaller */
+    .ad-sidebar-rectangle {
+        width: 100%;
+        max-width: 300px;
+        height: 200px;
+    }
+    
+    /* Mobile In-Content */
+    .ad-in-content {
+        height: 80px;
+        margin: 2rem auto;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Very small mobile screens */
+    .ad-header-banner,
+    .ad-footer-banner {
+        max-width: 300px;
+        height: 50px;
+    }
+    
+    .ad-sidebar-rectangle {
+        height: 150px;
+    }
+    
+    .ad-in-content {
+        height: 60px;
+        margin: 1.5rem auto;
+    }
+    
+    .ad-container {
+        margin: 1rem 0;
+        padding: 0.75rem;
+    }
+}
+
+/* ==========================================================================
+   AdSense Responsive Units
+   ========================================================================== */
+
+.adsbygoogle {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Standard Display Ad Sizes */
+.ad-leaderboard {
+    width: 728px;
+    height: 90px;
+}
+
+.ad-medium-rectangle {
+    width: 300px;
+    height: 250px;
+}
+
+.ad-large-rectangle {
+    width: 336px;
+    height: 280px;
+}
+
+.ad-skyscraper {
+    width: 160px;
+    height: 600px;
+}
+
+.ad-mobile-banner {
+    width: 320px;
+    height: 50px;
+}
+
+/* ==========================================================================
+   Policy Compliance Styles
+   ========================================================================== */
+
+/* Ensure ads don't interfere with navigation */
+.ad-container.policy-compliant {
+    margin: 3rem 0;
+    padding: 1.5rem;
+}
+
+/* Clear separation from content */
+.ad-separator {
+    border-top: 1px solid #e2e8f0;
+    margin: 2rem 0 1rem 0;
+    padding-top: 1rem;
+}
+
+.ad-separator::before {
+    content: '';
+    display: block;
+    height: 1rem;
+}
+
+/* Prevent ads from being too close to interactive elements */
+.ad-container + .cta-button,
+.ad-container + .newsletter-form,
+.ad-container + nav {
+    margin-top: 2rem;
+}
+
+/* ==========================================================================
+   Article-Specific Ad Placement
+   ========================================================================== */
+
+/* After article title */
+.article-header + .ad-container {
+    margin: 2rem 0 3rem 0;
+}
+
+/* Between article sections */
+.article-content h2 + .ad-container {
+    margin: 2rem 0;
+}
+
+/* Before article conclusion */
+.article-content .ad-container:last-of-type {
+    margin: 3rem 0 2rem 0;
+}
+
+/* ==========================================================================
+   Sticky Sidebar Ads (Optional)
+   ========================================================================== */
+
+.ad-sticky-sidebar {
+    position: sticky;
+    top: 2rem;
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .ad-sticky-sidebar {
+        position: static;
+    }
+}
+
+/* ==========================================================================
+   Loading States
+   ========================================================================== */
+
+.ad-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.ad-placeholder::before {
+    content: '📢 ';
+    opacity: 0.7;
+}
+
+/* Hide placeholder when AdSense loads */
+.adsbygoogle[data-ad-status="filled"] + .ad-placeholder {
+    display: none;
+}
+
+/* ==========================================================================
+   AdSense Auto Ads Support
+   ========================================================================== */
+
+.auto-ads-container {
+    margin: 2rem 0;
+    min-height: 50px;
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+
+.ad-container[role="complementary"] {
+    outline: none;
+}
+
+.ad-container:focus-within {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Screen reader friendly labels */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ==========================================================================
+   Print Media (Hide ads in print)
+   ========================================================================== */
+
+@media print {
+    .ad-container,
+    .adsbygoogle,
+    .ad-header-banner,
+    .ad-footer-banner,
+    .ad-sidebar-rectangle,
+    .ad-in-content {
+        display: none !important;
+    }
+}
