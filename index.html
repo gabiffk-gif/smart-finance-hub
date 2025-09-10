@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Finance Hub - Your Guide to Financial Freedom</title>
     <meta name="description" content="Expert financial advice, investment strategies, and money management tips to help you achieve financial independence.">
+    <meta name="keywords" content="financial advice, investment strategies, money management, personal finance, financial planning, wealth building, financial independence">
+    <meta name="author" content="Smart Finance Hub">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Smart Finance Hub - Your Guide to Financial Freedom">
+    <meta property="og:description" content="Expert financial advice, investment strategies, and money management tips to help you achieve financial independence.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartfinancehub.vip">
+    <meta property="og:image" content="https://smartfinancehub.vip/assets/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Smart Finance Hub - Your Guide to Financial Freedom">
+    <meta name="twitter:description" content="Expert financial advice, investment strategies, and money management tips to help you achieve financial independence.">
+    <meta name="twitter:image" content="https://smartfinancehub.vip/assets/images/twitter-image.jpg">
     <link rel="canonical" href="https://smartfinancehub.vip">
     
     <!-- Google Analytics 4 -->
@@ -14,6 +26,33 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'G-9RZ27MVK1D');
+    </script>
+    
+    <!-- JSON-LD Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Smart Finance Hub",
+        "url": "https://smartfinancehub.vip",
+        "description": "Expert financial advice, investment strategies, and money management tips to help you achieve financial independence.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Smart Finance Hub",
+            "url": "https://smartfinancehub.vip",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://smartfinancehub.vip/assets/images/logo.png",
+                "width": 300,
+                "height": 100
+            }
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://smartfinancehub.vip/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
     </script>
     
     <style>
@@ -44,9 +83,10 @@
         .newsletter-form { display: flex; gap: 0.5rem; margin-top: 1rem; }
         .newsletter input { flex: 1; padding: 0.8rem; border: none; border-radius: 6px; }
         .newsletter button { background: #667eea; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 6px; cursor: pointer; }
-        .ad-banner { background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1.5rem; border-radius: 12px; text-align: center; margin: 1.5rem 0; cursor: pointer; transition: transform 0.3s; }
+        .ad-banner { background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1.5rem; border-radius: 12px; text-align: center; margin: 1.5rem 0; cursor: pointer; transition: transform 0.3s; position: relative; border: 2px solid rgba(255,255,255,0.3); }
         .ad-banner:hover { transform: scale(1.02); }
         .ad-banner h4 { font-size: 1.2rem; margin-bottom: 0.5rem; color: white; }
+        .ad-label { position: absolute; top: 8px; right: 12px; background: rgba(0,0,0,0.6); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; text-transform: uppercase; font-weight: 600; }
         footer { background: #2d3748; color: white; padding: 2rem 0; margin-top: 4rem; text-align: center; }
         .disclaimer { font-size: 0.85rem; margin-top: 1rem; color: #a0aec0; }
         @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 2rem; } .newsletter-form { flex-direction: column; } }
@@ -58,7 +98,7 @@
             <a href="/" class="logo">💰 Smart Finance Hub</a>
             <ul class="nav-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="about.html">About</a></li>
             </ul>
         </nav>
     </header>
@@ -73,7 +113,7 @@
 
     <main class="container">
         <div class="content-grid">
-            <div class="main-content">
+            <div class="main-content" id="articles">
                 <article class="article-card">
                     <h2>Best High-Yield Savings Accounts for 2025: Complete Comparison Guide</h2>
                     <div class="article-meta">
@@ -86,10 +126,11 @@
                         We've analyzed over 50 banks to bring you the best options for maximizing your emergency fund 
                         and short-term savings goals.
                     </p>
-                    <a href="#" class="read-more">Read Full Article →</a>
+                    <a href="articles/savings-accounts-2025.html" class="read-more">Read Full Article →</a>
                 </article>
 
                 <div class="ad-banner">
+                    <div class="ad-label">Advertisement</div>
                     <h4>🏦 Compare Personal Loan Rates</h4>
                     <p>Get pre-qualified in 2 minutes. Rates as low as 3.99% APR*</p>
                     <small>*Terms and conditions apply.</small>
@@ -106,7 +147,7 @@
                         Struggling with multiple credit card payments? Learn the most effective debt consolidation methods 
                         that can save you thousands in interest. From balance transfer cards to personal loans.
                     </p>
-                    <a href="#" class="read-more">Read Full Article →</a>
+                    <a href="articles/debt-consolidation.html" class="read-more">Read Full Article →</a>
                 </article>
 
                 <article class="article-card">
@@ -120,7 +161,7 @@
                         Start building wealth with index funds - the investment strategy Warren Buffett recommends for most people. 
                         Learn how to choose the right index funds and create a diversified portfolio.
                     </p>
-                    <a href="#" class="read-more">Read Full Article →</a>
+                    <a href="articles/index-fund-investing.html" class="read-more">Read Full Article →</a>
                 </article>
             </div>
 
@@ -138,11 +179,13 @@
                 </div>
 
                 <div class="ad-banner">
+                    <div class="ad-label">Advertisement</div>
                     <h4>💳 Best Cashback Cards</h4>
                     <p>Earn up to 6% cashback on everyday purchases</p>
                 </div>
 
                 <div class="ad-banner">
+                    <div class="ad-label">Advertisement</div>
                     <h4>🏠 Refinance Your Home</h4>
                     <p>See today's rates in 30 seconds</p>
                 </div>

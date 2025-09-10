@@ -1,4 +1,22 @@
 User-agent: *
 Allow: /
 
+# Allow important directories
+Allow: /articles/
+Allow: /assets/
+
+# Block admin areas (if they exist in the future)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+
+# Block temporary files
+Disallow: /*.tmp$
+Disallow: /*.log$
+Disallow: /*.backup$
+
+# Crawl delay for being respectful
+Crawl-delay: 1
+
+# Sitemap location
 Sitemap: https://smartfinancehub.vip/sitemap.xml
