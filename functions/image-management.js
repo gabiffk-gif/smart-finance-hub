@@ -142,22 +142,34 @@ class ImageManager {
      * Generate SVG placeholder for failed images
      */
     generatePlaceholder(img) {
-        const width = img.width || 400;
-        const height = img.height || 300;
+        const width = Math.max(img.offsetWidth || img.width || 400, 100);
+        const height = Math.max(img.offsetHeight || img.height || 300, 100);
         const altText = img.alt || 'Image placeholder';
+        
+        // Create a colorful gradient placeholder
+        const colors = ['#667eea', '#764ba2', '#4facfe', '#00f2fe', '#f093fb', '#f5576c'];
+        const color1 = colors[Math.floor(Math.random() * colors.length)];
+        const color2 = colors[Math.floor(Math.random() * colors.length)];
         
         const svg = `
             <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg" 
-                 viewBox="0 0 ${width} ${height}" style="background:#f8fafc;">
-                <rect width="100%" height="100%" fill="#e2e8f0"/>
+                 viewBox="0 0 ${width} ${height}">
+                <defs>
+                    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:${color1};stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:${color2};stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grad)"/>
                 <text x="50%" y="50%" text-anchor="middle" dy="0.3em" 
-                      fill="#718096" font-family="Arial, sans-serif" font-size="14">
-                    ${altText}
+                      fill="white" font-family="Arial, sans-serif" font-size="${Math.max(12, Math.min(width/20, 18))}"
+                      font-weight="600" opacity="0.9">
+                    📸 ${altText.split(' ').slice(0, 3).join(' ')}
                 </text>
             </svg>
         `;
         
-        img.src = 'data:image/svg+xml;base64,' + btoa(svg);
+        img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
         img.classList.add('placeholder');
     }
 
@@ -223,21 +235,29 @@ class ImageManager {
  */
 class ImageSources {
     /**
-     * Generate Unsplash URL
+     * Generate reliable Picsum URL (most reliable service)
      */
-    static unsplash(query, width = 400, height = 300, quality = 80) {
-        return `https://images.unsplash.com/${width}x${height}/?${encodeURIComponent(query)}&q=${quality}`;
+    static picsum(width = 400, height = 300, seed = null, blur = null, grayscale = false) {
+        let url = `https://picsum.photos/${width}/${height}`;
+        const params = [];
+        
+        if (seed !== null) params.push(`random=${seed}`);
+        if (blur) params.push(`blur=${blur}`);
+        if (grayscale) params.push('grayscale');
+        
+        if (params.length > 0) {
+            url += '?' + params.join('&');
+        }
+        
+        return url;
     }
 
     /**
-     * Generate Lorem Picsum URL
+     * Generate fallback placeholder URL
      */
-    static picsum(width = 400, height = 300, id = null, blur = null, grayscale = false) {
-        let url = `https://picsum.photos/${width}/${height}`;
-        if (id) url += `?random=${id}`;
-        if (blur) url += (url.includes('?') ? '&' : '?') + `blur=${blur}`;
-        if (grayscale) url += (url.includes('?') ? '&' : '?') + 'grayscale';
-        return url;
+    static placeholder(width = 400, height = 300, text = '', bgColor = '667eea', textColor = 'ffffff') {
+        const cleanText = encodeURIComponent(text || 'Image');
+        return `https://via.placeholder.com/${width}x${height}/${bgColor}/${textColor}?text=${cleanText}`;
     }
 
     /**
