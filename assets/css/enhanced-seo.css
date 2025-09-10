@@ -1,0 +1,486 @@
+/**
+ * Smart Finance Hub - Enhanced SEO and Image Support
+ * Comprehensive CSS for responsive images, lazy loading, and SEO optimization
+ */
+
+/* ==========================================================================
+   Responsive Image System
+   ========================================================================== */
+
+/* Base responsive image class */
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Featured images for articles */
+.featured-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-image:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Hero images */
+.hero-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 0;
+    margin: 0;
+}
+
+/* Content images */
+.content-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Image alignment classes */
+.image-left {
+    float: left;
+    margin: 0 2rem 1rem 0;
+    max-width: 350px;
+}
+
+.image-right {
+    float: right;
+    margin: 0 0 1rem 2rem;
+    max-width: 350px;
+}
+
+.image-center {
+    display: block;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Lazy Loading System
+   ========================================================================== */
+
+/* Images before loading */
+.lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    background: #f7fafc;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Loading state */
+.lazy-image.loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Images after loading */
+.lazy-image.loaded {
+    opacity: 1;
+    background: none;
+}
+
+/* Lazy loading placeholder */
+.lazy-placeholder {
+    background: #f7fafc;
+    border: 2px dashed #e2e8f0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a0aec0;
+    font-size: 0.9rem;
+    min-height: 200px;
+}
+
+.lazy-placeholder::before {
+    content: "📷 Loading image...";
+}
+
+/* ==========================================================================
+   Placeholder Featured Image System
+   ========================================================================== */
+
+.featured-placeholder {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="rgba(255,255,255,0.1)"><circle cx="1" cy="1" r="1"/></svg>');
+    background-size: 20px 20px;
+    pointer-events: none;
+}
+
+.featured-placeholder-content {
+    z-index: 2;
+    position: relative;
+    padding: 2rem;
+}
+
+.featured-placeholder-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+.featured-placeholder-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.featured-placeholder-subtitle {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Content placeholders */
+.content-placeholder {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.9rem;
+    margin: 1.5rem 0;
+}
+
+/* Chart placeholders */
+.chart-placeholder {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.chart-placeholder::before {
+    content: "📊";
+    font-size: 2rem;
+    margin-right: 0.5rem;
+}
+
+/* ==========================================================================
+   Image Optimization Classes
+   ========================================================================== */
+
+/* High priority images (above the fold) */
+.high-priority-image {
+    loading: eager;
+    decoding: sync;
+    fetchpriority: high;
+}
+
+/* Low priority images (below the fold) */
+.low-priority-image {
+    loading: lazy;
+    decoding: async;
+    fetchpriority: low;
+}
+
+/* Optimized image sizes */
+.image-small {
+    max-width: 300px;
+    height: auto;
+}
+
+.image-medium {
+    max-width: 600px;
+    height: auto;
+}
+
+.image-large {
+    max-width: 900px;
+    height: auto;
+}
+
+.image-full {
+    width: 100%;
+    height: auto;
+}
+
+/* ==========================================================================
+   Social Media Optimized Images
+   ========================================================================== */
+
+/* Open Graph image requirements (1200x630) */
+.og-image {
+    width: 1200px;
+    height: 630px;
+    object-fit: cover;
+    display: none; /* Hidden from layout, used for social sharing only */
+}
+
+/* Twitter Card image requirements (1200x675) */
+.twitter-image {
+    width: 1200px;
+    height: 675px;
+    object-fit: cover;
+    display: none; /* Hidden from layout, used for social sharing only */
+}
+
+/* ==========================================================================
+   Image Captions and Alt Text Enhancement
+   ========================================================================== */
+
+.image-container {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.image-caption {
+    font-size: 0.9rem;
+    color: #718096;
+    font-style: italic;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+.image-credit {
+    font-size: 0.8rem;
+    color: #a0aec0;
+    margin-top: 0.25rem;
+}
+
+/* Screen reader only alt text enhancement */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ==========================================================================
+   Financial Charts and Graphics
+   ========================================================================== */
+
+.financial-chart {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #667eea;
+}
+
+.chart-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.chart-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   Team Photos and Profile Images
+   ========================================================================== */
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e2e8f0;
+    margin: 0 auto;
+}
+
+.team-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto 1rem;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .featured-image {
+        height: 250px;
+        margin: 1.5rem 0;
+    }
+    
+    .hero-image {
+        height: 300px;
+    }
+    
+    .image-left,
+    .image-right {
+        float: none;
+        margin: 1rem auto;
+        max-width: 100%;
+        display: block;
+    }
+    
+    .featured-placeholder {
+        height: 250px;
+    }
+    
+    .chart-placeholder {
+        height: 200px;
+    }
+    
+    .financial-chart {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-image {
+        height: 200px;
+        border-radius: 8px;
+    }
+    
+    .hero-image {
+        height: 250px;
+    }
+    
+    .featured-placeholder {
+        height: 200px;
+    }
+    
+    .featured-placeholder-icon {
+        font-size: 2rem;
+    }
+    
+    .featured-placeholder-title {
+        font-size: 1.2rem;
+    }
+    
+    .chart-placeholder {
+        height: 150px;
+    }
+    
+    .team-photo {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+    .lazy-image,
+    .responsive-image {
+        opacity: 1 !important;
+        background: none !important;
+    }
+    
+    .featured-image,
+    .content-image {
+        break-inside: avoid;
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .featured-placeholder,
+    .content-placeholder,
+    .chart-placeholder {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   Accessibility Enhancements
+   ========================================================================== */
+
+/* Focus states for interactive images */
+.content-image:focus,
+.featured-image:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .image-caption {
+        color: #000;
+    }
+    
+    .lazy-placeholder {
+        border-color: #000;
+        color: #000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .responsive-image,
+    .featured-image,
+    .lazy-image {
+        transition: none;
+    }
+    
+    .loading {
+        animation: none;
+    }
+}

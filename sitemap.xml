@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <!-- Homepage -->
     <url>
         <loc>https://smartfinancehub.vip/</loc>
         <lastmod>2025-03-15</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://smartfinancehub.vip/assets/images/hero-background.jpg</image:loc>
+            <image:title>Smart Finance Hub - Personal Finance and Investment Guidance</image:title>
+            <image:caption>Comprehensive financial education and investment strategies for building wealth</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://smartfinancehub.vip/assets/images/featured-articles.jpg</image:loc>
+            <image:title>Featured Finance Articles</image:title>
+            <image:caption>Latest insights on savings, investing, and debt management</image:caption>
+        </image:image>
     </url>
     
     <!-- About Page -->
@@ -22,6 +33,16 @@
         <lastmod>2025-03-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://smartfinancehub.vip/assets/images/savings-accounts-hero.jpg</image:loc>
+            <image:title>Best High-Yield Savings Accounts 2025</image:title>
+            <image:caption>Compare top savings accounts with highest interest rates and best features for 2025</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://smartfinancehub.vip/assets/images/savings-comparison-chart.jpg</image:loc>
+            <image:title>Savings Account Comparison Chart</image:title>
+            <image:caption>Visual comparison of interest rates, fees, and features across top savings accounts</image:caption>
+        </image:image>
     </url>
     
     <url>
@@ -29,6 +50,16 @@
         <lastmod>2025-03-12</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://smartfinancehub.vip/assets/images/debt-consolidation-hero.jpg</image:loc>
+            <image:title>Credit Card Debt Consolidation Strategies</image:title>
+            <image:caption>Proven methods to consolidate credit card debt and save thousands in interest</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://smartfinancehub.vip/assets/images/debt-payoff-calculator.jpg</image:loc>
+            <image:title>Debt Payoff Comparison Calculator</image:title>
+            <image:caption>Interactive calculator showing debt consolidation savings potential</image:caption>
+        </image:image>
     </url>
     
     <url>
@@ -36,5 +67,15 @@
         <lastmod>2025-03-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://smartfinancehub.vip/assets/images/index-fund-hero.jpg</image:loc>
+            <image:title>Index Fund Investing for Beginners Guide</image:title>
+            <image:caption>Complete guide to building wealth with index funds and passive investing</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://smartfinancehub.vip/assets/images/portfolio-allocation-chart.jpg</image:loc>
+            <image:title>Index Fund Portfolio Allocation Examples</image:title>
+            <image:caption>Sample portfolio allocations for different ages and risk tolerances</image:caption>
+        </image:image>
     </url>
 </urlset>

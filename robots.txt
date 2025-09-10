@@ -1,22 +1,62 @@
+# Smart Finance Hub - Robots.txt
+# SEO optimized crawling directives
+
 User-agent: *
 Allow: /
 
-# Allow important directories
-Allow: /articles/
-Allow: /assets/
+# Allow crawling of important assets
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+Allow: /functions/
 
-# Block admin areas (if they exist in the future)
+# Allow article pages
+Allow: /articles/
+
+# Disallow sensitive or development files
+Disallow: /docs/
+Disallow: /.git/
+Disallow: /*.log
+Disallow: /temp/
+Disallow: /backup/
 Disallow: /admin/
 Disallow: /api/
 Disallow: /private/
-
-# Block temporary files
 Disallow: /*.tmp$
-Disallow: /*.log$
 Disallow: /*.backup$
-
-# Crawl delay for being respectful
-Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://smartfinancehub.vip/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Specific directives for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Block aggressive crawlers
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+# Allow social media crawlers for link previews
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
