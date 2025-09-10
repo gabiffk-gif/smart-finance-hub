@@ -13,7 +13,13 @@ img {
     display: block;
 }
 
-/* Lazy loading images */
+/* Image transitions */
+.featured-image, .content-image, .team-photo, .sidebar-image, .ad-image {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+/* Lazy loading images (if enabled) */
 .lazy-image {
     transition: opacity 0.3s ease-in-out;
     opacity: 0;
