@@ -18,6 +18,7 @@
     <meta name="twitter:description" content="Certified financial professionals helping you build wealth and achieve financial independence.">
     <meta name="twitter:image" content="https://smartfinancehub.vip/assets/images/about-twitter.jpg">
     <link rel="canonical" href="https://smartfinancehub.vip/about.html">
+    <link rel="stylesheet" href="assets/css/cookie-consent.css">
     
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3569163105837966"
@@ -283,6 +284,104 @@
         </div>
     </footer>
 
+    <!-- Enhanced Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <div class="cookie-icon">🍪</div>
+            <div class="cookie-text">
+                <h3>We Value Your Privacy</h3>
+                <p>We use cookies to enhance your experience, analyze site traffic, and serve personalized ads. You can choose which cookies to accept.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="btn-accept-all" onclick="acceptAllCookies()">Accept All</button>
+                <button class="btn-customize" onclick="showCookieSettings()">Customize</button>
+                <button class="btn-decline" onclick="declineNonEssential()">Decline Non-Essential</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Modal -->
+    <div class="cookie-modal" id="cookieModal">
+        <div class="modal-overlay" onclick="closeCookieSettings()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Cookie Preferences</h2>
+                <button class="modal-close" onclick="closeCookieSettings()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="cookie-category">
+                    <div class="category-header">
+                        <div class="category-info">
+                            <h3>Essential Cookies</h3>
+                            <p>Required for basic website functionality and security.</p>
+                        </div>
+                        <div class="toggle-switch disabled">
+                            <input type="checkbox" id="essential" checked disabled>
+                            <label for="essential">Always Active</label>
+                        </div>
+                    </div>
+                    <div class="category-details">
+                        <p><strong>Purpose:</strong> Authentication, security, and core website features</p>
+                        <p><strong>Duration:</strong> Session to 1 year</p>
+                        <p><strong>Examples:</strong> Login status, form data, security tokens</p>
+                    </div>
+                </div>
+
+                <div class="cookie-category">
+                    <div class="category-header">
+                        <div class="category-info">
+                            <h3>Analytics Cookies</h3>
+                            <p>Help us understand how visitors interact with our website.</p>
+                        </div>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="analytics">
+                            <label for="analytics"></label>
+                        </div>
+                    </div>
+                    <div class="category-details">
+                        <p><strong>Purpose:</strong> Google Analytics, performance monitoring, user behavior analysis</p>
+                        <p><strong>Duration:</strong> Up to 26 months</p>
+                        <p><strong>Data:</strong> Page views, session duration, bounce rate, demographics</p>
+                        <p><strong>Third Parties:</strong> Google LLC</p>
+                        <p><strong>Opt-out:</strong> <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out</a></p>
+                    </div>
+                </div>
+
+                <div class="cookie-category">
+                    <div class="category-header">
+                        <div class="category-info">
+                            <h3>Advertising Cookies</h3>
+                            <p>Used to deliver personalized advertisements and measure ad effectiveness.</p>
+                        </div>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="advertising">
+                            <label for="advertising"></label>
+                        </div>
+                    </div>
+                    <div class="category-details">
+                        <p><strong>Purpose:</strong> Google AdSense personalization, ad targeting, frequency capping</p>
+                        <p><strong>Duration:</strong> Up to 2 years</p>
+                        <p><strong>Data:</strong> Browsing history, interests, ad interactions, device information</p>
+                        <p><strong>Third Parties:</strong> Google LLC, advertising partners</p>
+                        <p><strong>Opt-out:</strong> <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google Ad Settings</a></p>
+                    </div>
+                </div>
+
+                <div class="privacy-links">
+                    <p><strong>Learn more:</strong> 
+                        <a href="privacy.html" target="_blank">Privacy Policy</a> | 
+                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-save" onclick="saveCookiePreferences()">Save Preferences</button>
+                <button class="btn-accept-all-modal" onclick="acceptAllCookiesModal()">Accept All</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/cookie-consent.js"></script>
     <script>
         // Track page view
         if (typeof gtag !== 'undefined') {
