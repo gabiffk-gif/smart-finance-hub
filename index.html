@@ -19,6 +19,8 @@
     <meta name="twitter:image" content="https://smartfinancehub.vip/assets/images/twitter-image.jpg">
     <link rel="canonical" href="https://smartfinancehub.vip">
     <link rel="stylesheet" href="assets/css/cookie-consent.css">
+    <link rel="stylesheet" href="assets/css/images.css">
+    <link rel="stylesheet" href="assets/css/financial-icons.css">
     
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3569163105837966"
@@ -108,7 +110,12 @@
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" style="background-image: url('https://images.unsplash.com/1600x900/?finance,business,money,investment,charts&q=80');">
+        <img src="https://images.unsplash.com/1600x900/?finance,business,money,investment,charts&q=80" 
+             alt="Financial charts and business background" 
+             class="hero-background lazy-image" 
+             data-src="https://images.unsplash.com/1600x900/?finance,business,money,investment,charts&q=80"
+             style="display: none;">
         <div class="container">
             <h1>Master Your Financial Future</h1>
             <p>Expert advice, tools, and strategies to help you make smarter financial decisions and build lasting wealth.</p>
@@ -120,6 +127,10 @@
         <div class="content-grid">
             <div class="main-content" id="articles">
                 <article class="article-card">
+                    <img src="https://images.unsplash.com/800x400/?piggy,bank,savings,money&q=80" 
+                         alt="Piggy bank and savings concept representing high-yield savings accounts" 
+                         class="featured-image lazy-image"
+                         data-src="https://images.unsplash.com/800x400/?piggy,bank,savings,money&q=80">
                     <h2>Best High-Yield Savings Accounts for 2025: Complete Comparison Guide</h2>
                     <div class="article-meta">
                         <span>By Sarah Johnson, CFP</span> | 
@@ -142,6 +153,10 @@
                 </div>
 
                 <article class="article-card">
+                    <img src="https://images.unsplash.com/800x400/?credit,cards,debt,calculator&q=80" 
+                         alt="Credit cards and calculator representing debt consolidation strategies" 
+                         class="featured-image lazy-image"
+                         data-src="https://images.unsplash.com/800x400/?credit,cards,debt,calculator&q=80">
                     <h2>Credit Card Debt Consolidation: 5 Proven Strategies That Work</h2>
                     <div class="article-meta">
                         <span>By Michael Chen, Financial Advisor</span> | 
@@ -156,6 +171,10 @@
                 </article>
 
                 <article class="article-card">
+                    <img src="https://images.unsplash.com/800x400/?stock,market,charts,investing&q=80" 
+                         alt="Stock market charts and investment graphs for index fund investing" 
+                         class="featured-image lazy-image"
+                         data-src="https://images.unsplash.com/800x400/?stock,market,charts,investing&q=80">
                     <h2>Index Fund Investing for Beginners: Complete Step-by-Step Guide</h2>
                     <div class="article-meta">
                         <span>By Jennifer Rodriguez, CFA</span> | 
@@ -172,6 +191,10 @@
 
             <aside class="sidebar">
                 <div class="newsletter" id="newsletter">
+                    <img src="https://via.placeholder.com/300x150/4facfe/ffffff?text=Newsletter+%F0%9F%93%A7" 
+                         alt="Newsletter signup illustration" 
+                         class="sidebar-image lazy-image"
+                         data-src="https://via.placeholder.com/300x150/4facfe/ffffff?text=Newsletter+%F0%9F%93%A7">
                     <h3>📧 Weekly Finance Tips</h3>
                     <p>Join 25,000+ subscribers getting actionable financial advice delivered every Tuesday.</p>
                     <form class="newsletter-form" onsubmit="handleNewsletterSignup(event)">
@@ -185,17 +208,57 @@
 
                 <div class="ad-banner">
                     <div class="ad-label">Advertisement</div>
+                    <img src="https://via.placeholder.com/300x180/f093fb/ffffff?text=Credit+Cards+%F0%9F%92%B3" 
+                         alt="Credit card advertisement" 
+                         class="ad-image lazy-image"
+                         data-src="https://via.placeholder.com/300x180/f093fb/ffffff?text=Credit+Cards+%F0%9F%92%B3">
                     <h4>💳 Best Cashback Cards</h4>
                     <p>Earn up to 6% cashback on everyday purchases</p>
                 </div>
 
                 <div class="ad-banner">
                     <div class="ad-label">Advertisement</div>
+                    <img src="https://via.placeholder.com/300x180/ff6b6b/ffffff?text=Home+Refinance+%F0%9F%8F%A0" 
+                         alt="Home refinancing advertisement" 
+                         class="ad-image lazy-image"
+                         data-src="https://via.placeholder.com/300x180/ff6b6b/ffffff?text=Home+Refinance+%F0%9F%8F%A0">
                     <h4>🏠 Refinance Your Home</h4>
                     <p>See today's rates in 30 seconds</p>
                 </div>
+
+                <div class="financial-widget">
+                    <div class="financial-widget-content">
+                        <span class="widget-icon">💰</span>
+                        <div class="widget-title">Financial Tools</div>
+                        <div class="widget-description">Calculators, planners, and resources to help you make smarter money decisions.</div>
+                    </div>
+                </div>
             </aside>
         </div>
+
+        <!-- Financial Features Section -->
+        <section class="icon-feature-grid">
+            <div class="icon-feature fade-in-up">
+                <div class="financial-icon icon-savings bounce-in"></div>
+                <h3>High-Yield Savings</h3>
+                <p>Maximize your emergency fund with accounts earning up to 5.2% APY</p>
+            </div>
+            <div class="icon-feature fade-in-up">
+                <div class="financial-icon icon-stocks bounce-in"></div>
+                <h3>Smart Investing</h3>
+                <p>Build long-term wealth with index funds and diversified portfolios</p>
+            </div>
+            <div class="icon-feature fade-in-up">
+                <div class="financial-icon icon-debt-free bounce-in"></div>
+                <h3>Debt Freedom</h3>
+                <p>Proven strategies to eliminate credit card debt and student loans</p>
+            </div>
+            <div class="icon-feature fade-in-up">
+                <div class="financial-icon icon-retirement bounce-in"></div>
+                <h3>Retirement Planning</h3>
+                <p>Secure your future with 401(k) optimization and IRA strategies</p>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -297,6 +360,7 @@
     </div>
 
 
+    <script src="functions/image-management.js"></script>
     <script src="assets/js/cookie-consent.js"></script>
     <script>
         function handleNewsletterSignup(event) {

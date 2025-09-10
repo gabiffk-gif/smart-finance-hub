@@ -19,6 +19,7 @@
     <meta name="twitter:image" content="https://smartfinancehub.vip/assets/images/about-twitter.jpg">
     <link rel="canonical" href="https://smartfinancehub.vip/about.html">
     <link rel="stylesheet" href="assets/css/cookie-consent.css">
+    <link rel="stylesheet" href="assets/css/images.css">
     
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3569163105837966"
@@ -118,7 +119,12 @@
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="hero" style="background-image: url('https://images.unsplash.com/1600x800/?business,team,professional,financial&q=80');">
+        <img src="https://images.unsplash.com/1600x800/?business,team,professional,financial&q=80" 
+             alt="Professional financial team working together" 
+             class="hero-background lazy-image" 
+             data-src="https://images.unsplash.com/1600x800/?business,team,professional,financial&q=80"
+             style="display: none;">
         <div class="container">
             <h1>About Smart Finance Hub</h1>
             <p>Empowering individuals to make smarter financial decisions and build lasting wealth through expert advice, practical tools, and educational content.</p>
@@ -188,19 +194,28 @@
             
             <div class="team-grid">
                 <div class="team-member">
-                    <img src="data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='60' cy='60' r='60' fill='%23E2E8F0'/%3E%3Cpath d='M60 65C68.2843 65 75 58.2843 75 50C75 41.7157 68.2843 35 60 35C51.7157 35 45 41.7157 45 50C45 58.2843 51.7157 65 60 65Z' fill='%23A0AEC0'/%3E%3Cpath d='M30 90C30 80.0589 38.0589 72 48 72H72C81.9411 72 90 80.0589 90 90V95H30V90Z' fill='%23A0AEC0'/%3E%3C/svg%3E" alt="Sarah Johnson">
+                    <img src="https://images.unsplash.com/150x150/?professional,woman,business,suit&q=80" 
+                         alt="Sarah Johnson - Certified Financial Planner" 
+                         class="team-photo lazy-image"
+                         data-src="https://images.unsplash.com/150x150/?professional,woman,business,suit&q=80">
                     <h4>Sarah Johnson</h4>
                     <div class="credentials">CFP, ChFC</div>
                     <p>With over 15 years in financial planning, Sarah specializes in retirement planning and investment strategies for middle-income families.</p>
                 </div>
                 <div class="team-member">
-                    <img src="data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='60' cy='60' r='60' fill='%23E2E8F0'/%3E%3Cpath d='M60 65C68.2843 65 75 58.2843 75 50C75 41.7157 68.2843 35 60 35C51.7157 35 45 41.7157 45 50C45 58.2843 51.7157 65 60 65Z' fill='%23A0AEC0'/%3E%3Cpath d='M30 90C30 80.0589 38.0589 72 48 72H72C81.9411 72 90 80.0589 90 90V95H30V90Z' fill='%23A0AEC0'/%3E%3C/svg%3E" alt="Michael Chen">
+                    <img src="https://images.unsplash.com/150x150/?professional,man,business,suit&q=80" 
+                         alt="Michael Chen - Financial Advisor" 
+                         class="team-photo lazy-image"
+                         data-src="https://images.unsplash.com/150x150/?professional,man,business,suit&q=80">
                     <h4>Michael Chen</h4>
                     <div class="credentials">Financial Advisor, MBA</div>
                     <p>Michael focuses on debt management and credit optimization, helping readers break free from the debt cycle and build credit.</p>
                 </div>
                 <div class="team-member">
-                    <img src="data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='60' cy='60' r='60' fill='%23E2E8F0'/%3E%3Cpath d='M60 65C68.2843 65 75 58.2843 75 50C75 41.7157 68.2843 35 60 35C51.7157 35 45 41.7157 45 50C45 58.2843 51.7157 65 60 65Z' fill='%23A0AEC0'/%3E%3Cpath d='M30 90C30 80.0589 38.0589 72 48 72H72C81.9411 72 90 80.0589 90 90V95H30V90Z' fill='%23A0AEC0'/%3E%3C/svg%3E" alt="Jennifer Rodriguez">
+                    <img src="https://images.unsplash.com/150x150/?professional,woman,business,analyst&q=80" 
+                         alt="Jennifer Rodriguez - Investment Analyst" 
+                         class="team-photo lazy-image"
+                         data-src="https://images.unsplash.com/150x150/?professional,woman,business,analyst&q=80">
                     <h4>Jennifer Rodriguez</h4>
                     <div class="credentials">CFA, Portfolio Manager</div>
                     <p>Jennifer brings institutional investment expertise to individual investors, specializing in index fund strategies and portfolio optimization.</p>
@@ -381,6 +396,7 @@
         </div>
     </div>
 
+    <script src="functions/image-management.js"></script>
     <script src="assets/js/cookie-consent.js"></script>
     <script>
         // Track page view

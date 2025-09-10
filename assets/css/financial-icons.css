@@ -1,0 +1,423 @@
+/**
+ * Smart Finance Hub - Financial Icons System
+ * CSS-based financial icons and illustrations
+ */
+
+/* ==========================================================================
+   Base Icon Styles
+   ========================================================================== */
+
+.financial-icon {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 0 auto;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.financial-icon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   Savings Icons
+   ========================================================================== */
+
+.icon-savings {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.icon-savings::before {
+    content: '🏦';
+    font-size: 20px;
+}
+
+.icon-piggybank {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.icon-piggybank::before {
+    content: '🐷';
+    font-size: 18px;
+}
+
+.icon-emergency-fund {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.icon-emergency-fund::before {
+    content: '🚨';
+    font-size: 18px;
+}
+
+/* ==========================================================================
+   Investment Icons
+   ========================================================================== */
+
+.icon-stocks {
+    background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+    color: white;
+}
+
+.icon-stocks::before {
+    content: '📈';
+    font-size: 18px;
+}
+
+.icon-portfolio {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    color: #333;
+}
+
+.icon-portfolio::before {
+    content: '📊';
+    font-size: 18px;
+}
+
+.icon-bonds {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    color: #333;
+}
+
+.icon-bonds::before {
+    content: '🏛️';
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   Debt Management Icons
+   ========================================================================== */
+
+.icon-credit-card {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    color: #333;
+}
+
+.icon-credit-card::before {
+    content: '💳';
+    font-size: 18px;
+}
+
+.icon-debt-free {
+    background: linear-gradient(135deg, #a8e6cf 0%, #dcedc8 100%);
+    color: #333;
+}
+
+.icon-debt-free::before {
+    content: '✅';
+    font-size: 18px;
+}
+
+.icon-calculator {
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    color: #333;
+}
+
+.icon-calculator::before {
+    content: '🧮';
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   Planning Icons
+   ========================================================================== */
+
+.icon-retirement {
+    background: linear-gradient(135deg, #cbb4d4 0%, #20002c 100%);
+    color: white;
+}
+
+.icon-retirement::before {
+    content: '👴';
+    font-size: 18px;
+}
+
+.icon-budget {
+    background: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%);
+    color: #333;
+}
+
+.icon-budget::before {
+    content: '📋';
+    font-size: 18px;
+}
+
+.icon-goals {
+    background: linear-gradient(135deg, #fad0c4 0%, #ffd1ff 100%);
+    color: #333;
+}
+
+.icon-goals::before {
+    content: '🎯';
+    font-size: 18px;
+}
+
+/* ==========================================================================
+   Technology & Tools Icons
+   ========================================================================== */
+
+.icon-mobile-banking {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.icon-mobile-banking::before {
+    content: '📱';
+    font-size: 18px;
+}
+
+.icon-security {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.icon-security::before {
+    content: '🔒';
+    font-size: 18px;
+}
+
+.icon-analytics {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.icon-analytics::before {
+    content: '📊';
+    font-size: 18px;
+}
+
+/* ==========================================================================
+   Large Icons for Hero Sections
+   ========================================================================== */
+
+.financial-icon-large {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+}
+
+.financial-icon-large::before {
+    font-size: 32px;
+}
+
+/* ==========================================================================
+   Icon Grid Layout
+   ========================================================================== */
+
+.icon-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.icon-feature {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.icon-feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.icon-feature h3 {
+    margin: 1rem 0 0.5rem 0;
+    color: #2d3748;
+    font-size: 1.2rem;
+}
+
+.icon-feature p {
+    color: #718096;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Sidebar Financial Widgets
+   ========================================================================== */
+
+.financial-widget {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    margin: 1.5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.financial-widget::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.05) 10px,
+        rgba(255, 255, 255, 0.05) 20px
+    );
+    animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    }
+    100% {
+        transform: translateX(-50%) translateY(-50%) rotate(360deg);
+    }
+}
+
+.financial-widget-content {
+    position: relative;
+    z-index: 2;
+}
+
+.widget-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.widget-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.widget-description {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   Chart and Graph Placeholders
+   ========================================================================== */
+
+.chart-placeholder {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border: 2px dashed #cbd5e0;
+    border-radius: 8px;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin: 2rem 0;
+    position: relative;
+}
+
+.chart-placeholder::before {
+    content: '📊';
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+}
+
+.chart-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+}
+
+.chart-description {
+    font-size: 0.9rem;
+    color: #718096;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .financial-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .financial-icon::before {
+        font-size: 16px;
+    }
+    
+    .financial-icon-large {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .financial-icon-large::before {
+        font-size: 24px;
+    }
+    
+    .icon-feature-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .financial-widget {
+        padding: 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   Animation Effects
+   ========================================================================== */
+
+.bounce-in {
+    animation: bounceIn 0.6s ease-out;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
