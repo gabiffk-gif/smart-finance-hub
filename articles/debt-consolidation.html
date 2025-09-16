@@ -112,6 +112,48 @@
         .disclaimer { background: #fef5e7; border: 1px solid #f6ad55; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; font-size: 0.9rem; }
         footer { background: #2d3748; color: white; padding: 2rem 0; margin-top: 4rem; text-align: center; }
         @media (max-width: 768px) { .article-title { font-size: 2rem; } .article-content { padding: 2rem 1rem; } .pros-cons { grid-template-columns: 1fr; gap: 1rem; } }
+        
+        /* ConvertKit Form Styling for Articles */
+        .newsletter-signup-section .convertkit-form-wrapper .formkit-form { 
+            background: transparent !important; 
+            border: none !important; 
+        }
+        .newsletter-signup-section .convertkit-form-wrapper .formkit-input { 
+            background: rgba(255,255,255,0.95) !important; 
+            border: 2px solid rgba(255,255,255,0.3) !important; 
+            border-radius: 8px !important; 
+            padding: 1rem 1.2rem !important; 
+            font-size: 1.1rem !important; 
+            width: 100% !important; 
+            margin-bottom: 1rem !important;
+            color: #2d3748 !important;
+            font-weight: 500 !important;
+        }
+        .newsletter-signup-section .convertkit-form-wrapper .formkit-input:focus { 
+            border-color: #667eea !important; 
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2) !important; 
+            outline: none !important; 
+        }
+        .newsletter-signup-section .convertkit-form-wrapper .formkit-submit { 
+            background: #667eea !important; 
+            border: none !important; 
+            border-radius: 8px !important; 
+            padding: 1rem 2rem !important; 
+            color: white !important; 
+            font-weight: 700 !important; 
+            font-size: 1.1rem !important; 
+            cursor: pointer !important; 
+            width: 100% !important; 
+            transition: all 0.3s ease !important; 
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+        }
+        .newsletter-signup-section .convertkit-form-wrapper .formkit-submit:hover { 
+            background: #5a67d8 !important; 
+            transform: translateY(-2px) !important; 
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4) !important;
+        }
+        .newsletter-signup-section .convertkit-form-wrapper .formkit-powered-by { display: none !important; }
     </style>
 </head>
 <body>
@@ -449,6 +491,40 @@
             </div>
 
             <p>Start by checking your credit score and listing all your debts. Then choose the consolidation method that best fits your situation and creditworthiness. Remember, consolidation is just the first step – the real success comes from changing the spending habits that created the debt in the first place.</p>
+
+            <!-- Newsletter Signup Component -->
+            <div class="newsletter-signup-section" style="
+                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); 
+                color: white; 
+                padding: 3rem 2rem; 
+                border-radius: 12px; 
+                text-align: center; 
+                margin: 3rem 0;
+                box-shadow: 0 8px 25px rgba(79, 172, 254, 0.3);
+            ">
+                <div style="max-width: 500px; margin: 0 auto;">
+                    <h3 style="margin-bottom: 1rem; color: white; font-size: 1.8rem; font-weight: 700;">
+                        📧 Get More Debt-Free Strategies
+                    </h3>
+                    <p style="margin-bottom: 2rem; font-size: 1.1rem; opacity: 0.95; line-height: 1.6;">
+                        Join 25,000+ people on their journey to financial freedom with weekly debt payoff tips, budgeting strategies, and exclusive tools.
+                    </p>
+                    
+                    <!-- ConvertKit Newsletter Form -->
+                    <div class="convertkit-form-wrapper" style="margin: 1.5rem 0;">
+                        <script async data-uid="016a3faa46" src="https://smartfinancehub-vip.kit.com/016a3faa46/index.js"></script>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap;">
+                        <small style="font-size: 0.85rem; opacity: 0.8;">
+                            ✅ No spam, ever. Unsubscribe anytime.
+                        </small>
+                        <small style="font-size: 0.85rem; opacity: 0.8;">
+                            ✅ Free debt tracker included.
+                        </small>
+                    </div>
+                </div>
+            </div>
         </article>
     </main>
 
@@ -578,6 +654,50 @@
                 'page_location': window.location.href
             });
         }
+
+        // ConvertKit Analytics Integration for Articles
+        function trackArticleNewsletterSignup() {
+            // Track with Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'newsletter_signup', {
+                    'event_category': 'conversion',
+                    'event_label': 'article_newsletter_debt',
+                    'value': 1,
+                    'page_location': window.location.href
+                });
+            }
+            
+            // Track with Facebook Pixel if available
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Debt Consolidation Article Newsletter Signup',
+                    content_category: 'Newsletter',
+                    source: 'debt_article'
+                });
+            }
+        }
+
+        // Listen for ConvertKit form submissions on article pages
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for ConvertKit to load
+            setTimeout(function() {
+                const observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        if (mutation.type === 'childList') {
+                            const successMessage = document.querySelector('[data-element="success"]');
+                            if (successMessage && successMessage.style.display !== 'none') {
+                                trackArticleNewsletterSignup();
+                            }
+                        }
+                    });
+                });
+                
+                const formWrapper = document.querySelector('.newsletter-signup-section .convertkit-form-wrapper');
+                if (formWrapper) {
+                    observer.observe(formWrapper, { childList: true, subtree: true });
+                }
+            }, 2000);
+        });
     </script>
 </body>
 </html>

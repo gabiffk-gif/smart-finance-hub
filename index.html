@@ -115,16 +115,69 @@
         .sidebar { display: flex; flex-direction: column; gap: 2rem; }
         .newsletter { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 2rem; border-radius: 12px; text-align: center; }
         .newsletter h3 { margin-bottom: 1rem; color: white; }
-        .newsletter-form { display: flex; gap: 0.5rem; margin-top: 1rem; }
-        .newsletter input { flex: 1; padding: 0.8rem; border: none; border-radius: 6px; }
-        .newsletter button { background: #667eea; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 6px; cursor: pointer; }
+        
+        /* ConvertKit Form Styling */
+        .convertkit-form-wrapper { margin: 1.5rem 0; }
+        .convertkit-form-wrapper .formkit-form { background: transparent !important; border: none !important; }
+        .convertkit-form-wrapper .formkit-input { 
+            background: rgba(255,255,255,0.95) !important; 
+            border: 2px solid rgba(255,255,255,0.3) !important; 
+            border-radius: 8px !important; 
+            padding: 0.8rem 1rem !important; 
+            font-size: 1rem !important; 
+            width: 100% !important; 
+            margin-bottom: 0.8rem !important;
+            color: #2d3748 !important;
+        }
+        .convertkit-form-wrapper .formkit-input:focus { 
+            border-color: #667eea !important; 
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important; 
+            outline: none !important; 
+        }
+        .convertkit-form-wrapper .formkit-submit { 
+            background: #667eea !important; 
+            border: none !important; 
+            border-radius: 8px !important; 
+            padding: 0.8rem 1.5rem !important; 
+            color: white !important; 
+            font-weight: 600 !important; 
+            font-size: 1rem !important; 
+            cursor: pointer !important; 
+            width: 100% !important; 
+            transition: all 0.3s ease !important; 
+        }
+        .convertkit-form-wrapper .formkit-submit:hover { 
+            background: #5a67d8 !important; 
+            transform: translateY(-1px) !important; 
+        }
+        .convertkit-form-wrapper .formkit-submit:active { 
+            transform: translateY(0) !important; 
+        }
+        
+        /* Hide ConvertKit branding and adjust layout */
+        .convertkit-form-wrapper .formkit-powered-by { display: none !important; }
+        .convertkit-form-wrapper .formkit-disclaimer { 
+            color: rgba(255,255,255,0.8) !important; 
+            font-size: 0.75rem !important; 
+            margin-top: 0.5rem !important; 
+        }
+        .convertkit-form-wrapper .formkit-fields { 
+            display: flex !important; 
+            flex-direction: column !important; 
+            gap: 0 !important; 
+        }
         .ad-banner { background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1.5rem; border-radius: 12px; text-align: center; margin: 1.5rem 0; cursor: pointer; transition: transform 0.3s; position: relative; border: 2px solid rgba(255,255,255,0.3); }
         .ad-banner:hover { transform: scale(1.02); }
         .ad-banner h4 { font-size: 1.2rem; margin-bottom: 0.5rem; color: white; }
         .ad-label { position: absolute; top: 8px; right: 12px; background: rgba(0,0,0,0.6); color: white; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; text-transform: uppercase; font-weight: 600; }
         footer { background: #2d3748; color: white; padding: 2rem 0; margin-top: 4rem; text-align: center; }
         .disclaimer { font-size: 0.85rem; margin-top: 1rem; color: #a0aec0; }
-        @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 2rem; } .newsletter-form { flex-direction: column; } }
+        @media (max-width: 768px) { 
+            .content-grid { grid-template-columns: 1fr; } 
+            .hero h1 { font-size: 2rem; } 
+            .convertkit-form-wrapper .formkit-input { font-size: 0.9rem !important; } 
+            .convertkit-form-wrapper .formkit-submit { font-size: 0.9rem !important; } 
+        }
     </style>
 </head>
 <body>
@@ -250,11 +303,13 @@
                          class="sidebar-image">
                     <h3>📧 Weekly Finance Tips</h3>
                     <p>Join 25,000+ subscribers getting actionable financial advice delivered every Tuesday.</p>
-                    <form class="newsletter-form" onsubmit="handleNewsletterSignup(event)">
-                        <input type="email" placeholder="Enter your email" required>
-                        <button type="submit">Subscribe</button>
-                    </form>
-                    <small style="font-size: 0.8rem; opacity: 0.8; margin-top: 0.5rem; display: block;">
+                    
+                    <!-- ConvertKit Newsletter Form -->
+                    <div class="convertkit-form-wrapper">
+                        <script async data-uid="016a3faa46" src="https://smartfinancehub-vip.kit.com/016a3faa46/index.js"></script>
+                    </div>
+                    
+                    <small style="font-size: 0.8rem; opacity: 0.8; margin-top: 1rem; display: block;">
                         We respect your privacy. Unsubscribe at any time.
                     </small>
                 </div>
@@ -510,38 +565,47 @@
     <script src="assets/js/adsense.js"></script>
     <script src="assets/js/cookie-consent.js"></script>
     <script>
-        function handleNewsletterSignup(event) {
-            event.preventDefault();
+        // ConvertKit Analytics Integration
+        function trackConvertKitSignup() {
+            // Track with Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'newsletter_signup', {
+                    'event_category': 'conversion',
+                    'event_label': 'convertkit_newsletter',
+                    'value': 1
+                });
+            }
             
-            const form = event.target;
-            const email = form.querySelector('input[type="email"]').value;
-            const button = form.querySelector('button[type="submit"]');
-            const originalText = button.textContent;
-            
-            button.textContent = 'Subscribing...';
-            button.disabled = true;
-            
-            // Simulate API call
-            setTimeout(() => {
-                button.textContent = '✓ Subscribed!';
-                button.style.background = '#48bb78';
-                
-                // Track with Google Analytics
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'newsletter_signup', {
-                        'event_category': 'conversion',
-                        'event_label': 'sidebar_newsletter'
-                    });
-                }
-                
-                setTimeout(() => {
-                    form.reset();
-                    button.textContent = originalText;
-                    button.disabled = false;
-                    button.style.background = '#667eea';
-                }, 3000);
-            }, 1500);
+            // Track with Facebook Pixel if available
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Newsletter Signup',
+                    content_category: 'Newsletter'
+                });
+            }
         }
+        
+        // Listen for ConvertKit form submissions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for ConvertKit to load
+            setTimeout(function() {
+                const observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        if (mutation.type === 'childList') {
+                            const successMessage = document.querySelector('[data-element="success"]');
+                            if (successMessage && successMessage.style.display !== 'none') {
+                                trackConvertKitSignup();
+                            }
+                        }
+                    });
+                });
+                
+                const formWrapper = document.querySelector('.convertkit-form-wrapper');
+                if (formWrapper) {
+                    observer.observe(formWrapper, { childList: true, subtree: true });
+                }
+            }, 2000);
+        });
 
     </script>
 </body>
