@@ -1,0 +1,44 @@
+# Smart Finance Hub - Git Ignore File
+
+# SMTP Configuration (contains passwords)
+api/config.php
+
+# Email Logs
+api/contact_log.json
+api/*.log
+
+# PHP Dependencies (if using composer)
+vendor/
+composer.lock
+
+# System Files
+.DS_Store
+Thumbs.db
+*.log
+
+# Development Files
+*.tmp
+*.bak
+*.swp
+*~
+
+# IDE Files
+.vscode/
+.idea/
+*.sublime-*
+
+# Environment Files
+.env
+.env.local
+.env.production
+
+# Backup Files
+backup/
+*.sql
+*.zip
+*.tar.gz
+
+# Cache Files
+cache/
+temp/
+tmp/

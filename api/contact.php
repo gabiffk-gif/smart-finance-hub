@@ -1,8 +1,12 @@
 <?php
 /**
  * Smart Finance Hub - Contact Form Handler
- * Professional contact form processing with email integration
+ * Professional contact form processing with Zoho SMTP integration
  */
+
+// Include configuration and SMTP mailer
+require_once 'config.php';
+require_once 'SMTPMailer.php';
 
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: https://smartfinancehub.vip');
@@ -22,11 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-// Rate limiting (simple implementation)
+// Rate limiting
 session_start();
 $current_time = time();
-$rate_limit_window = 300; // 5 minutes
-$max_submissions = 3;
 
 if (!isset($_SESSION['form_submissions'])) {
     $_SESSION['form_submissions'] = [];
@@ -35,13 +37,13 @@ if (!isset($_SESSION['form_submissions'])) {
 // Clean old submissions
 $_SESSION['form_submissions'] = array_filter(
     $_SESSION['form_submissions'],
-    function($timestamp) use ($current_time, $rate_limit_window) {
-        return ($current_time - $timestamp) < $rate_limit_window;
+    function($timestamp) use ($current_time) {
+        return ($current_time - $timestamp) < RATE_LIMIT_WINDOW;
     }
 );
 
 // Check rate limit
-if (count($_SESSION['form_submissions']) >= $max_submissions) {
+if (count($_SESSION['form_submissions']) >= MAX_SUBMISSIONS) {
     http_response_code(429);
     echo json_encode([
         'success' => false,
@@ -85,8 +87,8 @@ try {
     }
 
     // Message length validation
-    if (!empty($data['message']) && (strlen($data['message']) < 10 || strlen($data['message']) > 2000)) {
-        $errors[] = 'Message must be between 10 and 2000 characters';
+    if (!empty($data['message']) && (strlen($data['message']) < MIN_MESSAGE_LENGTH || strlen($data['message']) > MAX_MESSAGE_LENGTH)) {
+        $errors[] = "Message must be between " . MIN_MESSAGE_LENGTH . " and " . MAX_MESSAGE_LENGTH . " characters";
     }
 
     // Consent validation
@@ -140,11 +142,37 @@ try {
         'referrer' => $data['referrer'] ?? 'Direct'
     ];
 
-    // Email configuration
-    $to_email = 'info@smartfinancehub.vip';
-    $subject_prefix = '[Smart Finance Hub Contact] ';
-    $from_email = 'noreply@smartfinancehub.vip';
-    $reply_to = $clean_data['email'];
+    // Check if SMTP password is configured
+    if (empty(SMTP_PASSWORD)) {
+        throw new Exception('SMTP configuration incomplete. Please contact administrator.');
+    }
+
+    // Initialize SMTP mailer
+    $mailer = new SMTPMailer(SMTP_USERNAME, SMTP_PASSWORD, SMTP_FROM_NAME);
+    if (DEBUG_MODE) {
+        $mailer->setDebug(true);
+    }
+
+    // Test SMTP connection
+    if (!$mailer->testConnection()) {
+        throw new Exception('Unable to connect to email server. Please try again later.');
+    }
+
+    // Determine recipient based on subject
+    $subject_routing = [
+        'privacy' => PRIVACY_EMAIL,
+        'legal' => LEGAL_EMAIL,
+        'support' => SUPPORT_EMAIL,
+        'general' => ADMIN_EMAIL,
+        'business' => ADMIN_EMAIL,
+        'advertising' => ADMIN_EMAIL,
+        'newsletter' => ADMIN_EMAIL,
+        'technical' => SUPPORT_EMAIL,
+        'feedback' => ADMIN_EMAIL,
+        'other' => ADMIN_EMAIL
+    ];
+
+    $admin_recipient = $subject_routing[$clean_data['subject']] ?? ADMIN_EMAIL;
 
     // Subject mapping
     $subject_map = [
@@ -156,121 +184,85 @@ try {
         'newsletter' => 'Newsletter Support',
         'technical' => 'Technical Issue Report',
         'feedback' => 'Website Feedback',
+        'legal' => 'Legal Matter',
         'other' => 'Other Inquiry'
     ];
 
-    $email_subject = $subject_prefix . ($subject_map[$clean_data['subject']] ?? 'Contact Form Submission');
+    $email_subject = '[Smart Finance Hub Contact] ' . ($subject_map[$clean_data['subject']] ?? 'Contact Form Submission');
 
-    // Email templates
-    $admin_email_body = "
-Smart Finance Hub - New Contact Form Submission
+    // Create HTML email templates
+    $admin_email_body_html = createAdminEmailHTML($clean_data, $subject_map);
+    $customer_email_body_html = createCustomerEmailHTML($clean_data, $subject_map);
 
-Name: {$clean_data['name']}
-Email: {$clean_data['email']}
-Phone: " . ($clean_data['phone'] ?: 'Not provided') . "
-Subject: " . ($subject_map[$clean_data['subject']] ?? $clean_data['subject']) . "
-Marketing Consent: " . ($clean_data['consent_marketing'] ? 'Yes' : 'No') . "
-Submitted: {$clean_data['timestamp']}
-IP Address: {$clean_data['ip_address']}
-User Agent: {$clean_data['user_agent']}
-Referrer: {$clean_data['referrer']}
-
-Message:
-{$clean_data['message']}
-
----
-This message was sent via the Smart Finance Hub contact form.
-Please respond directly to the customer's email address: {$clean_data['email']}
-    ";
-
-    $customer_email_body = "
-Dear {$clean_data['name']},
-
-Thank you for contacting Smart Finance Hub! We've received your message and will respond within 24 hours.
-
-Here's a copy of your submission:
-
-Subject: " . ($subject_map[$clean_data['subject']] ?? $clean_data['subject']) . "
-Message: {$clean_data['message']}
-Submitted: " . date('F j, Y g:i A T', strtotime($clean_data['timestamp'])) . "
-
-If you need immediate assistance, please don't hesitate to call us or send a direct email to info@smartfinancehub.vip.
-
-Best regards,
-Smart Finance Hub Team
-
----
-Smart Finance Hub
-Professional Financial Guidance & Education
-Website: https://smartfinancehub.vip
-Email: info@smartfinancehub.vip
-Privacy: privacy@smartfinancehub.vip
-
-This is an automated confirmation. Please do not reply to this email.
-    ";
-
-    // Email headers
-    $admin_headers = [
-        'From' => $from_email,
-        'Reply-To' => $reply_to,
-        'Return-Path' => $from_email,
-        'X-Mailer' => 'Smart Finance Hub Contact Form',
-        'Content-Type' => 'text/plain; charset=UTF-8',
-        'X-Priority' => '3',
-        'X-Contact-Form' => 'Smart Finance Hub'
-    ];
-
-    $customer_headers = [
-        'From' => 'Smart Finance Hub <' . $from_email . '>',
-        'Reply-To' => $to_email,
-        'Return-Path' => $from_email,
-        'X-Mailer' => 'Smart Finance Hub Contact Form',
-        'Content-Type' => 'text/plain; charset=UTF-8',
-        'X-Priority' => '3'
-    ];
-
-    // Convert headers to string format
-    $admin_headers_string = '';
-    $customer_headers_string = '';
-
-    foreach ($admin_headers as $key => $value) {
-        $admin_headers_string .= "$key: $value\r\n";
+    // Send admin notification
+    $admin_mail_sent = false;
+    try {
+        $admin_mail_sent = $mailer->sendMail(
+            $admin_recipient,
+            'Smart Finance Hub Admin',
+            $email_subject,
+            $admin_email_body_html,
+            $clean_data['email'],
+            true // HTML email
+        );
+    } catch (Exception $e) {
+        error_log("Failed to send admin email: " . $e->getMessage());
     }
 
-    foreach ($customer_headers as $key => $value) {
-        $customer_headers_string .= "$key: $value\r\n";
+    // Send customer confirmation
+    $customer_mail_sent = false;
+    try {
+        $customer_mail_sent = $mailer->sendMail(
+            $clean_data['email'],
+            $clean_data['name'],
+            'Thank you for contacting Smart Finance Hub',
+            $customer_email_body_html,
+            ADMIN_EMAIL,
+            true // HTML email
+        );
+    } catch (Exception $e) {
+        error_log("Failed to send customer confirmation: " . $e->getMessage());
+        // Customer confirmation failure is not critical
     }
-
-    // Send emails
-    $admin_mail_sent = mail($to_email, $email_subject, $admin_email_body, $admin_headers_string);
-    $customer_mail_sent = mail($clean_data['email'], 'Thank you for contacting Smart Finance Hub', $customer_email_body, $customer_headers_string);
 
     if (!$admin_mail_sent) {
-        throw new Exception('Failed to send admin notification email');
+        throw new Exception('Failed to send notification email. Please try again or contact us directly.');
     }
 
     // Log successful submission
     $_SESSION['form_submissions'][] = $current_time;
 
-    // Optional: Log to database or file
-    $log_entry = [
-        'timestamp' => date('c'),
-        'name' => $clean_data['name'],
-        'email' => $clean_data['email'],
-        'subject' => $clean_data['subject'],
-        'ip_address' => $clean_data['ip_address'],
-        'user_agent' => $clean_data['user_agent'],
-        'admin_email_sent' => $admin_mail_sent,
-        'customer_email_sent' => $customer_mail_sent
-    ];
+    // Log to file if enabled
+    if (LOG_EMAILS) {
+        $log_entry = [
+            'timestamp' => date('c'),
+            'name' => $clean_data['name'],
+            'email' => $clean_data['email'],
+            'subject' => $clean_data['subject'],
+            'ip_address' => $clean_data['ip_address'],
+            'user_agent' => $clean_data['user_agent'],
+            'admin_email_sent' => $admin_mail_sent,
+            'customer_email_sent' => $customer_mail_sent,
+            'admin_recipient' => $admin_recipient
+        ];
+        
+        file_put_contents(
+            __DIR__ . '/contact_log.json', 
+            json_encode($log_entry) . "\n", 
+            FILE_APPEND | LOCK_EX
+        );
+    }
 
-    // You can add database logging here if needed
-    // logContactSubmission($log_entry);
-
-    // Success response
+    // Success response with delivery confirmation
     echo json_encode([
         'success' => true,
         'message' => 'Message sent successfully',
+        'delivery_status' => [
+            'admin_notified' => $admin_mail_sent,
+            'confirmation_sent' => $customer_mail_sent,
+            'recipient_department' => getDepartmentName($admin_recipient)
+        ],
+        'response_time' => getResponseTime($clean_data['subject']),
         'timestamp' => date('c')
     ]);
 
@@ -281,33 +273,205 @@ This is an automated confirmation. Please do not reply to this email.
     echo json_encode([
         'success' => false,
         'message' => 'An error occurred while processing your message. Please try again or contact us directly.',
-        'error_id' => uniqid('contact_error_')
+        'error_id' => uniqid('contact_error_'),
+        'support_email' => ADMIN_EMAIL
     ]);
 }
 
 /**
- * Optional: Database logging function
- * Uncomment and modify as needed for your database setup
+ * Create HTML email template for admin notification
  */
-/*
-function logContactSubmission($data) {
-    try {
-        $pdo = new PDO('mysql:host=localhost;dbname=smartfinancehub', $username, $password);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        $sql = "INSERT INTO contact_submissions (
-            name, email, subject, message, ip_address, user_agent, 
-            consent_marketing, admin_email_sent, customer_email_sent, created_at
-        ) VALUES (
-            :name, :email, :subject, :message, :ip_address, :user_agent, 
-            :consent_marketing, :admin_email_sent, :customer_email_sent, NOW()
-        )";
-        
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute($data);
-    } catch (PDOException $e) {
-        error_log("Database logging error: " . $e->getMessage());
-    }
+function createAdminEmailHTML($data, $subject_map) {
+    $subject_display = $subject_map[$data['subject']] ?? $data['subject'];
+    
+    return "
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset='UTF-8'>
+        <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0; }
+            .content { background: #f8f9fa; padding: 30px; border-radius: 0 0 8px 8px; }
+            .field { margin-bottom: 15px; padding: 10px; background: white; border-radius: 5px; border-left: 4px solid #667eea; }
+            .field-label { font-weight: bold; color: #4a5568; margin-bottom: 5px; }
+            .field-value { color: #2d3748; }
+            .message-box { background: white; padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid #e2e8f0; }
+            .footer { text-align: center; padding: 20px; color: #718096; font-size: 12px; }
+        </style>
+    </head>
+    <body>
+        <div class='container'>
+            <div class='header'>
+                <h2>💰 Smart Finance Hub - New Contact Form Submission</h2>
+            </div>
+            
+            <div class='content'>
+                <div class='field'>
+                    <div class='field-label'>Name:</div>
+                    <div class='field-value'>{$data['name']}</div>
+                </div>
+                
+                <div class='field'>
+                    <div class='field-label'>Email:</div>
+                    <div class='field-value'><a href='mailto:{$data['email']}'>{$data['email']}</a></div>
+                </div>
+                
+                <div class='field'>
+                    <div class='field-label'>Phone:</div>
+                    <div class='field-value'>" . ($data['phone'] ?: 'Not provided') . "</div>
+                </div>
+                
+                <div class='field'>
+                    <div class='field-label'>Subject Category:</div>
+                    <div class='field-value'>$subject_display</div>
+                </div>
+                
+                <div class='field'>
+                    <div class='field-label'>Marketing Consent:</div>
+                    <div class='field-value'>" . ($data['consent_marketing'] ? 'Yes' : 'No') . "</div>
+                </div>
+                
+                <div class='message-box'>
+                    <div class='field-label'>Message:</div>
+                    <div style='margin-top: 10px; line-height: 1.6;'>" . nl2br($data['message']) . "</div>
+                </div>
+                
+                <div class='field'>
+                    <div class='field-label'>Submission Details:</div>
+                    <div class='field-value'>
+                        <strong>Date:</strong> {$data['timestamp']}<br>
+                        <strong>IP Address:</strong> {$data['ip_address']}<br>
+                        <strong>User Agent:</strong> {$data['user_agent']}<br>
+                        <strong>Referrer:</strong> {$data['referrer']}
+                    </div>
+                </div>
+            </div>
+            
+            <div class='footer'>
+                <p>This message was sent via the Smart Finance Hub contact form.</p>
+                <p>Please respond directly to the customer's email address: <a href='mailto:{$data['email']}'>{$data['email']}</a></p>
+                <p><a href='" . WEBSITE_URL . "'>Smart Finance Hub</a> | Professional Financial Guidance</p>
+            </div>
+        </div>
+    </body>
+    </html>";
 }
-*/
+
+/**
+ * Create HTML email template for customer confirmation
+ */
+function createCustomerEmailHTML($data, $subject_map) {
+    $subject_display = $subject_map[$data['subject']] ?? $data['subject'];
+    $response_time = getResponseTime($data['subject']);
+    
+    return "
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset='UTF-8'>
+        <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 8px 8px 0 0; text-align: center; }
+            .content { background: #f8f9fa; padding: 30px; border-radius: 0 0 8px 8px; }
+            .highlight { background: #e6fffa; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #38b2ac; }
+            .submission-summary { background: white; padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid #e2e8f0; }
+            .contact-info { background: white; padding: 20px; border-radius: 8px; margin: 20px 0; text-align: center; }
+            .footer { text-align: center; padding: 20px; color: #718096; font-size: 12px; border-top: 1px solid #e2e8f0; }
+        </style>
+    </head>
+    <body>
+        <div class='container'>
+            <div class='header'>
+                <h1>💰 Thank You for Contacting Us!</h1>
+                <p style='margin: 0; opacity: 0.9;'>Smart Finance Hub - Professional Financial Guidance</p>
+            </div>
+            
+            <div class='content'>
+                <p>Dear {$data['name']},</p>
+                
+                <p>Thank you for contacting Smart Finance Hub! We have received your message and will respond within <strong>$response_time hours</strong> during business days (Monday-Friday, 9 AM - 6 PM EST).</p>
+                
+                <div class='highlight'>
+                    <h3 style='margin-top: 0; color: #2d3748;'>📧 Your Message Has Been Received</h3>
+                    <p style='margin-bottom: 0;'>We appreciate you taking the time to reach out to us. Our team will review your inquiry and provide a comprehensive response.</p>
+                </div>
+                
+                <div class='submission-summary'>
+                    <h4 style='color: #4a5568; margin-bottom: 15px;'>📋 Submission Summary:</h4>
+                    <p><strong>Subject:</strong> $subject_display</p>
+                    <p><strong>Submitted:</strong> " . date('F j, Y g:i A T', strtotime($data['timestamp'])) . "</p>
+                    <p><strong>Reference ID:</strong> " . strtoupper(substr(md5($data['email'] . $data['timestamp']), 0, 8)) . "</p>
+                </div>
+                
+                <div class='contact-info'>
+                    <h4 style='color: #4a5568;'>📞 Need Immediate Assistance?</h4>
+                    <p>For urgent matters, please don't hesitate to contact us directly:</p>
+                    <p>
+                        <strong>General Information:</strong> <a href='mailto:" . ADMIN_EMAIL . "'>" . ADMIN_EMAIL . "</a><br>
+                        <strong>Customer Support:</strong> <a href='mailto:" . SUPPORT_EMAIL . "'>" . SUPPORT_EMAIL . "</a><br>
+                        <strong>Privacy Questions:</strong> <a href='mailto:" . PRIVACY_EMAIL . "'>" . PRIVACY_EMAIL . "</a>
+                    </p>
+                </div>
+                
+                <p>Best regards,<br>
+                <strong>Smart Finance Hub Team</strong></p>
+            </div>
+            
+            <div class='footer'>
+                <p><strong>Smart Finance Hub</strong><br>
+                Professional Financial Guidance & Education</p>
+                <p>
+                    🌐 <a href='" . WEBSITE_URL . "'>smartfinancehub.vip</a> | 
+                    📧 <a href='mailto:" . ADMIN_EMAIL . "'>" . ADMIN_EMAIL . "</a><br>
+                    📜 <a href='" . WEBSITE_URL . "/privacy.html'>Privacy Policy</a> | 
+                    📋 <a href='" . WEBSITE_URL . "/terms.html'>Terms of Service</a>
+                </p>
+                <p style='font-size: 10px; margin-top: 15px;'>
+                    This is an automated confirmation. Please do not reply to this email.<br>
+                    If you have additional questions, please use our contact form or email us directly.
+                </p>
+            </div>
+        </div>
+    </body>
+    </html>";
+}
+
+/**
+ * Get department name from email address
+ */
+function getDepartmentName($email) {
+    $departments = [
+        ADMIN_EMAIL => 'General Information',
+        PRIVACY_EMAIL => 'Privacy & Data Protection',
+        LEGAL_EMAIL => 'Legal Department',
+        SUPPORT_EMAIL => 'Customer Support',
+        TEAM_EMAIL => 'Team Inquiries'
+    ];
+    
+    return $departments[$email] ?? 'General Information';
+}
+
+/**
+ * Get response time for subject category
+ */
+function getResponseTime($subject) {
+    $response_times = [
+        'general' => 24,
+        'privacy' => 48,
+        'legal' => 48,
+        'support' => 24,
+        'team' => 24,
+        'business' => 24,
+        'advertising' => 24,
+        'newsletter' => 24,
+        'technical' => 24,
+        'feedback' => 24,
+        'other' => 24
+    ];
+    
+    return $response_times[$subject] ?? 24;
+}
 ?>
