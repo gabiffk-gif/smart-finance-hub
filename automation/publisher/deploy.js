@@ -147,7 +147,9 @@ class Publisher {
     <header class="site-header">
         <div class="container">
             <nav class="main-nav">
-                <a href="/" class="logo">Smart Finance Hub</a>
+                <a href="/" class="logo">
+                    <img src="/assets/logo/SFH_VIP_Logo.png" alt="Smart Finance Hub" style="height: 40px; width: auto;">
+                </a>
                 <ul class="nav-links">
                     <li><a href="/">Home</a></li>
                     <li><a href="/articles">Articles</a></li>
@@ -436,7 +438,7 @@ class Publisher {
                 "name": "Smart Finance Hub",
                 "logo": {
                     "@type": "ImageObject",
-                    "url": "https://smartfinancehub.vip/assets/images/logo.png"
+                    "url": "https://smartfinancehub.vip/assets/logo/SFH_VIP_Logo.png"
                 }
             },
             "datePublished": publishDate.toISOString(),
@@ -702,7 +704,7 @@ class Publisher {
         <managingEditor>editor@smartfinancehub.vip (Smart Finance Hub Editorial Team)</managingEditor>
         <webMaster>webmaster@smartfinancehub.vip (Smart Finance Hub)</webMaster>
         <image>
-            <url>https://smartfinancehub.vip/assets/images/logo.png</url>
+            <url>https://smartfinancehub.vip/assets/logo/SFH_VIP_Logo.png</url>
             <title>Smart Finance Hub</title>
             <link>https://smartfinancehub.vip</link>
         </image>
