@@ -1,0 +1,237 @@
+{
+  "contentGeneration": {
+    "articlesPerDay": 5,
+    "minWordCount": 2000,
+    "maxWordCount": 4500,
+    "minQualityScore": 85,
+    "autoApprovalScore": 92,
+    "maxDraftAge": 72,
+    "retryFailedGeneration": 3,
+    "topics": [
+      "savings accounts",
+      "investment strategies", 
+      "debt management",
+      "retirement planning",
+      "credit cards",
+      "personal budgeting",
+      "tax optimization",
+      "real estate investing",
+      "cryptocurrency",
+      "financial education"
+    ],
+    "contentTypes": {
+      "howToGuides": 35,
+      "comparisons": 25,
+      "reviews": 20,
+      "newsAnalysis": 10,
+      "evergreen": 10
+    }
+  },
+  "publishingSchedule": {
+    "timezone": "America/New_York",
+    "frequency": "Monday/Wednesday/Friday",
+    "publishTime": "09:00",
+    "batchSize": 3,
+    "socialMediaDelay": 30,
+    "newsletterDelay": 60,
+    "weekendPublishing": false,
+    "holidayPublishing": false,
+    "emergencyOverride": true
+  },
+  "seoRequirements": {
+    "keywordDensity": {
+      "min": 1.0,
+      "max": 2.0,
+      "target": 1.5
+    },
+    "titleLength": {
+      "min": 40,
+      "max": 60,
+      "target": 55
+    },
+    "metaDescription": {
+      "min": 140,
+      "max": 160,
+      "target": 155
+    },
+    "headingStructure": {
+      "h1Count": 1,
+      "h2MinCount": 3,
+      "h2MaxCount": 8,
+      "h3MaxCount": 15
+    },
+    "internalLinks": {
+      "minCount": 3,
+      "maxCount": 8,
+      "contextualLinks": true
+    },
+    "externalLinks": {
+      "minCount": 2,
+      "maxCount": 5,
+      "authorityDomains": true
+    },
+    "readabilityScore": {
+      "minFleschKincaid": 60,
+      "maxSentenceLength": 25,
+      "maxParagraphLength": 150
+    }
+  },
+  "imageSpecifications": {
+    "featuredImage": {
+      "width": 1200,
+      "height": 630,
+      "format": "webp",
+      "quality": 85,
+      "altTextRequired": true
+    },
+    "inlineImages": {
+      "maxWidth": 800,
+      "maxHeight": 600,
+      "format": "webp",
+      "quality": 80,
+      "maxPerArticle": 5,
+      "compressionLevel": 7
+    },
+    "thumbnails": {
+      "width": 400,
+      "height": 250,
+      "format": "webp",
+      "quality": 75
+    },
+    "socialImages": {
+      "facebook": {
+        "width": 1200,
+        "height": 630
+      },
+      "twitter": {
+        "width": 1200,
+        "height": 675
+      },
+      "linkedin": {
+        "width": 1200,
+        "height": 627
+      }
+    },
+    "optimization": {
+      "lazyLoading": true,
+      "responsiveImages": true,
+      "cdnDelivery": true,
+      "maxFileSize": "500KB"
+    }
+  },
+  "complianceRequirements": {
+    "disclosures": {
+      "affiliateDisclosureRequired": true,
+      "affiliateDisclosureText": "Smart Finance Hub may earn a commission from partner links on this page. This doesn't affect our editorial opinions or recommendations.",
+      "investmentDisclaimer": "This content is for educational purposes only and should not be considered personalized investment advice. Consult with a qualified financial advisor before making investment decisions.",
+      "riskWarning": "All investments carry risk of loss. Past performance does not guarantee future results.",
+      "placement": "footer",
+      "visibility": "prominent"
+    },
+    "authorBios": {
+      "required": true,
+      "minLength": 100,
+      "maxLength": 300,
+      "includeCredentials": true,
+      "includeExperience": true,
+      "includeDisclaimer": true,
+      "updateFrequency": "quarterly",
+      "expertiseAreas": [
+        "Personal Finance",
+        "Investment Analysis", 
+        "Retirement Planning",
+        "Tax Strategy",
+        "Risk Management"
+      ]
+    },
+    "editorialStandards": {
+      "factCheckingRequired": true,
+      "sourceVerification": true,
+      "minSources": 3,
+      "authoritySourcesPreferred": true,
+      "dateVerification": true,
+      "financialDataAccuracy": "critical"
+    },
+    "legalCompliance": {
+      "gdprCompliant": true,
+      "ccpaCompliant": true,
+      "coppaCompliant": true,
+      "accessibilityStandards": "WCAG 2.1 AA",
+      "dataRetention": "2 years",
+      "cookieConsent": true
+    }
+  },
+  "qualityMetrics": {
+    "readingTime": {
+      "min": 8,
+      "max": 20,
+      "target": 12
+    },
+    "sentimentAnalysis": {
+      "tone": "professional",
+      "positivityScore": 0.7,
+      "trustworthiness": 0.9
+    },
+    "contentOriginality": {
+      "minUniqueness": 95,
+      "plagiarismCheck": true,
+      "aiDetectionScore": "below_30"
+    },
+    "userEngagement": {
+      "expectedTimeOnPage": 180,
+      "bounceRateTarget": "below_40",
+      "shareabilityScore": 75
+    }
+  },
+  "automation": {
+    "reviewWorkflow": {
+      "humanReviewRequired": true,
+      "autoApprovalThreshold": 92,
+      "escalationScore": 80,
+      "maxReviewTime": 24
+    },
+    "contentGeneration": {
+      "aiModel": "gpt-4",
+      "temperature": 0.7,
+      "maxTokens": 6000,
+      "systemPrompt": "financial_expert_v2"
+    },
+    "monitoring": {
+      "performanceTracking": true,
+      "errorReporting": true,
+      "analyticsIntegration": true,
+      "alertThresholds": {
+        "qualityScore": 80,
+        "generationFailures": 3,
+        "publishingDelays": 2
+      }
+    }
+  },
+  "socialMedia": {
+    "platforms": ["twitter", "linkedin", "facebook"],
+    "postSchedule": {
+      "immediate": false,
+      "delayMinutes": 30,
+      "optimalTimes": ["09:00", "13:00", "17:00"]
+    },
+    "contentAdaptation": {
+      "platformSpecific": true,
+      "hashtagGeneration": true,
+      "excerptLength": {
+        "twitter": 240,
+        "linkedin": 400,
+        "facebook": 300
+      }
+    }
+  },
+  "newsletter": {
+    "integrationPlatform": "convertkit",
+    "sendSchedule": "Tuesday",
+    "sendTime": "08:00",
+    "contentCuration": {
+      "weeklyDigest": true,
+      "featuredArticles": 3,
+      "personalizedContent": true
+    }
+  }
+}

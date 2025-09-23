@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Finance Hub - Review Console</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f8fafc;
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #64748b;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab-button.active {
+            color: #667eea;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Article Cards */
+        .articles-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .article-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .article-header {
+            display: flex;
+            justify-content: between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            flex: 1;
+        }
+
+        .quality-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 1rem;
+        }
+
+        .quality-high {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .quality-medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .quality-low {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .article-meta {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .quality-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 0.5rem;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .quality-item {
+            text-align: center;
+        }
+
+        .quality-item-label {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        .quality-item-value {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .article-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-approve {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-approve:hover {
+            background: #059669;
+        }
+
+        .btn-edit {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-edit:hover {
+            background: #2563eb;
+        }
+
+        .btn-reject {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-reject:hover {
+            background: #dc2626;
+        }
+
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #64748b;
+        }
+
+        .btn-secondary:hover {
+            background: #cbd5e1;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 1000px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .editor-tabs {
+            display: flex;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 1.5rem;
+        }
+
+        .editor-tab {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        .editor-tab.active {
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .form-textarea {
+            width: 100%;
+            min-height: 400px;
+            padding: 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            resize: vertical;
+        }
+
+        .seo-panel {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .seo-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .seo-metric {
+            text-align: center;
+            padding: 0.75rem;
+            background: white;
+            border-radius: 6px;
+        }
+
+        .seo-metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .seo-metric-label {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        /* Schedule Calendar */
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .calendar-day {
+            background: white;
+            padding: 1rem;
+            min-height: 120px;
+            position: relative;
+        }
+
+        .calendar-day-number {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .scheduled-article {
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 0.25rem;
+            cursor: pointer;
+        }
+
+        /* Loading States */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tab-nav {
+                flex-direction: column;
+            }
+
+            .article-actions {
+                flex-direction: column;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 1rem;
+            }
+        }
+
+        /* Empty States */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #64748b;
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Alerts */
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f1b0b7;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1>Review Console</h1>
+            <p class="header-subtitle">Smart Finance Hub Content Management System</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-value" id="articlesCount">-</span>
+                    <div class="stat-label">Articles Today</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="avgQuality">-</span>
+                    <div class="stat-label">Avg Quality Score</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="pendingReview">-</span>
+                    <div class="stat-label">Pending Review</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" id="scheduledCount">-</span>
+                    <div class="stat-label">Scheduled</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Tab Navigation -->
+        <nav class="tab-nav">
+            <button class="tab-button active" data-tab="review">Review Queue</button>
+            <button class="tab-button" data-tab="schedule">Schedule</button>
+            <button class="tab-button" data-tab="analytics">Analytics</button>
+            <button class="tab-button" data-tab="settings">Settings</button>
+        </nav>
+
+        <!-- Review Queue Tab -->
+        <div class="tab-content active" id="review-tab">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2>Review Queue</h2>
+                <button class="btn btn-edit" onclick="generateArticles()">
+                    <span id="generateBtn">Generate Articles</span>
+                </button>
+            </div>
+            
+            <div id="alertContainer"></div>
+            <div class="articles-grid" id="articlesGrid"></div>
+        </div>
+
+        <!-- Schedule Tab -->
+        <div class="tab-content" id="schedule-tab">
+            <h2 style="margin-bottom: 2rem;">Publishing Schedule</h2>
+            <div id="calendarContainer"></div>
+        </div>
+
+        <!-- Analytics Tab -->
+        <div class="tab-content" id="analytics-tab">
+            <h2 style="margin-bottom: 2rem;">Analytics Dashboard</h2>
+            <div id="analyticsContainer"></div>
+        </div>
+
+        <!-- Settings Tab -->
+        <div class="tab-content" id="settings-tab">
+            <h2 style="margin-bottom: 2rem;">Settings</h2>
+            <div id="settingsContainer">
+                <div class="article-card">
+                    <h3>Content Generation Settings</h3>
+                    <div class="form-group">
+                        <label class="form-label">Articles per Day</label>
+                        <input type="number" class="form-input" value="5" id="articlesPerDay">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Minimum Quality Score</label>
+                        <input type="number" class="form-input" value="85" id="minQualityScore">
+                    </div>
+                    <button class="btn btn-edit">Save Settings</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Edit Article Modal -->
+    <div class="modal" id="editModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Edit Article</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="editor-tabs">
+                    <button class="editor-tab active" data-editor-tab="content">Content</button>
+                    <button class="editor-tab" data-editor-tab="seo">SEO</button>
+                    <button class="editor-tab" data-editor-tab="preview">Preview</button>
+                </div>
+
+                <div class="editor-content">
+                    <!-- Content Tab -->
+                    <div class="editor-tab-content active" id="content-editor">
+                        <div class="form-group">
+                            <label class="form-label">Title</label>
+                            <input type="text" class="form-input" id="editTitle" placeholder="Article title">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Meta Description</label>
+                            <input type="text" class="form-input" id="editMetaDescription" placeholder="Meta description">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Content</label>
+                            <textarea class="form-textarea" id="editContent" placeholder="Article content in HTML"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Call to Action</label>
+                            <textarea class="form-input" id="editCTA" rows="3" placeholder="Call to action text"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- SEO Tab -->
+                    <div class="editor-tab-content" id="seo-editor">
+                        <div class="seo-panel">
+                            <h4>SEO Analysis</h4>
+                            <div class="seo-metrics" id="seoMetrics">
+                                <div class="seo-metric">
+                                    <div class="seo-metric-value" id="titleLength">0</div>
+                                    <div class="seo-metric-label">Title Length</div>
+                                </div>
+                                <div class="seo-metric">
+                                    <div class="seo-metric-value" id="metaLength">0</div>
+                                    <div class="seo-metric-label">Meta Length</div>
+                                </div>
+                                <div class="seo-metric">
+                                    <div class="seo-metric-value" id="wordCount">0</div>
+                                    <div class="seo-metric-label">Word Count</div>
+                                </div>
+                                <div class="seo-metric">
+                                    <div class="seo-metric-value" id="keywordDensity">0%</div>
+                                    <div class="seo-metric-label">Keyword Density</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Preview Tab -->
+                    <div class="editor-tab-content" id="preview-editor">
+                        <div class="article-card">
+                            <div id="previewContent">
+                                <h1 id="previewTitle">Article Title</h1>
+                                <p id="previewMeta">Meta description will appear here</p>
+                                <div id="previewBody">Article content will appear here</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 1rem; margin-top: 2rem; justify-content: flex-end;">
+                    <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button class="btn btn-edit" onclick="saveArticle()">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentArticles = [];
+        let currentEditingArticle = null;
+        let refreshInterval;
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTabs();
+            loadStats();
+            loadArticles();
+            startAutoRefresh();
+        });
+
+        // Tab management
+        function initializeTabs() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const editorTabs = document.querySelectorAll('.editor-tab');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => switchTab(button.dataset.tab));
+            });
+            
+            editorTabs.forEach(tab => {
+                tab.addEventListener('click', () => switchEditorTab(tab.dataset.editorTab));
+            });
+        }
+
+        function switchTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+            
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+            
+            // Load tab-specific content
+            switch(tabName) {
+                case 'review':
+                    loadArticles();
+                    break;
+                case 'schedule':
+                    loadSchedule();
+                    break;
+                case 'analytics':
+                    loadAnalytics();
+                    break;
+            }
+        }
+
+        function switchEditorTab(tabName) {
+            document.querySelectorAll('.editor-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelector(`[data-editor-tab="${tabName}"]`).classList.add('active');
+            
+            document.querySelectorAll('.editor-tab-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(`${tabName}-editor`).classList.add('active');
+            
+            if (tabName === 'seo') {
+                updateSEOMetrics();
+            } else if (tabName === 'preview') {
+                updatePreview();
+            }
+        }
+
+        // API functions
+        async function apiCall(endpoint, options = {}) {
+            try {
+                const response = await fetch(`/api${endpoint}`, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        ...options.headers
+                    },
+                    ...options
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                return await response.json();
+            } catch (error) {
+                console.error('API call failed:', error);
+                showAlert('API call failed: ' + error.message, 'error');
+                throw error;
+            }
+        }
+
+        // Load dashboard stats
+        async function loadStats() {
+            try {
+                const [analytics, drafts, schedule] = await Promise.all([
+                    apiCall('/analytics'),
+                    apiCall('/articles/drafts'),
+                    apiCall('/schedule')
+                ]);
+                
+                document.getElementById('articlesCount').textContent = analytics.analytics.generatedToday;
+                document.getElementById('avgQuality').textContent = analytics.analytics.averageQualityScore;
+                document.getElementById('pendingReview').textContent = drafts.count;
+                document.getElementById('scheduledCount').textContent = schedule.schedule.length;
+            } catch (error) {
+                console.error('Failed to load stats:', error);
+            }
+        }
+
+        // Load articles for review
+        async function loadArticles() {
+            try {
+                const response = await apiCall('/articles/drafts');
+                currentArticles = response.articles;
+                renderArticles(currentArticles);
+            } catch (error) {
+                document.getElementById('articlesGrid').innerHTML = 
+                    '<div class="empty-state"><div class="empty-state-icon">📝</div><p>Failed to load articles</p></div>';
+            }
+        }
+
+        // Render articles grid
+        function renderArticles(articles) {
+            const grid = document.getElementById('articlesGrid');
+            
+            if (articles.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📝</div>
+                        <h3>No Articles in Review Queue</h3>
+                        <p>Generate some articles to get started!</p>
+                    </div>`;
+                return;
+            }
+            
+            grid.innerHTML = articles.map(article => createArticleCard(article)).join('');
+        }
+
+        // Create article card HTML
+        function createArticleCard(article) {
+            const qualityScore = article.metadata.qualityScore.overall;
+            const qualityClass = qualityScore >= 85 ? 'quality-high' : 
+                               qualityScore >= 70 ? 'quality-medium' : 'quality-low';
+            
+            return `
+                <div class="article-card" data-id="${article.metadata.id}">
+                    <div class="article-header">
+                        <div>
+                            <h3 class="article-title">${article.title}</h3>
+                            <div class="article-meta">
+                                ${article.metaDescription.substring(0, 120)}...
+                            </div>
+                            <div class="article-meta">
+                                Created: ${new Date(article.metadata.createdAt).toLocaleDateString()} | 
+                                Words: ${article.metadata.wordCount} | 
+                                Reading: ${article.metadata.readingTime}
+                            </div>
+                        </div>
+                        <div class="quality-badge ${qualityClass}">
+                            ${qualityScore}
+                        </div>
+                    </div>
+                    
+                    <div class="quality-breakdown">
+                        <div class="quality-item">
+                            <div class="quality-item-value">${article.metadata.qualityScore.breakdown.readability}</div>
+                            <div class="quality-item-label">Readability</div>
+                        </div>
+                        <div class="quality-item">
+                            <div class="quality-item-value">${article.metadata.qualityScore.breakdown.seo}</div>
+                            <div class="quality-item-label">SEO</div>
+                        </div>
+                        <div class="quality-item">
+                            <div class="quality-item-value">${article.metadata.qualityScore.breakdown.structure}</div>
+                            <div class="quality-item-label">Structure</div>
+                        </div>
+                        <div class="quality-item">
+                            <div class="quality-item-value">${article.metadata.qualityScore.breakdown.length}</div>
+                            <div class="quality-item-label">Length</div>
+                        </div>
+                    </div>
+                    
+                    <div class="article-actions">
+                        <button class="btn btn-approve" onclick="approveArticle('${article.metadata.id}')">
+                            ✓ Approve
+                        </button>
+                        <button class="btn btn-edit" onclick="editArticle('${article.metadata.id}')">
+                            ✏️ Edit
+                        </button>
+                        <button class="btn btn-reject" onclick="rejectArticle('${article.metadata.id}')">
+                            ✗ Reject
+                        </button>
+                        <button class="btn btn-secondary" onclick="runFactCheck('${article.metadata.id}')">
+                            🔍 Fact Check
+                        </button>
+                    </div>
+                </div>`;
+        }
+
+        // Article actions
+        async function approveArticle(articleId) {
+            try {
+                const reviewer = prompt('Enter your name:') || 'Anonymous';
+                const notes = prompt('Add review notes (optional):') || '';
+                
+                await apiCall(`/articles/${articleId}/approve`, {
+                    method: 'POST',
+                    body: JSON.stringify({ reviewer, notes })
+                });
+                
+                showAlert('Article approved successfully!', 'success');
+                loadArticles();
+                loadStats();
+            } catch (error) {
+                showAlert('Failed to approve article', 'error');
+            }
+        }
+
+        async function rejectArticle(articleId) {
+            try {
+                const reviewer = prompt('Enter your name:') || 'Anonymous';
+                const reason = prompt('Rejection reason:') || 'Quality concerns';
+                const notes = prompt('Additional notes (optional):') || '';
+                
+                await apiCall(`/articles/${articleId}/reject`, {
+                    method: 'POST',
+                    body: JSON.stringify({ reviewer, reason, notes })
+                });
+                
+                showAlert('Article rejected', 'warning');
+                loadArticles();
+                loadStats();
+            } catch (error) {
+                showAlert('Failed to reject article', 'error');
+            }
+        }
+
+        async function editArticle(articleId) {
+            try {
+                const response = await apiCall(`/articles/${articleId}`);
+                currentEditingArticle = response.article;
+                
+                // Populate edit form
+                document.getElementById('editTitle').value = currentEditingArticle.title;
+                document.getElementById('editMetaDescription').value = currentEditingArticle.metaDescription;
+                document.getElementById('editContent').value = currentEditingArticle.content;
+                document.getElementById('editCTA').value = currentEditingArticle.cta || '';
+                
+                // Show modal
+                document.getElementById('editModal').classList.add('active');
+                
+                // Set up real-time SEO updates
+                setupRealTimeUpdates();
+                
+            } catch (error) {
+                showAlert('Failed to load article for editing', 'error');
+            }
+        }
+
+        async function saveArticle() {
+            if (!currentEditingArticle) return;
+            
+            try {
+                const updates = {
+                    title: document.getElementById('editTitle').value,
+                    metaDescription: document.getElementById('editMetaDescription').value,
+                    content: document.getElementById('editContent').value,
+                    cta: document.getElementById('editCTA').value,
+                    updatedBy: 'Review Console User'
+                };
+                
+                await apiCall(`/articles/${currentEditingArticle.metadata.id}`, {
+                    method: 'PUT',
+                    body: JSON.stringify(updates)
+                });
+                
+                showAlert('Article updated successfully!', 'success');
+                closeModal();
+                loadArticles();
+            } catch (error) {
+                showAlert('Failed to save article', 'error');
+            }
+        }
+
+        async function runFactCheck(articleId) {
+            try {
+                const button = event.target;
+                const originalText = button.innerHTML;
+                button.innerHTML = '<span class="loading"></span> Checking...';
+                button.disabled = true;
+                
+                const response = await apiCall(`/articles/${articleId}/fact-check`, {
+                    method: 'POST'
+                });
+                
+                const confidence = response.factCheck.confidenceScore;
+                const issues = response.factCheck.overallIssues.length;
+                
+                showAlert(`Fact check complete. Confidence: ${confidence}%, Issues: ${issues}`, 
+                         confidence >= 80 ? 'success' : confidence >= 60 ? 'warning' : 'error');
+                
+                button.innerHTML = originalText;
+                button.disabled = false;
+                
+            } catch (error) {
+                showAlert('Fact check failed', 'error');
+                button.innerHTML = originalText;
+                button.disabled = false;
+            }
+        }
+
+        async function generateArticles() {
+            try {
+                const button = document.getElementById('generateBtn');
+                const originalText = button.textContent;
+                button.innerHTML = '<span class="loading"></span> Generating...';
+                
+                const count = prompt('How many articles to generate?', '2');
+                if (!count || isNaN(count)) return;
+                
+                await apiCall('/generate', {
+                    method: 'POST',
+                    body: JSON.stringify({ count: parseInt(count) })
+                });
+                
+                showAlert(`Generated ${count} articles successfully!`, 'success');
+                loadArticles();
+                loadStats();
+                
+                button.textContent = originalText;
+            } catch (error) {
+                showAlert('Failed to generate articles', 'error');
+                document.getElementById('generateBtn').textContent = 'Generate Articles';
+            }
+        }
+
+        // Modal management
+        function closeModal() {
+            document.getElementById('editModal').classList.remove('active');
+            currentEditingArticle = null;
+        }
+
+        // SEO metrics update
+        function setupRealTimeUpdates() {
+            const inputs = ['editTitle', 'editMetaDescription', 'editContent'];
+            inputs.forEach(id => {
+                document.getElementById(id).addEventListener('input', updateSEOMetrics);
+            });
+        }
+
+        function updateSEOMetrics() {
+            const title = document.getElementById('editTitle').value;
+            const meta = document.getElementById('editMetaDescription').value;
+            const content = document.getElementById('editContent').value;
+            
+            document.getElementById('titleLength').textContent = title.length;
+            document.getElementById('metaLength').textContent = meta.length;
+            document.getElementById('wordCount').textContent = content.split(/\s+/).filter(w => w.length > 0).length;
+            
+            // Simple keyword density calculation
+            const words = content.toLowerCase().split(/\s+/).filter(w => w.length > 0);
+            const totalWords = words.length;
+            if (totalWords > 0) {
+                const keyword = title.split(' ')[0]?.toLowerCase();
+                const keywordCount = words.filter(w => w.includes(keyword)).length;
+                const density = ((keywordCount / totalWords) * 100).toFixed(1);
+                document.getElementById('keywordDensity').textContent = density + '%';
+            }
+        }
+
+        function updatePreview() {
+            document.getElementById('previewTitle').textContent = document.getElementById('editTitle').value;
+            document.getElementById('previewMeta').textContent = document.getElementById('editMetaDescription').value;
+            document.getElementById('previewBody').innerHTML = document.getElementById('editContent').value;
+        }
+
+        // Schedule management
+        async function loadSchedule() {
+            try {
+                const response = await apiCall('/schedule');
+                renderCalendar(response.schedule);
+            } catch (error) {
+                document.getElementById('calendarContainer').innerHTML = 
+                    '<div class="empty-state"><div class="empty-state-icon">📅</div><p>Failed to load schedule</p></div>';
+            }
+        }
+
+        function renderCalendar(schedule) {
+            const container = document.getElementById('calendarContainer');
+            
+            if (schedule.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📅</div>
+                        <h3>No Scheduled Articles</h3>
+                        <p>Approve articles to add them to the schedule.</p>
+                    </div>`;
+                return;
+            }
+            
+            // Simple list view for now
+            container.innerHTML = `
+                <div class="articles-grid">
+                    ${schedule.map(item => `
+                        <div class="article-card">
+                            <h3>${item.title}</h3>
+                            <div class="article-meta">
+                                Scheduled: ${new Date(item.scheduledFor).toLocaleString()}
+                            </div>
+                            <div class="article-meta">
+                                Platforms: ${item.platforms.join(', ')}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>`;
+        }
+
+        // Analytics
+        async function loadAnalytics() {
+            try {
+                const response = await apiCall('/analytics');
+                renderAnalytics(response.analytics);
+            } catch (error) {
+                document.getElementById('analyticsContainer').innerHTML = 
+                    '<div class="empty-state"><div class="empty-state-icon">📊</div><p>Failed to load analytics</p></div>';
+            }
+        }
+
+        function renderAnalytics(analytics) {
+            const container = document.getElementById('analyticsContainer');
+            container.innerHTML = `
+                <div class="stats-grid">
+                    <div class="article-card">
+                        <h3>Content Overview</h3>
+                        <div class="quality-breakdown">
+                            <div class="quality-item">
+                                <div class="quality-item-value">${analytics.breakdown.drafts}</div>
+                                <div class="quality-item-label">Drafts</div>
+                            </div>
+                            <div class="quality-item">
+                                <div class="quality-item-value">${analytics.breakdown.approved}</div>
+                                <div class="quality-item-label">Approved</div>
+                            </div>
+                            <div class="quality-item">
+                                <div class="quality-item-value">${analytics.breakdown.published}</div>
+                                <div class="quality-item-label">Published</div>
+                            </div>
+                            <div class="quality-item">
+                                <div class="quality-item-value">${analytics.breakdown.rejected}</div>
+                                <div class="quality-item-label">Rejected</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="article-card">
+                        <h3>Quality Metrics</h3>
+                        <div class="quality-breakdown">
+                            <div class="quality-item">
+                                <div class="quality-item-value">${analytics.averageQualityScore}</div>
+                                <div class="quality-item-label">Avg Quality</div>
+                            </div>
+                            <div class="quality-item">
+                                <div class="quality-item-value">${analytics.approvalRate}%</div>
+                                <div class="quality-item-label">Approval Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
+        }
+
+        // Utility functions
+        function showAlert(message, type = 'info') {
+            const container = document.getElementById('alertContainer');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.textContent = message;
+            
+            container.appendChild(alert);
+            
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        }
+
+        function startAutoRefresh() {
+            refreshInterval = setInterval(() => {
+                loadStats();
+                if (document.querySelector('[data-tab="review"]').classList.contains('active')) {
+                    loadArticles();
+                }
+            }, 30000); // Refresh every 30 seconds
+        }
+
+        // Cleanup
+        window.addEventListener('beforeunload', () => {
+            if (refreshInterval) {
+                clearInterval(refreshInterval);
+            }
+        });
+
+        // Close modal on outside click
+        document.getElementById('editModal').addEventListener('click', (e) => {
+            if (e.target.id === 'editModal') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

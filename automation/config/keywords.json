@@ -1,0 +1,420 @@
+{
+  "keywordGroups": {
+    "primaryKeywords": {
+      "description": "High-volume, competitive keywords central to personal finance",
+      "searchIntent": "informational",
+      "keywords": [
+        {
+          "term": "personal finance",
+          "volume": 74000,
+          "difficulty": 85,
+          "cpc": 3.45
+        },
+        {
+          "term": "investing",
+          "volume": 135000,
+          "difficulty": 78,
+          "cpc": 4.12
+        },
+        {
+          "term": "savings",
+          "volume": 90500,
+          "difficulty": 65,
+          "cpc": 2.87
+        },
+        {
+          "term": "budgeting",
+          "volume": 49500,
+          "difficulty": 58,
+          "cpc": 2.34
+        },
+        {
+          "term": "retirement planning",
+          "volume": 33100,
+          "difficulty": 72,
+          "cpc": 5.67
+        },
+        {
+          "term": "credit score",
+          "volume": 201000,
+          "difficulty": 82,
+          "cpc": 8.45
+        },
+        {
+          "term": "debt management",
+          "volume": 18100,
+          "difficulty": 68,
+          "cpc": 6.23
+        },
+        {
+          "term": "financial planning",
+          "volume": 40500,
+          "difficulty": 75,
+          "cpc": 7.89
+        }
+      ]
+    },
+    "longTailKeywords": {
+      "description": "Specific, lower-competition keywords with high conversion potential",
+      "searchIntent": "informational",
+      "keywords": [
+        {
+          "term": "best savings accounts 2025",
+          "volume": 8100,
+          "difficulty": 45,
+          "cpc": 4.56
+        },
+        {
+          "term": "how to invest with little money",
+          "volume": 5400,
+          "difficulty": 35,
+          "cpc": 3.21
+        },
+        {
+          "term": "emergency fund calculator",
+          "volume": 2900,
+          "difficulty": 28,
+          "cpc": 2.11
+        },
+        {
+          "term": "debt snowball vs avalanche",
+          "volume": 1600,
+          "difficulty": 32,
+          "cpc": 2.78
+        },
+        {
+          "term": "how much should I save for retirement",
+          "volume": 4300,
+          "difficulty": 38,
+          "cpc": 5.43
+        },
+        {
+          "term": "index funds for beginners",
+          "volume": 6700,
+          "difficulty": 42,
+          "cpc": 3.87
+        },
+        {
+          "term": "building credit from scratch",
+          "volume": 3200,
+          "difficulty": 41,
+          "cpc": 6.12
+        },
+        {
+          "term": "401k vs IRA differences",
+          "volume": 2800,
+          "difficulty": 48,
+          "cpc": 4.98
+        },
+        {
+          "term": "how to create a budget that works",
+          "volume": 3900,
+          "difficulty": 36,
+          "cpc": 2.67
+        },
+        {
+          "term": "side hustles that make money fast",
+          "volume": 5200,
+          "difficulty": 44,
+          "cpc": 1.89
+        }
+      ]
+    },
+    "commercialKeywords": {
+      "description": "Keywords indicating purchase intent for financial products",
+      "searchIntent": "commercial",
+      "keywords": [
+        {
+          "term": "credit card reviews",
+          "volume": 22100,
+          "difficulty": 68,
+          "cpc": 12.34
+        },
+        {
+          "term": "loan comparisons",
+          "volume": 8900,
+          "difficulty": 72,
+          "cpc": 15.67
+        },
+        {
+          "term": "best online banks",
+          "volume": 12400,
+          "difficulty": 58,
+          "cpc": 8.91
+        },
+        {
+          "term": "investment platform reviews",
+          "volume": 4700,
+          "difficulty": 54,
+          "cpc": 9.23
+        },
+        {
+          "term": "robo advisor comparison",
+          "volume": 3600,
+          "difficulty": 61,
+          "cpc": 11.45
+        },
+        {
+          "term": "mortgage lender reviews",
+          "volume": 6800,
+          "difficulty": 69,
+          "cpc": 18.76
+        },
+        {
+          "term": "business credit card offers",
+          "volume": 5100,
+          "difficulty": 74,
+          "cpc": 14.32
+        },
+        {
+          "term": "high yield savings account rates",
+          "volume": 9200,
+          "difficulty": 52,
+          "cpc": 6.78
+        },
+        {
+          "term": "personal loan rates",
+          "volume": 14500,
+          "difficulty": 76,
+          "cpc": 22.45
+        },
+        {
+          "term": "insurance quotes comparison",
+          "volume": 7300,
+          "difficulty": 81,
+          "cpc": 25.67
+        }
+      ]
+    },
+    "transactionalKeywords": {
+      "description": "Keywords indicating immediate action or purchase intent",
+      "searchIntent": "transactional",
+      "keywords": [
+        {
+          "term": "apply for credit card",
+          "volume": 18200,
+          "difficulty": 85,
+          "cpc": 28.45
+        },
+        {
+          "term": "open savings account",
+          "volume": 11600,
+          "difficulty": 67,
+          "cpc": 12.34
+        },
+        {
+          "term": "get personal loan",
+          "volume": 24300,
+          "difficulty": 88,
+          "cpc": 45.67
+        },
+        {
+          "term": "start investing today",
+          "volume": 5400,
+          "difficulty": 56,
+          "cpc": 8.91
+        },
+        {
+          "term": "refinance mortgage now",
+          "volume": 8700,
+          "difficulty": 82,
+          "cpc": 35.78
+        },
+        {
+          "term": "buy life insurance",
+          "volume": 12900,
+          "difficulty": 79,
+          "cpc": 42.11
+        },
+        {
+          "term": "consolidate debt today",
+          "volume": 6200,
+          "difficulty": 71,
+          "cpc": 31.24
+        },
+        {
+          "term": "open IRA account",
+          "volume": 4800,
+          "difficulty": 63,
+          "cpc": 15.67
+        }
+      ]
+    },
+    "localKeywords": {
+      "description": "Location-based keywords for local financial services",
+      "searchIntent": "local",
+      "keywords": [
+        {
+          "term": "financial advisors near me",
+          "volume": 27100,
+          "difficulty": 58,
+          "cpc": 67.89
+        },
+        {
+          "term": "credit unions near me",
+          "volume": 14600,
+          "difficulty": 45,
+          "cpc": 8.23
+        },
+        {
+          "term": "tax preparation services near me",
+          "volume": 33200,
+          "difficulty": 52,
+          "cpc": 45.67
+        },
+        {
+          "term": "mortgage brokers near me",
+          "volume": 8900,
+          "difficulty": 61,
+          "cpc": 78.45
+        },
+        {
+          "term": "investment advisors in [city]",
+          "volume": 3200,
+          "difficulty": 54,
+          "cpc": 89.12
+        },
+        {
+          "term": "banks near me",
+          "volume": 201000,
+          "difficulty": 42,
+          "cpc": 12.34
+        },
+        {
+          "term": "insurance agents near me",
+          "volume": 18700,
+          "difficulty": 48,
+          "cpc": 56.78
+        },
+        {
+          "term": "financial planning services [city]",
+          "volume": 2100,
+          "difficulty": 59,
+          "cpc": 112.45
+        }
+      ]
+    },
+    "seasonalKeywords": {
+      "description": "Time-sensitive keywords with seasonal search patterns",
+      "searchIntent": "informational",
+      "keywords": [
+        {
+          "term": "tax refund 2025",
+          "volume": 45600,
+          "difficulty": 48,
+          "cpc": 3.45,
+          "season": "Q1"
+        },
+        {
+          "term": "back to school budgeting",
+          "volume": 8200,
+          "difficulty": 35,
+          "cpc": 2.11,
+          "season": "Q3"
+        },
+        {
+          "term": "holiday budget planning",
+          "volume": 12400,
+          "difficulty": 38,
+          "cpc": 1.89,
+          "season": "Q4"
+        },
+        {
+          "term": "new year financial resolutions",
+          "volume": 9700,
+          "difficulty": 32,
+          "cpc": 2.34,
+          "season": "Q1"
+        },
+        {
+          "term": "summer vacation budgeting",
+          "volume": 6800,
+          "difficulty": 29,
+          "cpc": 1.67,
+          "season": "Q2"
+        },
+        {
+          "term": "year end tax planning",
+          "volume": 11200,
+          "difficulty": 54,
+          "cpc": 8.91,
+          "season": "Q4"
+        }
+      ]
+    },
+    "competitorKeywords": {
+      "description": "Keywords where competitors rank well",
+      "searchIntent": "mixed",
+      "keywords": [
+        {
+          "term": "mint alternatives",
+          "volume": 4300,
+          "difficulty": 47,
+          "cpc": 5.67
+        },
+        {
+          "term": "personal capital review",
+          "volume": 3600,
+          "difficulty": 52,
+          "cpc": 7.89
+        },
+        {
+          "term": "nerdwallet vs credit karma",
+          "volume": 1800,
+          "difficulty": 45,
+          "cpc": 6.23
+        },
+        {
+          "term": "dave ramsey baby steps",
+          "volume": 8900,
+          "difficulty": 41,
+          "cpc": 3.45
+        },
+        {
+          "term": "suze orman advice",
+          "volume": 5200,
+          "difficulty": 38,
+          "cpc": 2.11
+        }
+      ]
+    }
+  },
+  "searchIntentDefinitions": {
+    "informational": "User seeks knowledge or answers to questions",
+    "commercial": "User researches products/services before buying",
+    "transactional": "User ready to make a purchase or take action",
+    "local": "User seeks local businesses or services",
+    "navigational": "User seeks specific website or brand"
+  },
+  "keywordStrategy": {
+    "primaryFocus": [
+      "Long-tail keywords with moderate competition",
+      "Commercial keywords for affiliate opportunities", 
+      "Informational keywords for traffic building"
+    ],
+    "contentMapping": {
+      "blog_posts": ["informational", "long-tail"],
+      "comparison_pages": ["commercial", "transactional"],
+      "local_pages": ["local", "transactional"],
+      "evergreen_content": ["informational", "primary"]
+    },
+    "difficultyTargets": {
+      "beginner_content": "0-40 difficulty",
+      "intermediate_content": "41-65 difficulty", 
+      "expert_content": "66-100 difficulty"
+    },
+    "volumeTargets": {
+      "high_volume": "10000+",
+      "medium_volume": "1000-9999",
+      "low_volume": "100-999",
+      "long_tail": "10-99"
+    }
+  },
+  "trackingMetrics": {
+    "rankingTracking": true,
+    "volumeMonitoring": true,
+    "competitorAnalysis": true,
+    "seasonalTrends": true,
+    "conversionTracking": true
+  }
+}

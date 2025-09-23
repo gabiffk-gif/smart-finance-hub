@@ -1,0 +1,69 @@
+{
+  "date": "2025-09-18",
+  "generatedAt": "2025-09-18T07:00:00.129Z",
+  "summary": {
+    "today": {
+      "published": 0,
+      "drafted": 0,
+      "approved": 0,
+      "rejected": 0,
+      "averageQuality": 0,
+      "totalWordCount": 0
+    },
+    "thisWeek": {
+      "published": 0,
+      "drafted": 0,
+      "approved": 0,
+      "rejected": 0,
+      "totalWordCount": 0
+    },
+    "thisMonth": {
+      "published": 0,
+      "drafted": 0,
+      "approved": 0,
+      "rejected": 0,
+      "averageQuality": 0,
+      "totalWordCount": 0
+    },
+    "allTime": {
+      "totalPublished": 0,
+      "totalRejected": 1,
+      "overallSuccessRate": 0,
+      "totalWordCount": 0
+    }
+  },
+  "insights": [],
+  "recommendations": [],
+  "alerts": [],
+  "trends": {
+    "quality": {
+      "trend": "insufficient_data"
+    },
+    "production": {
+      "trend": "stable",
+      "weeklyAverage": 0
+    },
+    "categories": {}
+  },
+  "forecast": {
+    "nextWeek": {
+      "expectedArticles": 0,
+      "qualityProjection": 0,
+      "potentialIssues": [
+        "Production volume may fall short of weekly targets"
+      ]
+    },
+    "nextMonth": {
+      "productionGoals": {
+        "articlesTarget": 40,
+        "qualityTarget": 80,
+        "successRateTarget": 85
+      },
+      "improvementTargets": {
+        "qualityImprovement": 85,
+        "reviewTimeReduction": null,
+        "successRateImprovement": null
+      }
+    }
+  }
+}

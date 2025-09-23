@@ -1,0 +1,387 @@
+{
+  "topics": [
+    {
+      "id": "topic_001",
+      "title": "High-yield savings accounts",
+      "keywords": ["high-yield savings", "best savings accounts", "savings rates", "online banks", "APY"],
+      "priority": "high",
+      "category": "banking"
+    },
+    {
+      "id": "topic_002", 
+      "title": "Credit card comparisons",
+      "keywords": ["best credit cards", "credit card reviews", "cashback cards", "travel rewards", "credit score"],
+      "priority": "high",
+      "category": "credit"
+    },
+    {
+      "id": "topic_003",
+      "title": "Investment strategies for beginners",
+      "keywords": ["beginner investing", "investment strategies", "portfolio building", "stock market basics", "ETFs"],
+      "priority": "high",
+      "category": "investing"
+    },
+    {
+      "id": "topic_004",
+      "title": "Retirement planning guides",
+      "keywords": ["retirement planning", "401k", "IRA", "retirement savings", "pension planning"],
+      "priority": "high",
+      "category": "retirement"
+    },
+    {
+      "id": "topic_005",
+      "title": "Debt consolidation tips",
+      "keywords": ["debt consolidation", "debt management", "debt payoff", "personal loans", "credit counseling"],
+      "priority": "high",
+      "category": "debt"
+    },
+    {
+      "id": "topic_006",
+      "title": "Emergency fund building",
+      "keywords": ["emergency fund", "emergency savings", "financial security", "rainy day fund", "savings goals"],
+      "priority": "high",
+      "category": "savings"
+    },
+    {
+      "id": "topic_007",
+      "title": "Tax optimization strategies",
+      "keywords": ["tax optimization", "tax deductions", "tax planning", "tax-advantaged accounts", "tax savings"],
+      "priority": "medium",
+      "category": "taxes"
+    },
+    {
+      "id": "topic_008",
+      "title": "Real estate investment basics",
+      "keywords": ["real estate investing", "rental properties", "REITs", "property investment", "real estate market"],
+      "priority": "medium",
+      "category": "investing"
+    },
+    {
+      "id": "topic_009",
+      "title": "Cryptocurrency for beginners",
+      "keywords": ["cryptocurrency", "bitcoin", "crypto investing", "blockchain", "digital assets"],
+      "priority": "medium",
+      "category": "investing"
+    },
+    {
+      "id": "topic_010",
+      "title": "Budget planning tools",
+      "keywords": ["budgeting", "budget apps", "expense tracking", "financial planning", "money management"],
+      "priority": "high",
+      "category": "budgeting"
+    },
+    {
+      "id": "topic_011",
+      "title": "Life insurance options",
+      "keywords": ["life insurance", "term life", "whole life", "insurance coverage", "beneficiaries"],
+      "priority": "medium",
+      "category": "insurance"
+    },
+    {
+      "id": "topic_012",
+      "title": "Student loan management",
+      "keywords": ["student loans", "loan forgiveness", "student debt", "refinancing", "repayment plans"],
+      "priority": "medium",
+      "category": "debt"
+    },
+    {
+      "id": "topic_013",
+      "title": "Home buying guide",
+      "keywords": ["home buying", "mortgage", "down payment", "home loans", "first-time buyers"],
+      "priority": "high",
+      "category": "real_estate"
+    },
+    {
+      "id": "topic_014",
+      "title": "Side hustle income ideas",
+      "keywords": ["side hustle", "passive income", "extra income", "freelancing", "gig economy"],
+      "priority": "medium",
+      "category": "income"
+    },
+    {
+      "id": "topic_015",
+      "title": "Financial planning for millennials",
+      "keywords": ["millennial finance", "young adult money", "financial goals", "career planning", "wealth building"],
+      "priority": "medium",
+      "category": "demographics"
+    },
+    {
+      "id": "topic_016",
+      "title": "Small business financing",
+      "keywords": ["business loans", "startup funding", "business credit", "SBA loans", "entrepreneurship"],
+      "priority": "medium",
+      "category": "business"
+    },
+    {
+      "id": "topic_017",
+      "title": "College savings plans",
+      "keywords": ["529 plans", "college savings", "education funding", "tuition planning", "Coverdell ESA"],
+      "priority": "medium",
+      "category": "education"
+    },
+    {
+      "id": "topic_018",
+      "title": "Health savings accounts",
+      "keywords": ["HSA", "health savings", "medical expenses", "healthcare costs", "tax benefits"],
+      "priority": "medium",
+      "category": "healthcare"
+    },
+    {
+      "id": "topic_019",
+      "title": "Frugal living tips",
+      "keywords": ["frugal living", "money saving tips", "cheap meals", "coupon strategies", "minimalism"],
+      "priority": "low",
+      "category": "lifestyle"
+    },
+    {
+      "id": "topic_020",
+      "title": "Car financing options",
+      "keywords": ["auto loans", "car financing", "lease vs buy", "vehicle purchasing", "car insurance"],
+      "priority": "medium",
+      "category": "transportation"
+    },
+    {
+      "id": "topic_021",
+      "title": "Building credit score",
+      "keywords": ["credit score", "credit building", "credit repair", "FICO score", "credit monitoring"],
+      "priority": "high",
+      "category": "credit"
+    },
+    {
+      "id": "topic_022",
+      "title": "Dividend investing strategies",
+      "keywords": ["dividend stocks", "dividend investing", "passive income", "dividend yield", "DRIP"],
+      "priority": "medium",
+      "category": "investing"
+    },
+    {
+      "id": "topic_023",
+      "title": "Travel rewards optimization",
+      "keywords": ["travel rewards", "airline miles", "hotel points", "travel hacking", "credit card rewards"],
+      "priority": "low",
+      "category": "rewards"
+    },
+    {
+      "id": "topic_024",
+      "title": "Estate planning basics",
+      "keywords": ["estate planning", "wills", "trusts", "inheritance", "probate"],
+      "priority": "low",
+      "category": "estate"
+    },
+    {
+      "id": "topic_025",
+      "title": "Financial planning for seniors",
+      "keywords": ["senior finance", "retirement income", "Medicare", "Social Security", "long-term care"],
+      "priority": "medium",
+      "category": "demographics"
+    },
+    {
+      "id": "topic_026",
+      "title": "Index fund investing",
+      "keywords": ["index funds", "passive investing", "market tracking", "low-cost investing", "Vanguard"],
+      "priority": "high",
+      "category": "investing"
+    },
+    {
+      "id": "topic_027",
+      "title": "Mortgage refinancing guide",
+      "keywords": ["mortgage refinancing", "refinance rates", "cash-out refinance", "home equity", "closing costs"],
+      "priority": "medium",
+      "category": "real_estate"
+    },
+    {
+      "id": "topic_028",
+      "title": "Financial apps and tools",
+      "keywords": ["finance apps", "budgeting apps", "investment apps", "money management tools", "fintech"],
+      "priority": "medium",
+      "category": "technology"
+    },
+    {
+      "id": "topic_029",
+      "title": "Cashback and rewards programs",
+      "keywords": ["cashback", "rewards programs", "loyalty programs", "shopping rewards", "credit card benefits"],
+      "priority": "low",
+      "category": "rewards"
+    },
+    {
+      "id": "topic_030",
+      "title": "Investment account types",
+      "keywords": ["brokerage accounts", "taxable accounts", "retirement accounts", "investment platforms", "robo-advisors"],
+      "priority": "medium",
+      "category": "investing"
+    },
+    {
+      "id": "topic_031",
+      "title": "Financial goal setting",
+      "keywords": ["financial goals", "SMART goals", "wealth building", "financial milestones", "goal tracking"],
+      "priority": "medium",
+      "category": "planning"
+    },
+    {
+      "id": "topic_032",
+      "title": "Banking fees and how to avoid them",
+      "keywords": ["banking fees", "checking account fees", "ATM fees", "overdraft fees", "free banking"],
+      "priority": "medium",
+      "category": "banking"
+    },
+    {
+      "id": "topic_033",
+      "title": "International investing",
+      "keywords": ["international investing", "foreign stocks", "emerging markets", "currency risk", "global diversification"],
+      "priority": "low",
+      "category": "investing"
+    },
+    {
+      "id": "topic_034",
+      "title": "Financial education for kids",
+      "keywords": ["kids money", "financial literacy", "teaching kids about money", "children's savings", "allowance"],
+      "priority": "low",
+      "category": "education"
+    },
+    {
+      "id": "topic_035",
+      "title": "Sustainable and ESG investing",
+      "keywords": ["ESG investing", "sustainable investing", "socially responsible investing", "green bonds", "impact investing"],
+      "priority": "low",
+      "category": "investing"
+    },
+    {
+      "id": "topic_036",
+      "title": "Personal finance mistakes to avoid",
+      "keywords": ["money mistakes", "financial errors", "common financial mistakes", "money management fails", "financial pitfalls"],
+      "priority": "medium",
+      "category": "education"
+    },
+    {
+      "id": "topic_037",
+      "title": "Online banking security",
+      "keywords": ["online banking security", "financial fraud", "identity theft", "secure banking", "cybersecurity"],
+      "priority": "medium",
+      "category": "security"
+    },
+    {
+      "id": "topic_038",
+      "title": "Freelancer financial management",
+      "keywords": ["freelancer finance", "self-employed taxes", "irregular income", "contractor finances", "gig worker money"],
+      "priority": "medium",
+      "category": "income"
+    },
+    {
+      "id": "topic_039",
+      "title": "Wealth building strategies",
+      "keywords": ["wealth building", "millionaire mindset", "net worth", "asset accumulation", "financial independence"],
+      "priority": "medium",
+      "category": "wealth"
+    },
+    {
+      "id": "topic_040",
+      "title": "Financial recovery after job loss",
+      "keywords": ["unemployment finances", "job loss recovery", "emergency planning", "career transition", "financial hardship"],
+      "priority": "medium",
+      "category": "crisis"
+    },
+    {
+      "id": "topic_041",
+      "title": "Retirement withdrawal strategies",
+      "keywords": ["retirement withdrawals", "4% rule", "retirement income", "tax-efficient withdrawals", "retirement planning"],
+      "priority": "medium",
+      "category": "retirement"
+    },
+    {
+      "id": "topic_042",
+      "title": "Financial planning for couples",
+      "keywords": ["couples finance", "joint accounts", "financial communication", "money and relationships", "shared goals"],
+      "priority": "medium",
+      "category": "relationships"
+    },
+    {
+      "id": "topic_043",
+      "title": "Alternative investments",
+      "keywords": ["alternative investments", "peer-to-peer lending", "commodities", "collectibles", "hedge funds"],
+      "priority": "low",
+      "category": "investing"
+    },
+    {
+      "id": "topic_044",
+      "title": "Financial planning during inflation",
+      "keywords": ["inflation protection", "inflation investing", "real returns", "cost of living", "purchasing power"],
+      "priority": "medium",
+      "category": "economics"
+    },
+    {
+      "id": "topic_045",
+      "title": "Business credit cards",
+      "keywords": ["business credit cards", "business rewards", "business expenses", "corporate cards", "business credit"],
+      "priority": "medium",
+      "category": "business"
+    },
+    {
+      "id": "topic_046",
+      "title": "Financial independence strategies",
+      "keywords": ["FIRE movement", "financial independence", "early retirement", "passive income", "financial freedom"],
+      "priority": "medium",
+      "category": "wealth"
+    },
+    {
+      "id": "topic_047",
+      "title": "Tax-loss harvesting",
+      "keywords": ["tax-loss harvesting", "tax optimization", "investment taxes", "capital losses", "tax strategy"],
+      "priority": "low",
+      "category": "taxes"
+    },
+    {
+      "id": "topic_048",
+      "title": "Financial planning for divorce",
+      "keywords": ["divorce finances", "asset division", "spousal support", "financial separation", "legal finances"],
+      "priority": "low",
+      "category": "crisis"
+    },
+    {
+      "id": "topic_049",
+      "title": "Micro-investing platforms",
+      "keywords": ["micro-investing", "spare change investing", "round-up apps", "small investments", "beginner investing"],
+      "priority": "medium",
+      "category": "investing"
+    },
+    {
+      "id": "topic_050",
+      "title": "Financial literacy fundamentals",
+      "keywords": ["financial literacy", "money basics", "personal finance 101", "financial education", "money management"],
+      "priority": "high",
+      "category": "education"
+    }
+  ],
+  "categories": {
+    "banking": "Banking and savings products",
+    "credit": "Credit cards and credit management", 
+    "investing": "Investment strategies and products",
+    "retirement": "Retirement planning and accounts",
+    "debt": "Debt management and payoff strategies",
+    "savings": "Savings strategies and emergency funds",
+    "taxes": "Tax planning and optimization",
+    "real_estate": "Real estate and home buying",
+    "budgeting": "Budgeting and expense management",
+    "insurance": "Insurance products and coverage",
+    "income": "Income generation and side hustles",
+    "demographics": "Age-specific financial planning",
+    "business": "Business and entrepreneurship finance",
+    "education": "Education funding and financial literacy",
+    "healthcare": "Healthcare costs and medical savings",
+    "lifestyle": "Lifestyle and frugal living",
+    "transportation": "Vehicle financing and transportation costs",
+    "rewards": "Rewards programs and optimization",
+    "estate": "Estate planning and inheritance",
+    "technology": "Financial technology and apps",
+    "planning": "Financial planning and goal setting",
+    "security": "Financial security and fraud prevention",
+    "wealth": "Wealth building and financial independence",
+    "crisis": "Financial crisis management",
+    "relationships": "Money and relationships",
+    "economics": "Economic factors affecting personal finance"
+  },
+  "priorityLevels": {
+    "high": "Priority topics for frequent content creation",
+    "medium": "Regular content creation schedule",
+    "low": "Occasional content creation"
+  }
+}
