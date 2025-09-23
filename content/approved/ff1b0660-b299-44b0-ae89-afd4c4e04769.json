@@ -59,10 +59,13 @@
     },
     "createdAt": "2025-09-19T13:14:44.412Z",
     "generatedAt": "2025-09-19T13:14:44.413Z",
-    "status": "draft",
+    "status": "approved",
     "isMockArticle": true,
     "readingTime": "8-10 min read",
-    "wordCount": 743
+    "wordCount": 743,
+    "approvedAt": "2025-09-23T14:46:30.374Z",
+    "approvedBy": "Gabriel",
+    "reviewNotes": "Too manay Guides"
   },
   "savedAt": "2025-09-19T13:14:44.413Z",
   "version": "1.0",

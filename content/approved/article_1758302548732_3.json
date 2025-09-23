@@ -30,11 +30,11 @@
       "target": "wealth building"
     },
     "qualityScore": {
-      "overall": 55,
+      "overall": 65,
       "breakdown": {
         "readability": 55,
         "seo": 80,
-        "keywordDensity": 50,
+        "keywordDensity": 100,
         "structure": 75,
         "length": 25,
         "originality": 85
@@ -49,17 +49,21 @@
       },
       "recommendations": [
         "Improve readability by using shorter sentences and simpler words",
-        "Better integrate target keywords naturally throughout the content",
         "Improve content structure with clear introduction, sections, and conclusion",
         "Increase content length to meet minimum word count requirements"
       ]
     },
     "createdAt": "2025-09-19T17:22:28.732Z",
     "generatedAt": "2025-09-19T17:22:28.732Z",
-    "status": "needs_review",
+    "status": "approved",
     "readingTime": "2 min read",
     "wordCount": 399,
-    "isMockArticle": false
+    "isMockArticle": false,
+    "updatedAt": "2025-09-23T14:38:32.789Z",
+    "updatedBy": "Review Console User",
+    "approvedAt": "2025-09-23T14:38:56.467Z",
+    "approvedBy": "Gabriel",
+    "reviewNotes": "NA"
   },
   "savedAt": "2025-09-19T17:22:28.734Z",
   "version": "1.0"
