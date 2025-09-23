@@ -58,7 +58,7 @@
     },
     "createdAt": "2025-09-19T17:20:39.216Z",
     "generatedAt": "2025-09-19T17:20:39.217Z",
-    "status": "approved",
+    "status": "published",
     "readingTime": "3 min read",
     "wordCount": 417,
     "isMockArticle": false,
@@ -66,7 +66,11 @@
     "updatedBy": "Review Console User",
     "approvedAt": "2025-09-23T14:43:17.110Z",
     "approvedBy": "Gabriel",
-    "reviewNotes": "NA"
+    "reviewNotes": "NA",
+    "publishedAt": "2025-09-23T15:24:32.136Z",
+    "publishedUrl": "https://smartfinancehub.com/articles/2025/09/financialliteracyfundamentalsmasteryourmoneybasics.html",
+    "slug": "financialliteracyfundamentalsmasteryourmoneybasics",
+    "filePath": "articles/2025/09/financialliteracyfundamentalsmasteryourmoneybasics.html"
   },
   "savedAt": "2025-09-19T17:20:39.221Z",
   "version": "1.0"
