@@ -59,10 +59,14 @@
     },
     "createdAt": "2025-09-19T16:31:18.050Z",
     "generatedAt": "2025-09-19T16:31:18.050Z",
-    "status": "needs_review",
+    "status": "rejected",
     "readingTime": "3 min read",
     "wordCount": 453,
-    "isMockArticle": false
+    "isMockArticle": false,
+    "rejectedAt": "2025-09-23T22:59:13.724Z",
+    "rejectedBy": "Gabriel",
+    "rejectionReason": "Repeat",
+    "reviewNotes": ""
   },
   "savedAt": "2025-09-19T16:31:18.057Z",
   "version": "1.0"

@@ -60,10 +60,14 @@
     },
     "createdAt": "2025-09-19T16:06:43.147Z",
     "generatedAt": "2025-09-19T16:06:43.147Z",
-    "status": "needs_review",
+    "status": "rejected",
     "readingTime": "0 min read",
     "wordCount": 0,
-    "isMockArticle": false
+    "isMockArticle": false,
+    "rejectedAt": "2025-09-23T23:04:46.269Z",
+    "rejectedBy": "Gab",
+    "rejectionReason": "low Score",
+    "reviewNotes": "na"
   },
   "savedAt": "2025-09-19T16:06:43.148Z",
   "version": "1.0"

@@ -1,0 +1,87 @@
+{
+  "title": "Understanding Investment Account Types: A Comprehensive Guide for 2025",
+  "metaDescription": "Get the latest insights on brokerage accounts, retirement accounts, and how much you should save for your retirement in 2025. Make informed investment decisions today.",
+  "content": "",
+  "cta": "Affiliate Disclosure: This article may contain links to products from our partners. We may receive a commission if you sign up or make a purchase through our links. However, our recommendations are always independent and objective.",
+  "topic": "topic_030",
+  "category": "investing",
+  "metadata": {
+    "id": "article_1758701490228_1",
+    "topic": {
+      "id": "topic_030",
+      "title": "Investment account types",
+      "keywords": [
+        "brokerage accounts",
+        "taxable accounts",
+        "retirement accounts",
+        "investment platforms",
+        "robo-advisors"
+      ],
+      "priority": "medium",
+      "category": "investing",
+      "contentType": {
+        "name": "Market News & Updates",
+        "percentage": 30,
+        "description": "Timely financial news analysis with practical consumer impact",
+        "examples": [
+          "Fed Rate Decision: Impact on Your Savings and Mortgage",
+          "Stock Market Volatility: Should You Buy the Dip?",
+          "Breaking: New IRS Rules Change Tax Deduction Limits",
+          "Crypto Crash Analysis: What Investors Need to Know"
+        ],
+        "preferredCategories": [
+          "investing",
+          "banking",
+          "taxes",
+          "economics"
+        ],
+        "angle": "timely_analysis"
+      }
+    },
+    "targetKeywords": {
+      "primary": [
+        "brokerage accounts",
+        "taxable accounts",
+        "retirement accounts"
+      ],
+      "longTail": [
+        "how much should I save for retirement"
+      ],
+      "target": "brokerage accounts"
+    },
+    "qualityScore": {
+      "overall": 19,
+      "breakdown": {
+        "readability": 0,
+        "seo": 50,
+        "keywordDensity": 0,
+        "structure": 25,
+        "length": 25,
+        "originality": 80
+      },
+      "weights": {
+        "readability": 0.2,
+        "seo": 0.25,
+        "keywordDensity": 0.2,
+        "structure": 0.15,
+        "length": 0.1,
+        "originality": 0.1
+      },
+      "recommendations": [
+        "Improve readability by using shorter sentences and simpler words",
+        "Optimize SEO by improving title length, meta description, and heading structure",
+        "Better integrate target keywords naturally throughout the content",
+        "Improve content structure with clear introduction, sections, and conclusion",
+        "Increase content length to meet minimum word count requirements"
+      ]
+    },
+    "createdAt": "2025-09-24T08:11:30.228Z",
+    "generatedAt": "2025-09-24T08:11:30.228Z",
+    "status": "needs_review",
+    "readingTime": "0 min read",
+    "wordCount": 0,
+    "isMockArticle": false
+  },
+  "savedAt": "2025-09-24T08:11:30.228Z",
+  "version": "1.0"
+}

@@ -59,10 +59,13 @@
     },
     "createdAt": "2025-09-19T17:07:41.690Z",
     "generatedAt": "2025-09-19T17:07:41.690Z",
-    "status": "needs_review",
+    "status": "approved",
     "readingTime": "3 min read",
     "wordCount": 473,
-    "isMockArticle": false
+    "isMockArticle": false,
+    "approvedAt": "2025-09-23T22:58:26.141Z",
+    "approvedBy": "Gbariel",
+    "reviewNotes": "NA"
   },
   "savedAt": "2025-09-19T17:07:41.696Z",
   "version": "1.0"

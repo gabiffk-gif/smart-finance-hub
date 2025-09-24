@@ -148,7 +148,7 @@ class Publisher {
         <div class="container">
             <nav class="main-nav">
                 <a href="/" class="logo">
-                    <img src="/assets/logo/SFH_VIP_Logo.png" alt="Smart Finance Hub" style="height: 40px; width: auto;">
+                    <img src="/assets/logo/SFH_VIP_Logo.png" alt="Smart Finance Hub" style="height: 60px; width: auto; max-width: 200px;">
                 </a>
                 <ul class="nav-links">
                     <li><a href="/">Home</a></li>
