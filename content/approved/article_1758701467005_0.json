@@ -74,10 +74,13 @@
     },
     "createdAt": "2025-09-24T08:11:07.005Z",
     "generatedAt": "2025-09-24T08:11:07.006Z",
-    "status": "needs_review",
+    "status": "approved",
     "readingTime": "3 min read",
     "wordCount": 414,
-    "isMockArticle": false
+    "isMockArticle": false,
+    "approvedAt": "2025-09-24T10:05:18.898Z",
+    "approvedBy": "Gabriel",
+    "reviewNotes": "SEO low"
   },
   "savedAt": "2025-09-24T08:11:07.013Z",
   "version": "1.0"

@@ -3,6 +3,7 @@ const cron = require('node-cron');
 const fs = require('fs').promises;
 const path = require('path');
 const ContentGenerator = require('../content-generator/generator');
+const { generateArticleHTML } = require('../templates/article-template');
 require('dotenv').config();
 
 class Publisher {
@@ -39,8 +40,8 @@ class Publisher {
             // Create file path
             const filePath = `articles/${year}/${month}/${slug}.html`;
             
-            // Generate complete HTML
-            const htmlContent = this.generateArticleHTML(article, slug);
+            // Generate complete HTML using universal template
+            const htmlContent = generateArticleHTML(article);
             
             // Commit article to GitHub
             await this.commitToGitHub(filePath, htmlContent, `Add article: ${article.title}`);
@@ -83,9 +84,10 @@ class Publisher {
     }
 
     /**
+     * DEPRECATED: Use universal template instead
      * Generate complete HTML page from article JSON
      */
-    generateArticleHTML(article, slug) {
+    generateArticleHTML_DEPRECATED(article, slug) {
         const publishDate = new Date();
         const readingTime = article.metadata?.readingTime || '5 min read';
         const wordCount = article.metadata?.wordCount || article.content.split(/\\s+/).length;
