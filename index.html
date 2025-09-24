@@ -14,9 +14,22 @@
     <meta property="og:image" content="https://smartfinancehub.vip/assets/logo/SFH_VIP_Logo.png">
 
     <link rel="canonical" href="https://smartfinancehub.vip">
-    <link rel="stylesheet" href="/assets/css/style.css">
     <style>
-    /* Dynamic Homepage Styles */
+    /* Reset and Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: #f8f9fa;
+    }
+
+    /* Header Styles */
     .site-header {
         background: #ffffff;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -60,6 +73,7 @@
         color: #f59e0b;
     }
 
+    /* Hero Section */
     .hero-section {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
@@ -79,6 +93,12 @@
         opacity: 0.9;
     }
 
+    .last-updated {
+        font-size: 1rem;
+        opacity: 0.8;
+    }
+
+    /* Articles Section */
     .articles-section {
         padding: 3rem 0;
         background: #f8fafc;
@@ -99,8 +119,17 @@
         font-size: 2.5rem;
         color: #2d3748;
         margin-bottom: 1rem;
+        font-weight: 700;
     }
 
+    .section-header p {
+        font-size: 1.1rem;
+        color: #6b7280;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* Category Filters */
     .category-filters {
         display: flex;
         justify-content: center;
@@ -118,6 +147,7 @@
         cursor: pointer;
         transition: all 0.2s;
         font-weight: 500;
+        font-size: 0.95rem;
     }
 
     .category-filter:hover,
@@ -127,6 +157,7 @@
         border-color: #f59e0b;
     }
 
+    /* Articles Grid */
     .articles-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -138,7 +169,10 @@
         border-radius: 12px;
         overflow: hidden;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s, box-shadow 0.2s;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
     }
 
     .article-card:hover {
@@ -154,6 +188,9 @@
 
     .article-content {
         padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
     }
 
     .article-badge {
@@ -165,12 +202,15 @@
         font-weight: 600;
         display: inline-block;
         margin-bottom: 1rem;
+        width: fit-content;
+        text-transform: uppercase;
     }
 
     .article-content h3 {
         margin-bottom: 0.75rem;
         font-size: 1.25rem;
         line-height: 1.4;
+        font-weight: 700;
     }
 
     .article-content h3 a {
@@ -198,6 +238,7 @@
         color: #4a5568;
         line-height: 1.6;
         margin-bottom: 1.5rem;
+        flex-grow: 1;
     }
 
     .read-more-btn {
@@ -208,13 +249,17 @@
         text-decoration: none;
         font-weight: 500;
         display: inline-block;
-        transition: background 0.2s;
+        transition: all 0.2s;
+        text-align: center;
+        width: fit-content;
     }
 
     .read-more-btn:hover {
         background: #d97706;
+        transform: translateY(-1px);
     }
 
+    /* Footer */
     .footer {
         background: #2d3748;
         color: white;
@@ -223,6 +268,20 @@
         margin-top: 4rem;
     }
 
+    .footer p {
+        color: #cbd5e0;
+    }
+
+    .footer a {
+        color: #f59e0b;
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        color: #fbbf24;
+    }
+
+    /* Responsive Design */
     @media (max-width: 768px) {
         .hero-content h1 {
             font-size: 2rem;
@@ -234,6 +293,14 @@
 
         .nav-links {
             display: none;
+        }
+
+        .category-filters {
+            padding: 0 1rem;
+        }
+
+        .container {
+            padding: 0 1rem;
         }
     }
     </style>
@@ -275,103 +342,47 @@
 
                 <div class="category-filters">
                     <button class="category-filter active" data-category="all">All Articles</button>
-                    <button class="category-filter" data-category="taxes">taxes</button><button class="category-filter" data-category="education">education</button><button class="category-filter" data-category="wealth">wealth</button><button class="category-filter" data-category="insurance">insurance</button>
+                    <button class="category-filter" data-category="taxes">taxes</button><button class="category-filter" data-category="insurance">insurance</button><button class="category-filter" data-category="education">education</button><button class="category-filter" data-category="wealth">wealth</button>
                 </div>
 
                 <div class="articles-grid" id="articlesGrid">
                     
         <article class="article-card" data-category="taxes">
-            <img src="https://picsum.photos/400/250?random=100"
+            <img src="https://picsum.photos/400/250?random=716"
                  alt="The Complete Guide to Tax optimization strategies: Expert Strategies for 2025"
                  class="article-image"
                  loading="lazy">
             <div class="article-content">
-                <div class="article-badge">Guide</div>
+                <div class="article-badge">taxes</div>
                 <h3><a href="/articles/2025/09/the-complete-guide-to-tax-optimization-strategies-expert-strategies-for-2025.html">The Complete Guide to Tax optimization strategies: Expert Strategies for 2025</a></h3>
                 <p class="article-meta">
                     <span class="category">taxes</span> •
                     <span class="date">9/23/2025</span> •
                     <span class="reading-time">8-10 min read</span>
                 </p>
-                <p class="article-excerpt">Discover proven tax optimization strategies and tax deductions tips from financial experts. Learn actionable steps to improve your financial future.</p>
+                <p class="article-excerpt">Discover proven tax optimization strategies and tax deductions tips from financial experts. Learn actionable steps to improve your financial future....</p>
                 <a href="/articles/2025/09/the-complete-guide-to-tax-optimization-strategies-expert-strategies-for-2025.html" class="read-more-btn">Read Full Article →</a>
             </div>
         </article>
-    
-        <article class="article-card" data-category="education">
-            <img src="https://picsum.photos/400/250?random=101"
-                 alt="The Complete Guide to College savings plans: Expert Strategies for 2025"
+        <article class="article-card" data-category="insurance">
+            <img src="https://picsum.photos/400/250?random=442"
+                 alt="Your Ultimate Life insurance options Guide: life insurance Strategies That Work"
                  class="article-image"
                  loading="lazy">
             <div class="article-content">
-                <div class="article-badge">Guide</div>
-                <h3><a href="/articles/2025/09/the-complete-guide-to-college-savings-plans-expert-strategies-for-2025.html">The Complete Guide to College savings plans: Expert Strategies for 2025</a></h3>
+                <div class="article-badge">insurance</div>
+                <h3><a href="/articles/2025/09/your-ultimate-life-insurance-options-guide-life-insurance-strategies-that-work.html">Your Ultimate Life insurance options Guide: life insurance Strategies That Work</a></h3>
                 <p class="article-meta">
-                    <span class="category">education</span> •
-                    <span class="date">9/23/2025</span> •
-                    <span class="reading-time">8-10 min read</span>
-                </p>
-                <p class="article-excerpt">Discover proven 529 plans strategies and college savings tips from financial experts. Learn actionable steps to improve your financial future.</p>
-                <a href="/articles/2025/09/the-complete-guide-to-college-savings-plans-expert-strategies-for-2025.html" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-    
-        <article class="article-card" data-category="wealth">
-            <img src="https://picsum.photos/400/250?random=102"
-                 alt="Comprehensive Guide to Wealth Building Strategies for 2025"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">Guide</div>
-                <h3><a href="/articles/2025/09/comprehensive-guide-to-wealth-building-strategies-for-2025.html">Comprehensive Guide to Wealth Building Strategies for 2025</a></h3>
-                <p class="article-meta">
-                    <span class="category">wealth</span> •
-                    <span class="date">9/23/2025</span> •
-                    <span class="reading-time">2 min read</span>
-                </p>
-                <p class="article-excerpt">Discover practical, actionable wealth building strategies to increase your net worth. Develop a millionaire mindset with the current trends and expert tips.</p>
-                <a href="/articles/2025/09/comprehensive-guide-to-wealth-building-strategies-for-2025.html" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-    
-        <article class="article-card" data-category="education">
-            <img src="https://picsum.photos/400/250?random=103"
-                 alt="Financial Literacy Fundamentals: Master Your Money Basics"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">Guide</div>
-                <h3><a href="/articles/2025/09/financial-literacy-fundamentals-master-your-money-basics.html">Financial Literacy Fundamentals: Master Your Money Basics</a></h3>
-                <p class="article-meta">
-                    <span class="category">education</span> •
-                    <span class="date">9/23/2025</span> •
+                    <span class="category">insurance</span> •
+                    <span class="date">9/22/2025</span> •
                     <span class="reading-time">3 min read</span>
                 </p>
-                <p class="article-excerpt">Learn about financial literacy basics, from personal finance 101 to investment strategies. Equip yourself with the knowledge to manage and grow your wealth effectively.</p>
-                <a href="/articles/2025/09/financial-literacy-fundamentals-master-your-money-basics.html" class="read-more-btn">Read Full Article →</a>
+                <p class="article-excerpt">Discover proven life insurance strategies and expert term life insights. Complete guide to Life insurance options with actionable tips for 2025....</p>
+                <a href="/articles/2025/09/your-ultimate-life-insurance-options-guide-life-insurance-strategies-that-work.html" class="read-more-btn">Read Full Article →</a>
             </div>
         </article>
-    
         <article class="article-card" data-category="education">
-            <img src="https://picsum.photos/400/250?random=104"
-                 alt="The Complete Guide to Financial literacy fundamentals: Expert Strategies for 2025"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">Guide</div>
-                <h3><a href="/articles/2025/09/the-complete-guide-to-financial-literacy-fundamentals-expert-strategies-for-2025.html">The Complete Guide to Financial literacy fundamentals: Expert Strategies for 2025</a></h3>
-                <p class="article-meta">
-                    <span class="category">education</span> •
-                    <span class="date">9/22/2025</span> •
-                    <span class="reading-time">8-10 min read</span>
-                </p>
-                <p class="article-excerpt">Discover proven financial literacy strategies and money basics tips from financial experts. Learn actionable steps to improve your financial future.</p>
-                <a href="/articles/2025/09/the-complete-guide-to-financial-literacy-fundamentals-expert-strategies-for-2025.html" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-    
-        <article class="article-card" data-category="education">
-            <img src="https://picsum.photos/400/250?random=105"
+            <img src="https://picsum.photos/400/250?random=1007"
                  alt="Understanding Financial Literacy Fundamentals: A Comprehensive Guide
 
 META_DESCRIPTION: Learn about financial literacy basics and get actionable advice on personal finance 101, investment strategies, and effective side hustles that make money fast.
@@ -421,7 +432,7 @@ Affiliate disclosure: This article may contain affiliate links. If you use these
                  class="article-image"
                  loading="lazy">
             <div class="article-content">
-                <div class="article-badge">Guide</div>
+                <div class="article-badge">education</div>
                 <h3><a href="/articles/2025/09/understanding-financial-literacy-fundamentals-a-comprehensive-guide-metadescription-learn-about-financial-literacy-basics-and-get-actionable-advice-on-personal-finance-101-investment-strategies-and-effective-side-hustles-that-make-money-fast-content-h1introduction-the-importance-of-financial-literacyh1-in-an-increasingly-complex-financial-landscape-understanding-the-basics-of-personal-finance-or-financial-literacy-is-more-important-than-ever-from-managing-debts-to-investing-wisely-financial-literacy-equips-you-with-the-knowledge-and-skills-you-need-to-make-informed-decisions-and-achieve-your-financial-goals-h1current-landscape-and-trends-in-2025h1-in-2025-financial-literacy-is-not-just-about-saving-and-budgeting-it-also-includes-understanding-financial-products-digital-currencies-and-online-investment-platforms-a-report-from-the-financial-industry-regulatory-authority-finra-shows-that-only-34-of-americans-could-answer-at-least-four-out-of-five-basic-financial-literacy-questions-correctly-h1key-strategies-to-improve-financial-literacyh1-h2education-is-keyh2-invest-in-knowledge-read-books-subscribe-to-financial-newsletters-and-use-online-resources-to-understand-money-basics-and-personal-finance-101-h2start-investing-earlyh2-even-if-you-have-little-money-you-can-start-investing-consider-micro-investing-platforms-or-robo-advisors-that-allow-you-to-invest-with-as-little-as-5-h1common-financial-literacy-mistakes-to-avoidh1-h2ignoring-the-power-of-compound-interesth2-if-you-start-saving-200-a-month-at-age-25-by-the-time-youre-65-youll-have-saved-480000-assuming-a-7-return-rate-h2not-having-a-budgeth2-a-budget-is-a-blueprint-for-your-financial-health-it-helps-you-keep-track-of-your-income-and-expenses-and-allows-you-to-plan-for-the-future-h1implementation-steps-to-improve-financial-literacyh1-h2set-financial-goalsh2-whether-its-saving-for-retirement-or-paying-off-student-loans-setting-clear-financial-goals-can-motivate-you-to-stay-on-track-h2consider-side-hustlesh2-side-hustles-that-make-money-fast-can-supplement-your-income-and-expedite-your-journey-to-financial-freedom-h1expert-tips-and-advanced-considerationsh1-h2embrace-technologyh2-use-financial-apps-and-tools-to-track-your-spending-manage-your-investments-and-improve-your-overall-financial-health-h2understand-tax-implicationsh2-understanding-how-taxes-work-can-help-you-save-money-and-avoid-potential-legal-issues-h1conclusion-key-takeawaysh1-financial-literacy-is-an-essential-skill-in-todays-world-it-empowers-you-to-make-informed-decisions-achieve-your-financial-goals-and-live-a-financially-secure-life-cta-for-more-insights-on-financial-literacy-personal-finance-and-investment-strategies-sign-up-for-our-newsletter-get-actionable-advice-delivered-straight-to-your-inbox-and-take-control-of-your-financial-future-affiliate-disclosure-this-article-may-contain-affiliate-links-if-you-use-these-links-to-buy-something-we-may-earn-a-commission-at-no-additional-cost-to-you.html">Understanding Financial Literacy Fundamentals: A Comprehensive Guide
 
 META_DESCRIPTION: Learn about financial literacy basics and get actionable advice on personal finance 101, investment strategies, and effective side hustles that make money fast.
@@ -473,29 +484,78 @@ Affiliate disclosure: This article may contain affiliate links. If you use these
                     <span class="date">9/22/2025</span> •
                     <span class="reading-time">0 min read</span>
                 </p>
-                <p class="article-excerpt">Learn about Financial literacy fundamentals with expert advice from Smart Finance Hub.</p>
+                <p class="article-excerpt">Learn about Financial literacy fundamentals with expert advice from Smart Finance Hub....</p>
                 <a href="/articles/2025/09/understanding-financial-literacy-fundamentals-a-comprehensive-guide-metadescription-learn-about-financial-literacy-basics-and-get-actionable-advice-on-personal-finance-101-investment-strategies-and-effective-side-hustles-that-make-money-fast-content-h1introduction-the-importance-of-financial-literacyh1-in-an-increasingly-complex-financial-landscape-understanding-the-basics-of-personal-finance-or-financial-literacy-is-more-important-than-ever-from-managing-debts-to-investing-wisely-financial-literacy-equips-you-with-the-knowledge-and-skills-you-need-to-make-informed-decisions-and-achieve-your-financial-goals-h1current-landscape-and-trends-in-2025h1-in-2025-financial-literacy-is-not-just-about-saving-and-budgeting-it-also-includes-understanding-financial-products-digital-currencies-and-online-investment-platforms-a-report-from-the-financial-industry-regulatory-authority-finra-shows-that-only-34-of-americans-could-answer-at-least-four-out-of-five-basic-financial-literacy-questions-correctly-h1key-strategies-to-improve-financial-literacyh1-h2education-is-keyh2-invest-in-knowledge-read-books-subscribe-to-financial-newsletters-and-use-online-resources-to-understand-money-basics-and-personal-finance-101-h2start-investing-earlyh2-even-if-you-have-little-money-you-can-start-investing-consider-micro-investing-platforms-or-robo-advisors-that-allow-you-to-invest-with-as-little-as-5-h1common-financial-literacy-mistakes-to-avoidh1-h2ignoring-the-power-of-compound-interesth2-if-you-start-saving-200-a-month-at-age-25-by-the-time-youre-65-youll-have-saved-480000-assuming-a-7-return-rate-h2not-having-a-budgeth2-a-budget-is-a-blueprint-for-your-financial-health-it-helps-you-keep-track-of-your-income-and-expenses-and-allows-you-to-plan-for-the-future-h1implementation-steps-to-improve-financial-literacyh1-h2set-financial-goalsh2-whether-its-saving-for-retirement-or-paying-off-student-loans-setting-clear-financial-goals-can-motivate-you-to-stay-on-track-h2consider-side-hustlesh2-side-hustles-that-make-money-fast-can-supplement-your-income-and-expedite-your-journey-to-financial-freedom-h1expert-tips-and-advanced-considerationsh1-h2embrace-technologyh2-use-financial-apps-and-tools-to-track-your-spending-manage-your-investments-and-improve-your-overall-financial-health-h2understand-tax-implicationsh2-understanding-how-taxes-work-can-help-you-save-money-and-avoid-potential-legal-issues-h1conclusion-key-takeawaysh1-financial-literacy-is-an-essential-skill-in-todays-world-it-empowers-you-to-make-informed-decisions-achieve-your-financial-goals-and-live-a-financially-secure-life-cta-for-more-insights-on-financial-literacy-personal-finance-and-investment-strategies-sign-up-for-our-newsletter-get-actionable-advice-delivered-straight-to-your-inbox-and-take-control-of-your-financial-future-affiliate-disclosure-this-article-may-contain-affiliate-links-if-you-use-these-links-to-buy-something-we-may-earn-a-commission-at-no-additional-cost-to-you.html" class="read-more-btn">Read Full Article →</a>
             </div>
         </article>
-    
-        <article class="article-card" data-category="insurance">
-            <img src="https://picsum.photos/400/250?random=106"
-                 alt="Your Ultimate Life insurance options Guide: life insurance Strategies That Work"
+        <article class="article-card" data-category="education">
+            <img src="https://picsum.photos/400/250?random=688"
+                 alt="The Complete Guide to Financial literacy fundamentals: Expert Strategies for 2025"
                  class="article-image"
                  loading="lazy">
             <div class="article-content">
-                <div class="article-badge">Guide</div>
-                <h3><a href="/articles/2025/09/your-ultimate-life-insurance-options-guide-life-insurance-strategies-that-work.html">Your Ultimate Life insurance options Guide: life insurance Strategies That Work</a></h3>
+                <div class="article-badge">education</div>
+                <h3><a href="/articles/2025/09/the-complete-guide-to-financial-literacy-fundamentals-expert-strategies-for-2025.html">The Complete Guide to Financial literacy fundamentals: Expert Strategies for 2025</a></h3>
                 <p class="article-meta">
-                    <span class="category">insurance</span> •
+                    <span class="category">education</span> •
                     <span class="date">9/22/2025</span> •
-                    <span class="reading-time">3 min read</span>
+                    <span class="reading-time">8-10 min read</span>
                 </p>
-                <p class="article-excerpt">Discover proven life insurance strategies and expert term life insights. Complete guide to Life insurance options with actionable tips for 2025.</p>
-                <a href="/articles/2025/09/your-ultimate-life-insurance-options-guide-life-insurance-strategies-that-work.html" class="read-more-btn">Read Full Article →</a>
+                <p class="article-excerpt">Discover proven financial literacy strategies and money basics tips from financial experts. Learn actionable steps to improve your financial future....</p>
+                <a href="/articles/2025/09/the-complete-guide-to-financial-literacy-fundamentals-expert-strategies-for-2025.html" class="read-more-btn">Read Full Article →</a>
             </div>
         </article>
-    
+        <article class="article-card" data-category="education">
+            <img src="https://picsum.photos/400/250?random=1091"
+                 alt="Financial Literacy Fundamentals: Master Your Money Basics"
+                 class="article-image"
+                 loading="lazy">
+            <div class="article-content">
+                <div class="article-badge">education</div>
+                <h3><a href="/articles/2025/09/financial-literacy-fundamentals-master-your-money-basics.html">Financial Literacy Fundamentals: Master Your Money Basics</a></h3>
+                <p class="article-meta">
+                    <span class="category">education</span> •
+                    <span class="date">9/23/2025</span> •
+                    <span class="reading-time">3 min read</span>
+                </p>
+                <p class="article-excerpt">Learn about financial literacy basics, from personal finance 101 to investment strategies. Equip yourself with the knowledge to manage and grow your w...</p>
+                <a href="/articles/2025/09/financial-literacy-fundamentals-master-your-money-basics.html" class="read-more-btn">Read Full Article →</a>
+            </div>
+        </article>
+        <article class="article-card" data-category="wealth">
+            <img src="https://picsum.photos/400/250?random=747"
+                 alt="Comprehensive Guide to Wealth Building Strategies for 2025"
+                 class="article-image"
+                 loading="lazy">
+            <div class="article-content">
+                <div class="article-badge">wealth</div>
+                <h3><a href="/articles/2025/09/comprehensive-guide-to-wealth-building-strategies-for-2025.html">Comprehensive Guide to Wealth Building Strategies for 2025</a></h3>
+                <p class="article-meta">
+                    <span class="category">wealth</span> •
+                    <span class="date">9/23/2025</span> •
+                    <span class="reading-time">2 min read</span>
+                </p>
+                <p class="article-excerpt">Discover practical, actionable wealth building strategies to increase your net worth. Develop a millionaire mindset with the current trends and expert...</p>
+                <a href="/articles/2025/09/comprehensive-guide-to-wealth-building-strategies-for-2025.html" class="read-more-btn">Read Full Article →</a>
+            </div>
+        </article>
+        <article class="article-card" data-category="education">
+            <img src="https://picsum.photos/400/250?random=847"
+                 alt="The Complete Guide to College savings plans: Expert Strategies for 2025"
+                 class="article-image"
+                 loading="lazy">
+            <div class="article-content">
+                <div class="article-badge">education</div>
+                <h3><a href="/articles/2025/09/the-complete-guide-to-college-savings-plans-expert-strategies-for-2025.html">The Complete Guide to College savings plans: Expert Strategies for 2025</a></h3>
+                <p class="article-meta">
+                    <span class="category">education</span> •
+                    <span class="date">9/23/2025</span> •
+                    <span class="reading-time">8-10 min read</span>
+                </p>
+                <p class="article-excerpt">Discover proven 529 plans strategies and college savings tips from financial experts. Learn actionable steps to improve your financial future....</p>
+                <a href="/articles/2025/09/the-complete-guide-to-college-savings-plans-expert-strategies-for-2025.html" class="read-more-btn">Read Full Article →</a>
+            </div>
+        </article>
                 </div>
             </div>
         </section>
@@ -504,8 +564,8 @@ Affiliate disclosure: This article may contain affiliate links. If you use these
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Smart Finance Hub. All rights reserved. |
-               <a href="/privacy-policy.html" style="color: #f59e0b;">Privacy Policy</a> |
-               <a href="/terms.html" style="color: #f59e0b;">Terms of Service</a>
+               <a href="/privacy-policy.html">Privacy Policy</a> |
+               <a href="/terms.html">Terms of Service</a>
             </p>
         </div>
     </footer>
