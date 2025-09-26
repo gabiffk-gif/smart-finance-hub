@@ -3,734 +3,421 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Finance Hub - AI-Driven Financial Insights & Expert Strategies</title>
-    <meta name="description" content="Get expert financial advice, investment strategies, and money management tips powered by AI. Build wealth and achieve financial freedom with Smart Finance Hub.">
-
-    <!-- SEO Meta Tags -->
-    <meta property="og:title" content="Smart Finance Hub - AI-Driven Financial Insights">
-    <meta property="og:description" content="Expert financial advice, investment strategies, and money management tips to help you build wealth and achieve financial freedom.">
-    <meta property="og:url" content="https://smartfinancehub.vip">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://smartfinancehub.vip/assets/logo/SFH_VIP_Logo.png">
-
-    <link rel="canonical" href="https://smartfinancehub.vip">
+    <title>Smart Finance Hub - AI-Driven Financial Insights</title>
+    <meta name="description" content="Expert financial advice, investment strategies, and money management tips.">
     <style>
-    /* Reset and Base Styles */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+        /* RESET - Force uniform baseline */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-        line-height: 1.6;
-        color: #333;
-        background: #f8f9fa;
-    }
-
-    /* Header Styles */
-    .site-header {
-        background: #ffffff;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        padding: 1rem 0;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-    }
-
-    .site-header .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .logo img {
-        height: 60px !important;
-        width: auto;
-        max-width: 200px;
-    }
-
-    .nav-links {
-        display: flex;
-        list-style: none;
-        gap: 2rem;
-        margin: 0;
-        padding: 0;
-    }
-
-    .nav-links a {
-        color: #2d3748;
-        text-decoration: none;
-        font-weight: 500;
-        transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-        color: #f59e0b;
-    }
-
-    /* Hero Section */
-    .hero-section {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 4rem 0;
-        text-align: center;
-    }
-
-    .hero-content h1 {
-        font-size: 3rem;
-        margin-bottom: 1rem;
-        font-weight: 700;
-    }
-
-    .hero-content p {
-        font-size: 1.25rem;
-        margin-bottom: 2rem;
-        opacity: 0.9;
-    }
-
-    .last-updated {
-        font-size: 1rem;
-        opacity: 0.8;
-    }
-
-    /* Articles Section */
-    .articles-section {
-        padding: 3rem 0;
-        background: #f8fafc;
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-    }
-
-    .section-header {
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-
-    .section-header h2 {
-        font-size: 2.5rem;
-        color: #2d3748;
-        margin-bottom: 1rem;
-        font-weight: 700;
-    }
-
-    .section-header p {
-        font-size: 1.1rem;
-        color: #6b7280;
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-    /* Category Filters */
-    .category-filters {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-bottom: 3rem;
-        flex-wrap: wrap;
-    }
-
-    .category-filter {
-        background: white;
-        border: 2px solid #e2e8f0;
-        color: #4a5568;
-        padding: 0.5rem 1.5rem;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: all 0.2s;
-        font-weight: 500;
-        font-size: 0.95rem;
-    }
-
-    .category-filter:hover,
-    .category-filter.active {
-        background: #f59e0b;
-        color: white;
-        border-color: #f59e0b;
-    }
-
-    /* Articles Grid */
-    .articles-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 2rem;
-    }
-
-    .article-card {
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
-
-    .article-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    .article-image {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
-
-    .article-content {
-        padding: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-    }
-
-    .article-badge {
-        background: #f59e0b;
-        color: white;
-        padding: 0.25rem 0.75rem;
-        border-radius: 15px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        display: inline-block;
-        margin-bottom: 1rem;
-        width: fit-content;
-        text-transform: uppercase;
-    }
-
-    .article-content h3 {
-        margin-bottom: 0.75rem;
-        font-size: 1.25rem;
-        line-height: 1.4;
-        font-weight: 700;
-    }
-
-    .article-content h3 a {
-        color: #2d3748;
-        text-decoration: none;
-        transition: color 0.2s;
-    }
-
-    .article-content h3 a:hover {
-        color: #f59e0b;
-    }
-
-    .article-meta {
-        color: #718096;
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
-    }
-
-    .article-meta .category {
-        color: #f59e0b;
-        font-weight: 500;
-    }
-
-    .article-excerpt {
-        color: #4a5568;
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-        flex-grow: 1;
-    }
-
-    .read-more-btn {
-        background: #f59e0b;
-        color: white;
-        padding: 0.75rem 1.5rem;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 500;
-        display: inline-block;
-        transition: all 0.2s;
-        text-align: center;
-        width: fit-content;
-    }
-
-    .read-more-btn:hover {
-        background: #d97706;
-        transform: translateY(-1px);
-    }
-
-    /* Footer */
-    .footer {
-        background: #2d3748;
-        color: white;
-        padding: 2rem 0;
-        text-align: center;
-        margin-top: 4rem;
-    }
-
-    .footer p {
-        color: #cbd5e0;
-    }
-
-    .footer a {
-        color: #f59e0b;
-        text-decoration: none;
-    }
-
-    .footer a:hover {
-        color: #fbbf24;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .hero-content h1 {
-            font-size: 2rem;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
         }
 
-        .articles-grid {
-            grid-template-columns: 1fr;
+        /* HEADER */
+        .site-header {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
+
+        .main-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img { height: 60px; width: auto; }
 
         .nav-links {
-            display: none;
+            display: flex;
+            list-style: none;
+            gap: 2rem;
         }
 
-        .category-filters {
-            padding: 0 1rem;
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
         }
 
-        .container {
-            padding: 0 1rem;
+        /* HERO SECTION */
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
         }
-    }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* ARTICLES SECTION */
+        .articles-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        /* FORCE UNIFORM GRID - NO EXCEPTIONS */
+        .uniform-articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* UNIFORM ARTICLE CARDS - IDENTICAL STRUCTURE */
+        .uniform-article-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+
+            /* FORCE EXACT SAME HEIGHT */
+            height: 500px !important;
+            min-height: 500px !important;
+            max-height: 500px !important;
+        }
+
+        .uniform-article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* UNIFORM IMAGE CONTAINER */
+        .uniform-image-container {
+            width: 100%;
+            height: 240px !important;
+            min-height: 240px !important;
+            max-height: 240px !important;
+            overflow: hidden;
+        }
+
+        .uniform-article-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        /* UNIFORM CONTENT CONTAINER */
+        .uniform-card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+            height: 260px !important;
+            min-height: 260px !important;
+            max-height: 260px !important;
+        }
+
+        /* UNIFORM CATEGORY BADGE */
+        .uniform-category-badge {
+            background: #f7931e;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            align-self: flex-start;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        /* UNIFORM TITLE */
+        .uniform-article-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.8rem;
+
+            /* FORCE EXACT HEIGHT */
+            height: 65px !important;
+            min-height: 65px !important;
+            max-height: 65px !important;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .uniform-article-title a {
+            color: #2d3748;
+            text-decoration: none;
+        }
+
+        .uniform-article-title a:hover {
+            color: #f7931e;
+        }
+
+        /* UNIFORM META */
+        .uniform-article-meta {
+            color: #718096;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            height: 20px !important;
+            min-height: 20px !important;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* UNIFORM EXCERPT */
+        .uniform-article-excerpt {
+            color: #4a5568;
+            line-height: 1.5;
+            font-size: 0.9rem;
+
+            /* FORCE EXACT HEIGHT */
+            height: 80px !important;
+            min-height: 80px !important;
+            max-height: 80px !important;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            margin-bottom: 1rem;
+        }
+
+        /* UNIFORM BUTTON CONTAINER */
+        .uniform-button-container {
+            margin-top: auto;
+            height: 40px !important;
+            min-height: 40px !important;
+            display: flex;
+            align-items: center;
+        }
+
+        .uniform-read-more-btn {
+            background: #f7931e;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            transition: background-color 0.2s ease;
+        }
+
+        .uniform-read-more-btn:hover {
+            background: #e6851a;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            .uniform-articles-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .uniform-article-card {
+                height: 480px !important;
+            }
+
+            .uniform-card-content {
+                height: 240px !important;
+            }
+        }
+
+        /* OVERRIDE ANY OTHER STYLES */
+        .uniform-article-card * {
+            max-width: 100%;
+        }
     </style>
 </head>
 <body>
     <header class="site-header">
-        <div class="container">
+        <nav class="main-nav">
             <a href="/" class="logo">
                 <img src="/assets/logo/SFH_VIP_Logo.png" alt="Smart Finance Hub">
             </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/articles">All Articles</a></li>
-                    <li><a href="/categories">Categories</a></li>
-                    <li><a href="/about.html">About</a></li>
-                </ul>
-            </nav>
-        </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/articles">All Articles</a></li>
+                <li><a href="/categories">Categories</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-        <section class="hero-section">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Smart Finance Hub</h1>
-                    <p>AI-driven financial insights and expert strategies for modern investors</p>
-                    <p class="last-updated">Latest insights updated September 24, 2025</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="articles-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Latest Financial Insights</h2>
-                    <p>Discover expert strategies, market analysis, and practical tips to grow your wealth</p>
-                </div>
-
-                <div class="category-filters">
-                    <button class="category-filter active" data-category="all">All Articles</button>
-                    <button class="category-filter" data-category="education">education</button><button class="category-filter" data-category="taxes">taxes</button><button class="category-filter" data-category="wealth">wealth</button><button class="category-filter" data-category="insurance">insurance</button>
-                </div>
-
-                <div class="articles-grid" id="articlesGrid">
-                    
-        <article class="article-card" data-category="education">
-            <img src="https://picsum.photos/400/250?random=611"
-                 alt="Understanding Financial Literacy Fundamentals: A Comprehensive Guide"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">education</div>
-                <h3><a href="/articles/2025/09/understandingfinancialliteracyfundamentalsacomprehensiveguid">Understanding Financial Literacy Fundamentals: A Comprehensive Guide</a></h3>
-                <p class="article-meta">
-                    <span class="category">education</span> •
-                    <span class="date">Sep 24, 2025</span> •
-                    <span class="reading-time">6 min read</span>
-                </p>
-                <p class="article-excerpt">Learn about financial literacy basics and get actionable advice on personal finance 101, investment strategies, and effective side hustles that make money fast....</p>
-                <a href="/articles/2025/09/understandingfinancialliteracyfundamentalsacomprehensiveguid" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="taxes">
-            <img src="https://picsum.photos/400/250?random=337"
-                 alt="The Complete Guide to Tax optimization strategies: Expert Strategies for 2025"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">taxes</div>
-                <h3><a href="/articles/2025/09/thecompleteguidetotaxoptimizationstrategiesexpertstrategiesf">The Complete Guide to Tax optimization strategies: Expert Strategies for 2025</a></h3>
-                <p class="article-meta">
-                    <span class="category">taxes</span> •
-                    <span class="date">Sep 23, 2025</span> •
-                    <span class="reading-time">8-10 min read</span>
-                </p>
-                <p class="article-excerpt">Discover proven tax optimization strategies and tax deductions tips from financial experts. Learn actionable steps to improve your financial future....</p>
-                <a href="/articles/2025/09/thecompleteguidetotaxoptimizationstrategiesexpertstrategiesf" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="education">
-            <img src="https://picsum.photos/400/250?random=885"
-                 alt="Financial Literacy Fundamentals: Master Your Money Basics"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">education</div>
-                <h3><a href="/articles/2025/09/financialliteracyfundamentalsmasteryourmoneybasics">Financial Literacy Fundamentals: Master Your Money Basics</a></h3>
-                <p class="article-meta">
-                    <span class="category">education</span> •
-                    <span class="date">Sep 23, 2025</span> •
-                    <span class="reading-time">3 min read</span>
-                </p>
-                <p class="article-excerpt">Learn about financial literacy basics, from personal finance 101 to investment strategies. Equip yourself with the knowledge to manage and grow your wealth effectively....</p>
-                <a href="/articles/2025/09/financialliteracyfundamentalsmasteryourmoneybasics" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="wealth">
-            <img src="https://picsum.photos/400/250?random=1022"
-                 alt="Comprehensive Guide to Wealth Building Strategies for 2025"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">wealth</div>
-                <h3><a href="/articles/2025/09/comprehensiveguidetowealthbuildingstrategiesfor2025">Comprehensive Guide to Wealth Building Strategies for 2025</a></h3>
-                <p class="article-meta">
-                    <span class="category">wealth</span> •
-                    <span class="date">Sep 23, 2025</span> •
-                    <span class="reading-time">2 min read</span>
-                </p>
-                <p class="article-excerpt">Discover practical, actionable wealth building strategies to increase your net worth. Develop a millionaire mindset with the current trends and expert tips....</p>
-                <a href="/articles/2025/09/comprehensiveguidetowealthbuildingstrategiesfor2025" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="education">
-            <img src="https://picsum.photos/400/250?random=159"
-                 alt="The Complete Guide to College savings plans: Expert Strategies for 2025"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">education</div>
-                <h3><a href="/articles/2025/09/thecompleteguidetocollegesavingsplansexpertstrategiesfor2025">The Complete Guide to College savings plans: Expert Strategies for 2025</a></h3>
-                <p class="article-meta">
-                    <span class="category">education</span> •
-                    <span class="date">Sep 23, 2025</span> •
-                    <span class="reading-time">8-10 min read</span>
-                </p>
-                <p class="article-excerpt">Discover proven 529 plans strategies and college savings tips from financial experts. Learn actionable steps to improve your financial future....</p>
-                <a href="/articles/2025/09/thecompleteguidetocollegesavingsplansexpertstrategiesfor2025" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="insurance">
-            <img src="https://picsum.photos/400/250?random=474"
-                 alt="Your Ultimate Life insurance options Guide: life insurance Strategies That Work"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">insurance</div>
-                <h3><a href="/articles/2025/09/yourultimatelifeinsuranceoptionsguidelifeinsurancestrategies">Your Ultimate Life insurance options Guide: life insurance Strategies That Work</a></h3>
-                <p class="article-meta">
-                    <span class="category">insurance</span> •
-                    <span class="date">Sep 22, 2025</span> •
-                    <span class="reading-time">3 min read</span>
-                </p>
-                <p class="article-excerpt">Discover proven life insurance strategies and expert term life insights. Complete guide to Life insurance options with actionable tips for 2025....</p>
-                <a href="/articles/2025/09/yourultimatelifeinsuranceoptionsguidelifeinsurancestrategies" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="education">
-            <img src="https://picsum.photos/400/250?random=748"
-                 alt="The Complete Guide to Financial literacy fundamentals: Expert Strategies for 2025"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">education</div>
-                <h3><a href="/articles/2025/09/thecompleteguidetofinancialliteracyfundamentalsexpertstrateg">The Complete Guide to Financial literacy fundamentals: Expert Strategies for 2025</a></h3>
-                <p class="article-meta">
-                    <span class="category">education</span> •
-                    <span class="date">Sep 22, 2025</span> •
-                    <span class="reading-time">8-10 min read</span>
-                </p>
-                <p class="article-excerpt">Discover proven financial literacy strategies and money basics tips from financial experts. Learn actionable steps to improve your financial future....</p>
-                <a href="/articles/2025/09/thecompleteguidetofinancialliteracyfundamentalsexpertstrateg" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-                </div>
-                <h3><a href="/articles/2025/09/understandingfinancialliteracyfundamentalsacomprehensiveguid">Understanding Financial Literacy Fundamentals: A Comprehensive Guide</a></h3>
-                <p class="article-meta">
-                    <span class="category">education</span> •
-                    <span class="date">Sep 24, 2025</span> •
-                    <span class="reading-time">6 min read</span>
-                </p>
-                <p class="article-excerpt">Learn about financial literacy basics and get actionable advice on personal finance 101, investment strategies, and effective side hustles that make money fast....</p>
-                <a href="/articles/2025/09/understandingfinancialliteracyfundamentalsacomprehensiveguid" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="taxes">
-            <img src="https://picsum.photos/400/250?random=337"
-                 alt="The Complete Guide to Tax optimization strategies: Expert Strategies for 2025"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">taxes</div>
-                <h3><a href="/articles/2025/09/thecompleteguidetotaxoptimizationstrategiesexpertstrategiesf">The Complete Guide to Tax optimization strategies: Expert Strategies for 2025</a></h3>
-                <p class="article-meta">
-                    <span class="category">taxes</span> •
-                    <span class="date">Sep 23, 2025</span> •
-                    <span class="reading-time">8-10 min read</span>
-                </p>
-                <p class="article-excerpt">Discover proven tax optimization strategies and tax deductions tips from financial experts. Learn actionable steps to improve your financial future....</p>
-                <a href="/articles/2025/09/thecompleteguidetotaxoptimizationstrategiesexpertstrategiesf" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="education">
-            <img src="https://picsum.photos/400/250?random=885"
-                 alt="Financial Literacy Fundamentals: Master Your Money Basics"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">education</div>
-                <h3><a href="/articles/2025/09/financialliteracyfundamentalsmasteryourmoneybasics">Financial Literacy Fundamentals: Master Your Money Basics</a></h3>
-                <p class="article-meta">
-                    <span class="category">education</span> •
-                    <span class="date">Sep 23, 2025</span> •
-                    <span class="reading-time">3 min read</span>
-                </p>
-                <p class="article-excerpt">Learn about financial literacy basics, from personal finance 101 to investment strategies. Equip yourself with the knowledge to manage and grow your wealth effectively....</p>
-                <a href="/articles/2025/09/financialliteracyfundamentalsmasteryourmoneybasics" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="wealth">
-            <img src="https://picsum.photos/400/250?random=1022"
-                 alt="Comprehensive Guide to Wealth Building Strategies for 2025"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">wealth</div>
-                <h3><a href="/articles/2025/09/comprehensiveguidetowealthbuildingstrategiesfor2025">Comprehensive Guide to Wealth Building Strategies for 2025</a></h3>
-                <p class="article-meta">
-                    <span class="category">wealth</span> •
-                    <span class="date">Sep 23, 2025</span> •
-                    <span class="reading-time">2 min read</span>
-                </p>
-                <p class="article-excerpt">Discover practical, actionable wealth building strategies to increase your net worth. Develop a millionaire mindset with the current trends and expert tips....</p>
-                <a href="/articles/2025/09/comprehensiveguidetowealthbuildingstrategiesfor2025" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="education">
-            <img src="https://picsum.photos/400/250?random=159"
-                 alt="The Complete Guide to College savings plans: Expert Strategies for 2025"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">education</div>
-                <h3><a href="/articles/2025/09/thecompleteguidetocollegesavingsplansexpertstrategiesfor2025">The Complete Guide to College savings plans: Expert Strategies for 2025</a></h3>
-                <p class="article-meta">
-                    <span class="category">education</span> •
-                    <span class="date">Sep 23, 2025</span> •
-                    <span class="reading-time">8-10 min read</span>
-                </p>
-                <p class="article-excerpt">Discover proven 529 plans strategies and college savings tips from financial experts. Learn actionable steps to improve your financial future....</p>
-                <a href="/articles/2025/09/thecompleteguidetocollegesavingsplansexpertstrategiesfor2025" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="insurance">
-            <img src="https://picsum.photos/400/250?random=474"
-                 alt="Your Ultimate Life insurance options Guide: life insurance Strategies That Work"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">insurance</div>
-                <h3><a href="/articles/2025/09/yourultimatelifeinsuranceoptionsguidelifeinsurancestrategies">Your Ultimate Life insurance options Guide: life insurance Strategies That Work</a></h3>
-                <p class="article-meta">
-                    <span class="category">insurance</span> •
-                    <span class="date">Sep 22, 2025</span> •
-                    <span class="reading-time">3 min read</span>
-                </p>
-                <p class="article-excerpt">Discover proven life insurance strategies and expert term life insights. Complete guide to Life insurance options with actionable tips for 2025....</p>
-                <a href="/articles/2025/09/yourultimatelifeinsuranceoptionsguidelifeinsurancestrategies" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="education">
-            <img src="https://picsum.photos/400/250?random=748"
-                 alt="The Complete Guide to Financial literacy fundamentals: Expert Strategies for 2025"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">education</div>
-                <h3><a href="/articles/2025/09/thecompleteguidetofinancialliteracyfundamentalsexpertstrateg">The Complete Guide to Financial literacy fundamentals: Expert Strategies for 2025</a></h3>
-                <p class="article-meta">
-                    <span class="category">education</span> •
-                    <span class="date">Sep 22, 2025</span> •
-                    <span class="reading-time">8-10 min read</span>
-                </p>
-                <p class="article-excerpt">Discover proven financial literacy strategies and money basics tips from financial experts. Learn actionable steps to improve your financial future....</p>
-                <a href="/articles/2025/09/thecompleteguidetofinancialliteracyfundamentalsexpertstrateg" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-                </div>
-                <h3><a href="/articles/2025/09/the-complete-guide-to-tax-optimization-strategies-expert-strategies-for-2025">The Complete Guide to Tax optimization strategies: Expert Strategies for 2025</a></h3>
-                <p class="article-meta">
-                    <span class="category">taxes</span> •
-                    <span class="date">9/23/2025</span> •
-                    <span class="reading-time">8-10 min read</span>
-                </p>
-                <p class="article-excerpt">Discover proven tax optimization strategies and tax deductions tips from financial experts. Learn actionable steps to improve your financial future....</p>
-                <a href="/articles/2025/09/the-complete-guide-to-tax-optimization-strategies-expert-strategies-for-2025" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="insurance">
-            <img src="https://picsum.photos/400/250?random=721"
-                 alt="Your Ultimate Life insurance options Guide: life insurance Strategies That Work"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">insurance</div>
-                <h3><a href="/articles/2025/09/your-ultimate-life-insurance-options-guide-life-insurance-strategies-that-work">Your Ultimate Life insurance options Guide: life insurance Strategies That Work</a></h3>
-                <p class="article-meta">
-                    <span class="category">insurance</span> •
-                    <span class="date">9/22/2025</span> •
-                    <span class="reading-time">3 min read</span>
-                </p>
-                <p class="article-excerpt">Discover proven life insurance strategies and expert term life insights. Complete guide to Life insurance options with actionable tips for 2025....</p>
-                <a href="/articles/2025/09/your-ultimate-life-insurance-options-guide-life-insurance-strategies-that-work" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="education">
-            <img src="https://picsum.photos/400/250?random=1088"
-                 alt="Understanding Financial Literacy Fundamentals: A Comprehensive Guide"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">education</div>
-                <h3><a href="/articles/2025/09/understanding-financial-literacy-fundamentals-a-comprehensive-guide">Understanding Financial Literacy Fundamentals: A Comprehensive Guide</a></h3>
-                <p class="article-meta">
-                    <span class="category">education</span> •
-                    <span class="date">9/24/2025</span> •
-                    <span class="reading-time">6 min read</span>
-                </p>
-                <p class="article-excerpt">Learn about financial literacy basics and get actionable advice on personal finance 101, investment strategies, and effective side hustles that make m...</p>
-                <a href="/articles/2025/09/understanding-financial-literacy-fundamentals-a-comprehensive-guide" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="education">
-            <img src="https://picsum.photos/400/250?random=844"
-                 alt="The Complete Guide to Financial literacy fundamentals: Expert Strategies for 2025"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">education</div>
-                <h3><a href="/articles/2025/09/the-complete-guide-to-financial-literacy-fundamentals-expert-strategies-for-2025">The Complete Guide to Financial literacy fundamentals: Expert Strategies for 2025</a></h3>
-                <p class="article-meta">
-                    <span class="category">education</span> •
-                    <span class="date">9/22/2025</span> •
-                    <span class="reading-time">8-10 min read</span>
-                </p>
-                <p class="article-excerpt">Discover proven financial literacy strategies and money basics tips from financial experts. Learn actionable steps to improve your financial future....</p>
-                <a href="/articles/2025/09/the-complete-guide-to-financial-literacy-fundamentals-expert-strategies-for-2025" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="education">
-            <img src="https://picsum.photos/400/250?random=679"
-                 alt="Financial Literacy Fundamentals: Master Your Money Basics"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">education</div>
-                <h3><a href="/articles/2025/09/financial-literacy-fundamentals-master-your-money-basics">Financial Literacy Fundamentals: Master Your Money Basics</a></h3>
-                <p class="article-meta">
-                    <span class="category">education</span> •
-                    <span class="date">9/23/2025</span> •
-                    <span class="reading-time">3 min read</span>
-                </p>
-                <p class="article-excerpt">Learn about financial literacy basics, from personal finance 101 to investment strategies. Equip yourself with the knowledge to manage and grow your w...</p>
-                <a href="/articles/2025/09/financial-literacy-fundamentals-master-your-money-basics" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="wealth">
-            <img src="https://picsum.photos/400/250?random=1032"
-                 alt="Comprehensive Guide to Wealth Building Strategies for 2025"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">wealth</div>
-                <h3><a href="/articles/2025/09/comprehensive-guide-to-wealth-building-strategies-for-2025">Comprehensive Guide to Wealth Building Strategies for 2025</a></h3>
-                <p class="article-meta">
-                    <span class="category">wealth</span> •
-                    <span class="date">9/23/2025</span> •
-                    <span class="reading-time">2 min read</span>
-                </p>
-                <p class="article-excerpt">Discover practical, actionable wealth building strategies to increase your net worth. Develop a millionaire mindset with the current trends and expert...</p>
-                <a href="/articles/2025/09/comprehensive-guide-to-wealth-building-strategies-for-2025" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-        <article class="article-card" data-category="education">
-            <img src="https://picsum.photos/400/250?random=870"
-                 alt="The Complete Guide to College savings plans: Expert Strategies for 2025"
-                 class="article-image"
-                 loading="lazy">
-            <div class="article-content">
-                <div class="article-badge">education</div>
-                <h3><a href="/articles/2025/09/the-complete-guide-to-college-savings-plans-expert-strategies-for-2025">The Complete Guide to College savings plans: Expert Strategies for 2025</a></h3>
-                <p class="article-meta">
-                    <span class="category">education</span> •
-                    <span class="date">9/23/2025</span> •
-                    <span class="reading-time">8-10 min read</span>
-                </p>
-                <p class="article-excerpt">Discover proven 529 plans strategies and college savings tips from financial experts. Learn actionable steps to improve your financial future....</p>
-                <a href="/articles/2025/09/the-complete-guide-to-college-savings-plans-expert-strategies-for-2025" class="read-more-btn">Read Full Article →</a>
-            </div>
-        </article>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Smart Finance Hub. All rights reserved. |
-               <a href="/privacy-policy.html">Privacy Policy</a> |
-               <a href="/terms.html">Terms of Service</a>
-            </p>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Latest Financial Insights</h1>
+            <p>Discover expert strategies, market analysis, and practical tips to grow your wealth</p>
         </div>
-    </footer>
+    </section>
 
-    <script>
-    // Category filtering functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const filters = document.querySelectorAll('.category-filter');
-        const articles = document.querySelectorAll('.article-card');
-
-        filters.forEach(filter => {
-            filter.addEventListener('click', function() {
-                // Update active filter
-                filters.forEach(f => f.classList.remove('active'));
-                this.classList.add('active');
-
-                const category = this.dataset.category;
-
-                // Filter articles
-                articles.forEach(article => {
-                    if (category === 'all' || article.dataset.category === category) {
-                        article.style.display = 'block';
-                    } else {
-                        article.style.display = 'none';
-                    }
-                });
-            });
-        });
-    });
-    </script>
+    <main class="articles-section">
+        <div class="uniform-articles-grid">
+            
+            <article class="uniform-article-card">
+                <div class="uniform-image-container">
+                    <img src="https://picsum.photos/400/240?random=2"
+                         alt="The Complete Guide to Tax optimization strategies: Expert Strategie..."
+                         class="uniform-article-image">
+                </div>
+                <div class="uniform-card-content">
+                    <div class="uniform-category-badge">TAXES</div>
+                    <h3 class="uniform-article-title">
+                        <a href="/articles/2025/09/the-complete-guide-to-tax-optimization-strategies-">The Complete Guide to Tax optimization strategies: Expert Strategie...</a>
+                    </h3>
+                    <div class="uniform-article-meta">
+                        taxes • Sep 26, 2025 • 4 min read
+                    </div>
+                    <p class="uniform-article-excerpt">Discover proven tax optimization strategies and tax deductions tips from financial experts. Learn actionable steps to im...</p>
+                    <div class="uniform-button-container">
+                        <a href="/articles/2025/09/the-complete-guide-to-tax-optimization-strategies-" class="uniform-read-more-btn">Read Full Article →</a>
+                    </div>
+                </div>
+            </article>
+            <article class="uniform-article-card">
+                <div class="uniform-image-container">
+                    <img src="https://picsum.photos/400/240?random=3"
+                         alt="Your Ultimate Life insurance options Guide: life insurance Strategi..."
+                         class="uniform-article-image">
+                </div>
+                <div class="uniform-card-content">
+                    <div class="uniform-category-badge">INSURANCE</div>
+                    <h3 class="uniform-article-title">
+                        <a href="/articles/2025/09/your-ultimate-life-insurance-options-guide-life-in">Your Ultimate Life insurance options Guide: life insurance Strategi...</a>
+                    </h3>
+                    <div class="uniform-article-meta">
+                        insurance • Sep 26, 2025 • 3 min read
+                    </div>
+                    <p class="uniform-article-excerpt">Discover proven life insurance strategies and expert term life insights. Complete guide to Life insurance options with a...</p>
+                    <div class="uniform-button-container">
+                        <a href="/articles/2025/09/your-ultimate-life-insurance-options-guide-life-in" class="uniform-read-more-btn">Read Full Article →</a>
+                    </div>
+                </div>
+            </article>
+            <article class="uniform-article-card">
+                <div class="uniform-image-container">
+                    <img src="https://picsum.photos/400/240?random=4"
+                         alt="Understanding Financial Literacy Fundamentals: A Comprehensive Guide"
+                         class="uniform-article-image">
+                </div>
+                <div class="uniform-card-content">
+                    <div class="uniform-category-badge">EDUCATION</div>
+                    <h3 class="uniform-article-title">
+                        <a href="/articles/2025/09/understanding-financial-literacy-fundamentals-a-co">Understanding Financial Literacy Fundamentals: A Comprehensive Guide</a>
+                    </h3>
+                    <div class="uniform-article-meta">
+                        education • Sep 26, 2025 • 3 min read
+                    </div>
+                    <p class="uniform-article-excerpt">Learn about financial literacy basics and get actionable advice on personal finance 101, investment strategies, and effe...</p>
+                    <div class="uniform-button-container">
+                        <a href="/articles/2025/09/understanding-financial-literacy-fundamentals-a-co" class="uniform-read-more-btn">Read Full Article →</a>
+                    </div>
+                </div>
+            </article>
+            <article class="uniform-article-card">
+                <div class="uniform-image-container">
+                    <img src="https://picsum.photos/400/240?random=5"
+                         alt="The Complete Guide to Financial literacy fundamentals: Expert Strat..."
+                         class="uniform-article-image">
+                </div>
+                <div class="uniform-card-content">
+                    <div class="uniform-category-badge">EDUCATION</div>
+                    <h3 class="uniform-article-title">
+                        <a href="/articles/2025/09/the-complete-guide-to-financial-literacy-fundament">The Complete Guide to Financial literacy fundamentals: Expert Strat...</a>
+                    </h3>
+                    <div class="uniform-article-meta">
+                        education • Sep 26, 2025 • 4 min read
+                    </div>
+                    <p class="uniform-article-excerpt">Discover proven financial literacy strategies and money basics tips from financial experts. Learn actionable steps to im...</p>
+                    <div class="uniform-button-container">
+                        <a href="/articles/2025/09/the-complete-guide-to-financial-literacy-fundament" class="uniform-read-more-btn">Read Full Article →</a>
+                    </div>
+                </div>
+            </article>
+            <article class="uniform-article-card">
+                <div class="uniform-image-container">
+                    <img src="https://picsum.photos/400/240?random=6"
+                         alt="Financial Literacy Fundamentals: Master Your Money Basics"
+                         class="uniform-article-image">
+                </div>
+                <div class="uniform-card-content">
+                    <div class="uniform-category-badge">EDUCATION</div>
+                    <h3 class="uniform-article-title">
+                        <a href="/articles/2025/09/financial-literacy-fundamentals-master-your-money-">Financial Literacy Fundamentals: Master Your Money Basics</a>
+                    </h3>
+                    <div class="uniform-article-meta">
+                        education • Sep 26, 2025 • 3 min read
+                    </div>
+                    <p class="uniform-article-excerpt">Learn about financial literacy basics, from personal finance 101 to investment strategies. Equip yourself with the knowl...</p>
+                    <div class="uniform-button-container">
+                        <a href="/articles/2025/09/financial-literacy-fundamentals-master-your-money-" class="uniform-read-more-btn">Read Full Article →</a>
+                    </div>
+                </div>
+            </article>
+            <article class="uniform-article-card">
+                <div class="uniform-image-container">
+                    <img src="https://picsum.photos/400/240?random=7"
+                         alt="Comprehensive Guide to Wealth Building Strategies for 2025"
+                         class="uniform-article-image">
+                </div>
+                <div class="uniform-card-content">
+                    <div class="uniform-category-badge">WEALTH</div>
+                    <h3 class="uniform-article-title">
+                        <a href="/articles/2025/09/comprehensive-guide-to-wealth-building-strategies-">Comprehensive Guide to Wealth Building Strategies for 2025</a>
+                    </h3>
+                    <div class="uniform-article-meta">
+                        wealth • Sep 26, 2025 • 3 min read
+                    </div>
+                    <p class="uniform-article-excerpt">Discover practical, actionable wealth building strategies to increase your net worth. Develop a millionaire mindset with...</p>
+                    <div class="uniform-button-container">
+                        <a href="/articles/2025/09/comprehensive-guide-to-wealth-building-strategies-" class="uniform-read-more-btn">Read Full Article →</a>
+                    </div>
+                </div>
+            </article>
+            <article class="uniform-article-card">
+                <div class="uniform-image-container">
+                    <img src="https://picsum.photos/400/240?random=8"
+                         alt="The Complete Guide to College savings plans: Expert Strategies for ..."
+                         class="uniform-article-image">
+                </div>
+                <div class="uniform-card-content">
+                    <div class="uniform-category-badge">EDUCATION</div>
+                    <h3 class="uniform-article-title">
+                        <a href="/articles/2025/09/the-complete-guide-to-college-savings-plans-expert">The Complete Guide to College savings plans: Expert Strategies for ...</a>
+                    </h3>
+                    <div class="uniform-article-meta">
+                        education • Sep 26, 2025 • 4 min read
+                    </div>
+                    <p class="uniform-article-excerpt">Discover proven 529 plans strategies and college savings tips from financial experts. Learn actionable steps to improve ...</p>
+                    <div class="uniform-button-container">
+                        <a href="/articles/2025/09/the-complete-guide-to-college-savings-plans-expert" class="uniform-read-more-btn">Read Full Article →</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
 </body>
 </html>
