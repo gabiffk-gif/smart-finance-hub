@@ -10,7 +10,7 @@
   "cta": "Ready to take control of your finances? Start implementing these strategies today and transform your financial future!",
   "metadata": {
     "id": "7ab435ba-3773-4e9e-b8a7-6d3f1a278d26",
-    "status": "draft",
+    "status": "approved",
     "createdAt": "2025-10-02T13:18:10.114Z",
     "originalCreatedAt": "2025-10-02T13:18:10.114Z",
     "qualityScore": {
@@ -37,6 +37,9 @@
     ],
     "generatedBy": "test-article-generator",
     "testArticle": true,
-    "targetCategory": "Business"
+    "targetCategory": "Business",
+    "approvedAt": "2025-10-02T15:29:41.737Z",
+    "approvedBy": "Gbariel",
+    "reviewNotes": "NA"
   }
 }
