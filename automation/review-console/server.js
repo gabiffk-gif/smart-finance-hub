@@ -1069,6 +1069,7 @@ class ReviewConsoleServer {
             console.log(`📊 Dashboard: http://localhost:${this.port}`);
             console.log(`🔍 API Health: http://localhost:${this.port}/api/health`);
         });
+    }
 
     async processPendingApprovals(req, res) {
         try {
@@ -1101,7 +1102,6 @@ class ReviewConsoleServer {
             console.error('❌ Batch processing failed:', error);
             res.status(500).json({ success: false, error: error.message });
         }
-    }
     }
 }
 
