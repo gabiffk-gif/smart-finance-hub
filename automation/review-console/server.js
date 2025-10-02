@@ -131,6 +131,9 @@ class ReviewConsoleServer {
         this.app.post('/api/articles/:id/fact-check', this.runFactCheck.bind(this));
         this.app.post('/api/articles/:id/publish', this.publishArticle.bind(this));
         this.app.post('/api/publish/all-approved', this.publishAllApproved.bind(this));
+        this.app.post('/api/publish/enhanced', this.publishEnhanced.bind(this));
+        this.app.post('/api/publish/quick', this.publishQuick.bind(this));
+        this.app.post('/api/process-pending-approvals', this.processPendingApprovals.bind(this));
         
         // Health check
         this.app.get('/api/health', (req, res) => {
@@ -363,29 +366,101 @@ class ReviewConsoleServer {
         try {
             const { id } = req.params;
             const { reviewer, notes } = req.body;
-            
+
+            console.log(`📝 Approving article: ${id}`);
+
             const article = await this.findArticleById(id);
             if (!article) {
                 return res.status(404).json({ success: false, error: 'Article not found' });
             }
-            
-            // Update article metadata
+
+            // Update article metadata with full publish data
+            if (!article.metadata) article.metadata = {};
+
+            // Preserve original creation date
+            const originalDate = article.metadata.originalCreatedAt ||
+                               article.metadata.createdAt ||
+                               new Date().toISOString();
+
+            article.metadata.originalCreatedAt = originalDate;
             article.metadata.status = 'approved';
             article.metadata.approvedAt = new Date().toISOString();
             article.metadata.approvedBy = reviewer || 'system';
             article.metadata.reviewNotes = notes || '';
-            
-            // Move from drafts to approved
-            await this.moveArticle(id, 'drafts', 'approved', article);
-            
-            res.json({ 
-                success: true, 
-                message: 'Article approved successfully',
-                article: article.metadata
-            });
+
+            // Add publishedDate metadata for immediate publishing
+            article.metadata.publishedAt = new Date().toISOString();
+
+            // Ensure slug and URL for publishing
+            if (!article.slug && article.title) {
+                article.slug = this.generateSlug(article.title);
+            }
+
+            if (!article.url && article.slug) {
+                const date = new Date(originalDate);
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                article.url = `/articles/${year}/${month}/${article.slug}`;
+            }
+
+            // Move from drafts → published (skip approved folder for immediate publishing)
+            await this.moveArticle(id, 'drafts', 'published', article);
+
+            console.log('📤 Article approved and moved to published - triggering complete fix...');
+
+            try {
+                // Trigger newest-first publisher to update homepage
+                const { execSync } = require('child_process');
+                const publisherPath = path.join(__dirname, '../publisher/publish-newest-first.js');
+                execSync(`node "${publisherPath}"`, {
+                    cwd: path.join(__dirname, '../..'),
+                    stdio: 'inherit'
+                });
+
+                console.log('✅ Homepage updated with newest-first ordering');
+
+                res.json({
+                    success: true,
+                    message: 'Article approved and published successfully',
+                    article: {
+                        id: id,
+                        title: article.title,
+                        status: 'published',
+                        publishedAt: article.metadata.publishedAt,
+                        url: article.url
+                    },
+                    homepageUpdated: true
+                });
+
+            } catch (publishError) {
+                console.error('❌ Homepage update failed:', publishError);
+                res.json({
+                    success: true,
+                    message: 'Article approved and published, but homepage update failed',
+                    article: {
+                        id: id,
+                        title: article.title,
+                        status: 'published',
+                        publishedAt: article.metadata.publishedAt
+                    },
+                    warning: 'Homepage will be updated on next automated run'
+                });
+            }
+
         } catch (error) {
+            console.error('❌ Approval failed:', error);
             res.status(500).json({ success: false, error: error.message });
         }
+    }
+
+    generateSlug(title) {
+        return title
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-')
+            .substring(0, 50)
+            .replace(/^-|-$/g, '');
     }
 
     async rejectArticle(req, res) {
@@ -677,6 +752,70 @@ class ReviewConsoleServer {
         }
     }
 
+    async publishEnhanced(req, res) {
+        try {
+            console.log('🚀 Starting enhanced publishing process...');
+
+            const EnhancedPublisher = require('./enhanced-publisher');
+            const publisher = new EnhancedPublisher();
+
+            const stats = await publisher.getPublishingStats();
+            console.log(`📊 Pre-publish stats:`, stats);
+
+            const result = await publisher.publishApprovedArticles();
+            const finalStats = await publisher.getPublishingStats();
+
+            res.json({
+                success: result.success,
+                message: result.message,
+                movedCount: result.movedCount,
+                publishedCount: result.publishedCount,
+                stats: {
+                    before: stats,
+                    after: finalStats
+                },
+                homepageUpdated: true,
+                deployed: result.success,
+                timestamp: new Date().toISOString()
+            });
+        } catch (error) {
+            console.error('❌ Enhanced publishing failed:', error);
+            res.status(500).json({
+                success: false,
+                message: 'Enhanced publishing failed: ' + error.message,
+                error: error.message,
+                timestamp: new Date().toISOString()
+            });
+        }
+    }
+
+    async publishQuick(req, res) {
+        try {
+            console.log('⚡ Starting quick publishing process...');
+
+            const EnhancedPublisher = require('./enhanced-publisher');
+            const publisher = new EnhancedPublisher();
+
+            const result = await publisher.quickPublish();
+
+            res.json({
+                success: result.success,
+                message: result.message,
+                movedCount: result.movedCount,
+                homepageUpdated: true,
+                timestamp: new Date().toISOString()
+            });
+        } catch (error) {
+            console.error('❌ Quick publishing failed:', error);
+            res.status(500).json({
+                success: false,
+                message: 'Quick publishing failed: ' + error.message,
+                error: error.message,
+                timestamp: new Date().toISOString()
+            });
+        }
+    }
+
     // Utility methods
     async getArticlesFromFolder(folderName) {
         console.log(`📂 getArticlesFromFolder called for: ${folderName}`);
@@ -930,6 +1069,39 @@ class ReviewConsoleServer {
             console.log(`📊 Dashboard: http://localhost:${this.port}`);
             console.log(`🔍 API Health: http://localhost:${this.port}/api/health`);
         });
+
+    async processPendingApprovals(req, res) {
+        try {
+            console.log('🚀 Processing all pending approved articles...');
+
+            const EnhancedPublisher = require('./enhanced-publisher');
+            const publisher = new EnhancedPublisher();
+
+            const stats = await publisher.getPublishingStats();
+            console.log('📊 Pre-processing stats:', stats);
+
+            if (stats.approved > 0) {
+                const result = await publisher.publishApprovedArticles();
+                const finalStats = await publisher.getPublishingStats();
+
+                res.json({
+                    success: result.success,
+                    message: `Processed ${result.movedCount} approved articles`,
+                    stats: { before: stats, after: finalStats },
+                    result: result
+                });
+            } else {
+                res.json({
+                    success: true,
+                    message: 'No approved articles to process',
+                    stats: stats
+                });
+            }
+        } catch (error) {
+            console.error('❌ Batch processing failed:', error);
+            res.status(500).json({ success: false, error: error.message });
+        }
+    }
     }
 }
 

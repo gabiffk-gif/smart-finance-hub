@@ -763,18 +763,29 @@
         // Load dashboard stats
         async function loadStats() {
             try {
-                const [analytics, drafts, schedule] = await Promise.all([
+                const [analytics, drafts, published, schedule] = await Promise.all([
                     apiCall('/analytics'),
                     apiCall('/articles/drafts'),
+                    apiCall('/articles/published'),
                     apiCall('/schedule')
                 ]);
-                
+
                 document.getElementById('articlesCount').textContent = analytics.analytics.generatedToday;
                 document.getElementById('avgQuality').textContent = analytics.analytics.averageQualityScore;
-                document.getElementById('pendingReview').textContent = drafts.count;
-                document.getElementById('scheduledCount').textContent = schedule.schedule.length;
+                document.getElementById('pendingReview').textContent = drafts.count || 0;
+                document.getElementById('scheduledCount').textContent = published.count || 0;
             } catch (error) {
                 console.error('Failed to load stats:', error);
+            }
+        }
+
+        // Update published count specifically
+        async function updatePublishedCount() {
+            try {
+                const published = await apiCall('/articles/published');
+                document.getElementById('scheduledCount').textContent = published.count || 0;
+            } catch (error) {
+                console.error('Failed to update published count:', error);
             }
         }
 
@@ -873,17 +884,52 @@
             try {
                 const reviewer = prompt('Enter your name:') || 'Anonymous';
                 const notes = prompt('Add review notes (optional):') || '';
-                
-                await apiCall(`/articles/${articleId}/approve`, {
+
+                // Show loading state
+                const button = event.target;
+                const originalText = button.innerHTML;
+                button.innerHTML = '<span class="loading"></span> Publishing...';
+                button.disabled = true;
+
+                const response = await apiCall(`/articles/${articleId}/approve`, {
                     method: 'POST',
                     body: JSON.stringify({ reviewer, notes })
                 });
-                
-                showAlert('Article approved successfully!', 'success');
+
+                // Show enhanced success message
+                if (response.success) {
+                    const message = response.homepageUpdated ?
+                        'Article approved and published! Homepage updated automatically.' :
+                        'Article approved and published successfully!';
+
+                    showAlert(message, 'success');
+
+                    // Show published article details
+                    if (response.article && response.article.url) {
+                        showAlert(`✅ Published: ${response.article.title}\n🌐 URL: ${response.article.url}`, 'success');
+                    }
+                } else {
+                    showAlert(response.message || 'Approval completed with warnings', 'warning');
+                }
+
+                // Restore button
+                button.innerHTML = originalText;
+                button.disabled = false;
+
+                // Refresh views
                 loadArticles();
                 loadStats();
+                updatePublishedCount();
+
             } catch (error) {
-                showAlert('Failed to approve article', 'error');
+                console.error('Approval error:', error);
+                showAlert('Failed to approve article: ' + error.message, 'error');
+
+                // Restore button on error
+                if (event && event.target) {
+                    event.target.innerHTML = '✓ Approve';
+                    event.target.disabled = false;
+                }
             }
         }
 
