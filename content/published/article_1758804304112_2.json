@@ -82,11 +82,23 @@
     "approvedBy": "Gabriel",
     "reviewNotes": "NA",
     "originalCreatedAt": "2025-09-29T11:55:19.002Z",
-    "publishedAt": "2025-09-29T11:55:19.002Z"
+    "publishedAt": "2025-09-29T11:55:19.002Z",
+    "updatedAt": "2025-10-02T15:21:15.376Z",
+    "authorAdded": true
   },
   "savedAt": "2025-09-25T12:45:04.115Z",
   "version": "1.0",
   "publishDate": "2025-09-29",
   "slug": "breaking-the-rise-of-international-investing-and-w",
-  "url": "/articles/2025/09/breaking-the-rise-of-international-investing-and-w"
+  "url": "/articles/2025/09/breaking-the-rise-of-international-investing-and-w",
+  "author": {
+    "name": "Sarah Johnson, CFA",
+    "title": "Chartered Financial Analyst",
+    "bio": "Sarah Johnson is a Chartered Financial Analyst specializing in market analysis and portfolio management for high-net-worth clients.",
+    "specialties": [
+      "investing",
+      "market analysis",
+      "portfolio management"
+    ]
+  }
 }

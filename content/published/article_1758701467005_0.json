@@ -82,11 +82,23 @@
     "approvedBy": "Gabriel",
     "reviewNotes": "SEO low",
     "originalCreatedAt": "2025-09-24T11:57:08.533Z",
-    "publishedAt": "2025-09-24T11:57:08.533Z"
+    "publishedAt": "2025-09-24T11:57:08.533Z",
+    "updatedAt": "2025-10-02T15:21:15.374Z",
+    "authorAdded": true
   },
   "savedAt": "2025-09-24T08:11:07.013Z",
   "version": "1.0",
   "publishDate": "2025-09-24",
   "slug": "rising-interest-rates-how-to-leverage-dividend-inv",
-  "url": "/articles/2025/09/rising-interest-rates-how-to-leverage-dividend-inv"
+  "url": "/articles/2025/09/rising-interest-rates-how-to-leverage-dividend-inv",
+  "author": {
+    "name": "Sarah Johnson, CFA",
+    "title": "Chartered Financial Analyst",
+    "bio": "Sarah Johnson is a Chartered Financial Analyst specializing in market analysis and portfolio management for high-net-worth clients.",
+    "specialties": [
+      "investing",
+      "market analysis",
+      "portfolio management"
+    ]
+  }
 }

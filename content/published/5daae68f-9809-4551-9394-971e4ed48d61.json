@@ -70,12 +70,24 @@
     "publishedUrl": "https://smartfinancehub.vip/articles/2025/09/thecompleteguidetotaxoptimizationstrategiesexpertstrategiesf.html",
     "slug": "thecompleteguidetotaxoptimizationstrategiesexpertstrategiesf",
     "filePath": "articles/2025/09/thecompleteguidetotaxoptimizationstrategiesexpertstrategiesf.html",
-    "originalCreatedAt": "2025-09-23T10:54:10.708Z"
+    "originalCreatedAt": "2025-09-23T10:54:10.708Z",
+    "updatedAt": "2025-10-02T15:21:15.365Z",
+    "authorAdded": true
   },
   "savedAt": "2025-09-20T07:01:44.569Z",
   "version": "1.0",
   "testGenerated": true,
   "publishDate": "2025-09-23",
   "slug": "the-complete-guide-to-tax-optimization-strategies",
-  "url": "/articles/2025/09/the-complete-guide-to-tax-optimization-strategies"
+  "url": "/articles/2025/09/the-complete-guide-to-tax-optimization-strategies",
+  "author": {
+    "name": "Sarah Johnson, CFA",
+    "title": "Chartered Financial Analyst",
+    "bio": "Sarah Johnson is a Chartered Financial Analyst specializing in market analysis and portfolio management for high-net-worth clients.",
+    "specialties": [
+      "investing",
+      "market analysis",
+      "portfolio management"
+    ]
+  }
 }

@@ -77,17 +77,28 @@
     "readingTime": "3 min read",
     "wordCount": 457,
     "isMockArticle": false,
-    "updatedAt": "2025-09-26T15:44:44.767Z",
+    "updatedAt": "2025-10-02T15:21:15.378Z",
     "updatedBy": "Review Console User",
     "approvedAt": "2025-09-27T03:29:08.670Z",
     "approvedBy": "Gabriel",
     "reviewNotes": "NA",
     "originalCreatedAt": "2025-09-27T03:29:08.677Z",
-    "publishedAt": "2025-09-27T03:29:08.677Z"
+    "publishedAt": "2025-09-27T03:29:08.677Z",
+    "authorAdded": true
   },
   "savedAt": "2025-09-26T10:46:45.349Z",
   "version": "1.0",
   "publishDate": "2025-09-27",
   "slug": "breaking-alternative-investments-gain-momentum-ami",
-  "url": "/articles/2025/09/breaking-alternative-investments-gain-momentum-ami"
+  "url": "/articles/2025/09/breaking-alternative-investments-gain-momentum-ami",
+  "author": {
+    "name": "Sarah Johnson, CFA",
+    "title": "Chartered Financial Analyst",
+    "bio": "Sarah Johnson is a Chartered Financial Analyst specializing in market analysis and portfolio management for high-net-worth clients.",
+    "specialties": [
+      "investing",
+      "market analysis",
+      "portfolio management"
+    ]
+  }
 }

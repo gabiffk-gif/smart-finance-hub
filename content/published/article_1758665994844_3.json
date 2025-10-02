@@ -86,11 +86,23 @@
     "approvedBy": "Gabriel",
     "reviewNotes": "SEO low",
     "originalCreatedAt": "2025-09-24T11:57:08.533Z",
-    "publishedAt": "2025-09-24T11:57:08.533Z"
+    "publishedAt": "2025-09-24T11:57:08.533Z",
+    "updatedAt": "2025-10-02T15:21:15.374Z",
+    "authorAdded": true
   },
   "savedAt": "2025-09-23T22:19:54.846Z",
   "version": "1.0",
   "publishDate": "2025-09-24",
   "slug": "the-overrated-power-of-debt-consolidation-why-it-i",
-  "url": "/articles/2025/09/the-overrated-power-of-debt-consolidation-why-it-i"
+  "url": "/articles/2025/09/the-overrated-power-of-debt-consolidation-why-it-i",
+  "author": {
+    "name": "David Rodriguez, MBA",
+    "title": "Financial Strategist",
+    "bio": "David Rodriguez holds an MBA in Finance and has spent over a decade advising businesses and individuals on financial strategy and growth.",
+    "specialties": [
+      "business finance",
+      "financial strategy",
+      "entrepreneurship"
+    ]
+  }
 }

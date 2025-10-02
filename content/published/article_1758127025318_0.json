@@ -60,9 +60,21 @@
     "publishedUrl": "https://smartfinancehub.vip/articles/2025/09/understandingfinancialliteracyfundamentalsacomprehensiveguid.html",
     "slug": "understandingfinancialliteracyfundamentalsacomprehensiveguid",
     "filePath": "articles/2025/09/understandingfinancialliteracyfundamentalsacomprehensiveguid.html",
-    "originalCreatedAt": "2025-09-23T10:54:10.712Z"
+    "originalCreatedAt": "2025-09-23T10:54:10.712Z",
+    "updatedAt": "2025-10-02T15:21:15.370Z",
+    "authorAdded": true
   },
   "publishDate": "2025-09-23",
   "slug": "understanding-financial-literacy-fundamentals-a-co",
-  "url": "/articles/2025/09/understanding-financial-literacy-fundamentals-a-co"
+  "url": "/articles/2025/09/understanding-financial-literacy-fundamentals-a-co",
+  "author": {
+    "name": "Michael Chen, CFP",
+    "title": "Certified Financial Planner",
+    "bio": "Michael Chen is a Certified Financial Planner with over 15 years of experience helping individuals and families achieve their financial goals.",
+    "specialties": [
+      "retirement planning",
+      "investment strategies",
+      "tax optimization"
+    ]
+  }
 }

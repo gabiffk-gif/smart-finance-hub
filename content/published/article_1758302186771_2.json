@@ -64,11 +64,23 @@
     "approvedBy": "Gabriel",
     "reviewNotes": "NA",
     "originalCreatedAt": "2025-09-23T22:59:27.894Z",
-    "publishedAt": "2025-09-23T22:59:27.894Z"
+    "publishedAt": "2025-09-23T22:59:27.894Z",
+    "updatedAt": "2025-10-02T15:21:15.371Z",
+    "authorAdded": true
   },
   "savedAt": "2025-09-19T17:16:26.776Z",
   "version": "1.0",
   "publishDate": "2025-09-23",
   "slug": "mastering-the-basics-of-real-estate-investing-a-co",
-  "url": "/articles/2025/09/mastering-the-basics-of-real-estate-investing-a-co"
+  "url": "/articles/2025/09/mastering-the-basics-of-real-estate-investing-a-co",
+  "author": {
+    "name": "Sarah Johnson, CFA",
+    "title": "Chartered Financial Analyst",
+    "bio": "Sarah Johnson is a Chartered Financial Analyst specializing in market analysis and portfolio management for high-net-worth clients.",
+    "specialties": [
+      "investing",
+      "market analysis",
+      "portfolio management"
+    ]
+  }
 }

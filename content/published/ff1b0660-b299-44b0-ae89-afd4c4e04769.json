@@ -70,12 +70,24 @@
     "publishedUrl": "https://smartfinancehub.com/articles/2025/09/thecompleteguidetocollegesavingsplansexpertstrategiesfor2025.html",
     "slug": "thecompleteguidetocollegesavingsplansexpertstrategiesfor2025",
     "filePath": "articles/2025/09/thecompleteguidetocollegesavingsplansexpertstrategiesfor2025.html",
-    "originalCreatedAt": "2025-09-23T15:24:45.117Z"
+    "originalCreatedAt": "2025-09-23T15:24:45.117Z",
+    "updatedAt": "2025-10-02T15:21:15.379Z",
+    "authorAdded": true
   },
   "savedAt": "2025-09-19T13:14:44.413Z",
   "version": "1.0",
   "testGenerated": true,
   "publishDate": "2025-09-23",
   "slug": "the-complete-guide-to-college-savings-plans-expert",
-  "url": "/articles/2025/09/the-complete-guide-to-college-savings-plans-expert"
+  "url": "/articles/2025/09/the-complete-guide-to-college-savings-plans-expert",
+  "author": {
+    "name": "Sarah Johnson, CFA",
+    "title": "Chartered Financial Analyst",
+    "bio": "Sarah Johnson is a Chartered Financial Analyst specializing in market analysis and portfolio management for high-net-worth clients.",
+    "specialties": [
+      "investing",
+      "market analysis",
+      "portfolio management"
+    ]
+  }
 }

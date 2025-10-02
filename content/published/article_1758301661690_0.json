@@ -67,11 +67,23 @@
     "approvedBy": "Gbariel",
     "reviewNotes": "NA",
     "originalCreatedAt": "2025-09-23T22:58:26.144Z",
-    "publishedAt": "2025-09-23T22:58:26.144Z"
+    "publishedAt": "2025-09-23T22:58:26.144Z",
+    "updatedAt": "2025-10-02T15:21:15.371Z",
+    "authorAdded": true
   },
   "savedAt": "2025-09-19T17:07:41.696Z",
   "version": "1.0",
   "publishDate": "2025-09-23",
   "slug": "the-ultimate-2025-guide-to-retirement-planning-401",
-  "url": "/articles/2025/09/the-ultimate-2025-guide-to-retirement-planning-401"
+  "url": "/articles/2025/09/the-ultimate-2025-guide-to-retirement-planning-401",
+  "author": {
+    "name": "Michael Chen, CFP",
+    "title": "Certified Financial Planner",
+    "bio": "Michael Chen is a Certified Financial Planner with over 15 years of experience helping individuals and families achieve their financial goals.",
+    "specialties": [
+      "retirement planning",
+      "investment strategies",
+      "tax optimization"
+    ]
+  }
 }

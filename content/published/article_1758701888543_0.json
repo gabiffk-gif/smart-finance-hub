@@ -82,11 +82,23 @@
     "approvedBy": "Gabriel",
     "reviewNotes": "NA",
     "originalCreatedAt": "2025-09-25T11:44:01.469Z",
-    "publishedAt": "2025-09-25T11:44:01.469Z"
+    "publishedAt": "2025-09-25T11:44:01.469Z",
+    "updatedAt": "2025-10-02T15:21:15.375Z",
+    "authorAdded": true
   },
   "savedAt": "2025-09-24T08:18:08.549Z",
   "version": "1.0",
   "publishDate": "2025-09-25",
   "slug": "breaking-the-new-era-of-international-investing-an",
-  "url": "/articles/2025/09/breaking-the-new-era-of-international-investing-an"
+  "url": "/articles/2025/09/breaking-the-new-era-of-international-investing-an",
+  "author": {
+    "name": "Sarah Johnson, CFA",
+    "title": "Chartered Financial Analyst",
+    "bio": "Sarah Johnson is a Chartered Financial Analyst specializing in market analysis and portfolio management for high-net-worth clients.",
+    "specialties": [
+      "investing",
+      "market analysis",
+      "portfolio management"
+    ]
+  }
 }

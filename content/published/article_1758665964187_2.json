@@ -82,11 +82,23 @@
     "approvedBy": "Gabriel",
     "reviewNotes": "SEO low",
     "originalCreatedAt": "2025-09-24T11:57:08.532Z",
-    "publishedAt": "2025-09-24T11:57:08.532Z"
+    "publishedAt": "2025-09-24T11:57:08.532Z",
+    "updatedAt": "2025-10-02T15:21:15.374Z",
+    "authorAdded": true
   },
   "savedAt": "2025-09-23T22:19:24.189Z",
   "version": "1.0",
   "publishDate": "2025-09-24",
   "slug": "optimize-your-finances-latest-trends-in-tax-optimi",
-  "url": "/articles/2025/09/optimize-your-finances-latest-trends-in-tax-optimi"
+  "url": "/articles/2025/09/optimize-your-finances-latest-trends-in-tax-optimi",
+  "author": {
+    "name": "Michael Chen, CFP",
+    "title": "Certified Financial Planner",
+    "bio": "Michael Chen is a Certified Financial Planner with over 15 years of experience helping individuals and families achieve their financial goals.",
+    "specialties": [
+      "retirement planning",
+      "investment strategies",
+      "tax optimization"
+    ]
+  }
 }

@@ -85,11 +85,23 @@
     "approvedBy": "Gabriel",
     "reviewNotes": "SEO low",
     "originalCreatedAt": "2025-09-24T11:57:08.534Z",
-    "publishedAt": "2025-09-24T11:57:08.534Z"
+    "publishedAt": "2025-09-24T11:57:08.534Z",
+    "updatedAt": "2025-10-02T15:21:15.376Z",
+    "authorAdded": true
   },
   "savedAt": "2025-09-24T08:18:55.859Z",
   "version": "1.0",
   "publishDate": "2025-09-24",
   "slug": "breaking-the-lowdown-on-brokerage-taxable-and-reti",
-  "url": "/articles/2025/09/breaking-the-lowdown-on-brokerage-taxable-and-reti"
+  "url": "/articles/2025/09/breaking-the-lowdown-on-brokerage-taxable-and-reti",
+  "author": {
+    "name": "Michael Chen, CFP",
+    "title": "Certified Financial Planner",
+    "bio": "Michael Chen is a Certified Financial Planner with over 15 years of experience helping individuals and families achieve their financial goals.",
+    "specialties": [
+      "retirement planning",
+      "investment strategies",
+      "tax optimization"
+    ]
+  }
 }

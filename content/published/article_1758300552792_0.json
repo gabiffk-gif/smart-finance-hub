@@ -75,11 +75,23 @@
     "publishedUrl": "https://smartfinancehub.vip/articles/2025/09/thecompleteguidetofinancialliteracyfundamentalsexpertstrateg.html",
     "slug": "thecompleteguidetofinancialliteracyfundamentalsexpertstrateg",
     "filePath": "articles/2025/09/thecompleteguidetofinancialliteracyfundamentalsexpertstrateg.html",
-    "originalCreatedAt": "2025-09-23T10:54:10.714Z"
+    "originalCreatedAt": "2025-09-23T10:54:10.714Z",
+    "updatedAt": "2025-10-02T15:21:15.370Z",
+    "authorAdded": true
   },
   "savedAt": "2025-09-19T16:49:12.793Z",
   "version": "1.0",
   "publishDate": "2025-09-23",
   "slug": "the-complete-guide-to-financial-literacy-fundament",
-  "url": "/articles/2025/09/the-complete-guide-to-financial-literacy-fundament"
+  "url": "/articles/2025/09/the-complete-guide-to-financial-literacy-fundament",
+  "author": {
+    "name": "Sarah Johnson, CFA",
+    "title": "Chartered Financial Analyst",
+    "bio": "Sarah Johnson is a Chartered Financial Analyst specializing in market analysis and portfolio management for high-net-worth clients.",
+    "specialties": [
+      "investing",
+      "market analysis",
+      "portfolio management"
+    ]
+  }
 }

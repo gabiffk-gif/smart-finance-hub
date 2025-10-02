@@ -84,11 +84,23 @@
     "originalCreatedAt": "2025-09-29T12:03:45.905Z",
     "publishedAt": "2025-09-29T12:03:45.905Z",
     "isNew": true,
-    "newBadge": "NEW"
+    "newBadge": "NEW",
+    "updatedAt": "2025-10-02T15:21:15.377Z",
+    "authorAdded": true
   },
   "savedAt": "2025-09-26T10:16:39.323Z",
   "version": "1.0",
   "publishDate": "2025-09-29",
   "slug": "breaking-the-power-of-dividend-stocks-in-2025-a-co",
-  "url": "/articles/2025/09/breaking-the-power-of-dividend-stocks-in-2025-a-co"
+  "url": "/articles/2025/09/breaking-the-power-of-dividend-stocks-in-2025-a-co",
+  "author": {
+    "name": "Michael Chen, CFP",
+    "title": "Certified Financial Planner",
+    "bio": "Michael Chen is a Certified Financial Planner with over 15 years of experience helping individuals and families achieve their financial goals.",
+    "specialties": [
+      "retirement planning",
+      "investment strategies",
+      "tax optimization"
+    ]
+  }
 }

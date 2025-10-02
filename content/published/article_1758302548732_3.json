@@ -59,7 +59,7 @@
     "readingTime": "2 min read",
     "wordCount": 399,
     "isMockArticle": false,
-    "updatedAt": "2025-09-23T14:38:32.789Z",
+    "updatedAt": "2025-10-02T15:21:15.373Z",
     "updatedBy": "Review Console User",
     "approvedAt": "2025-09-23T14:38:56.467Z",
     "approvedBy": "Gabriel",
@@ -68,11 +68,22 @@
     "publishedUrl": "https://smartfinancehub.com/articles/2025/09/comprehensiveguidetowealthbuildingstrategiesfor2025.html",
     "slug": "comprehensiveguidetowealthbuildingstrategiesfor2025",
     "filePath": "articles/2025/09/comprehensiveguidetowealthbuildingstrategiesfor2025.html",
-    "originalCreatedAt": "2025-09-23T15:24:40.975Z"
+    "originalCreatedAt": "2025-09-23T15:24:40.975Z",
+    "authorAdded": true
   },
   "savedAt": "2025-09-19T17:22:28.734Z",
   "version": "1.0",
   "publishDate": "2025-09-23",
   "slug": "comprehensive-guide-to-wealth-building-strategies",
-  "url": "/articles/2025/09/comprehensive-guide-to-wealth-building-strategies"
+  "url": "/articles/2025/09/comprehensive-guide-to-wealth-building-strategies",
+  "author": {
+    "name": "Michael Chen, CFP",
+    "title": "Certified Financial Planner",
+    "bio": "Michael Chen is a Certified Financial Planner with over 15 years of experience helping individuals and families achieve their financial goals.",
+    "specialties": [
+      "retirement planning",
+      "investment strategies",
+      "tax optimization"
+    ]
+  }
 }

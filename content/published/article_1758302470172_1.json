@@ -65,11 +65,23 @@
     "approvedBy": "Gab",
     "reviewNotes": "NA",
     "originalCreatedAt": "2025-09-23T23:03:21.866Z",
-    "publishedAt": "2025-09-23T23:03:21.866Z"
+    "publishedAt": "2025-09-23T23:03:21.866Z",
+    "updatedAt": "2025-10-02T15:21:15.372Z",
+    "authorAdded": true
   },
   "savedAt": "2025-09-19T17:21:10.174Z",
   "version": "1.0",
   "publishDate": "2025-09-23",
   "slug": "a-comprehensive-guide-to-cryptocurrency-for-beginn",
-  "url": "/articles/2025/09/a-comprehensive-guide-to-cryptocurrency-for-beginn"
+  "url": "/articles/2025/09/a-comprehensive-guide-to-cryptocurrency-for-beginn",
+  "author": {
+    "name": "Sarah Johnson, CFA",
+    "title": "Chartered Financial Analyst",
+    "bio": "Sarah Johnson is a Chartered Financial Analyst specializing in market analysis and portfolio management for high-net-worth clients.",
+    "specialties": [
+      "investing",
+      "market analysis",
+      "portfolio management"
+    ]
+  }
 }

@@ -84,11 +84,23 @@
     "reviewNotes": "NA",
     "publishedAt": "2025-10-02T14:02:34.219Z",
     "isNew": true,
-    "newBadge": "NEW"
+    "newBadge": "NEW",
+    "updatedAt": "2025-10-02T15:21:15.378Z",
+    "authorAdded": true
   },
   "savedAt": "2025-09-29T13:58:50.056Z",
   "version": "1.0",
   "publishDate": "2025-09-29",
   "slug": "breaking-tax-loss-harvesting-could-be-your-next-ta",
-  "url": "/articles/2025/09/breaking-tax-loss-harvesting-could-be-your-next-ta"
+  "url": "/articles/2025/09/breaking-tax-loss-harvesting-could-be-your-next-ta",
+  "author": {
+    "name": "Sarah Johnson, CFA",
+    "title": "Chartered Financial Analyst",
+    "bio": "Sarah Johnson is a Chartered Financial Analyst specializing in market analysis and portfolio management for high-net-worth clients.",
+    "specialties": [
+      "investing",
+      "market analysis",
+      "portfolio management"
+    ]
+  }
 }
