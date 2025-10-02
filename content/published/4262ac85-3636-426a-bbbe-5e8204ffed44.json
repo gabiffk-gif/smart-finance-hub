@@ -43,6 +43,18 @@
     "reviewNotes": "Testing complete workflow",
     "publishedAt": "2025-10-02T15:23:20.621Z",
     "isNew": true,
-    "newBadge": "NEW"
+    "newBadge": "NEW",
+    "updatedAt": "2025-10-02T15:24:41.150Z",
+    "authorAdded": true
+  },
+  "author": {
+    "name": "David Rodriguez, MBA",
+    "title": "Financial Strategist",
+    "bio": "David Rodriguez holds an MBA in Finance and has spent over a decade advising businesses and individuals on financial strategy and growth.",
+    "specialties": [
+      "business finance",
+      "financial strategy",
+      "entrepreneurship"
+    ]
   }
 }

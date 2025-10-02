@@ -53,13 +53,24 @@
     "generatedBy": "test-article-generator",
     "testArticle": true,
     "targetCategory": "Business",
-    "updatedAt": "2025-10-02T14:20:38.759Z",
+    "updatedAt": "2025-10-02T15:24:41.152Z",
     "updatedBy": "Review Console User",
     "approvedAt": "2025-10-02T14:20:55.975Z",
     "approvedBy": "Gabriel",
     "reviewNotes": "NA",
     "publishedAt": "2025-10-02T15:23:20.622Z",
     "isNew": true,
-    "newBadge": "NEW"
+    "newBadge": "NEW",
+    "authorAdded": true
+  },
+  "author": {
+    "name": "Sarah Johnson, CFA",
+    "title": "Chartered Financial Analyst",
+    "bio": "Sarah Johnson is a Chartered Financial Analyst specializing in market analysis and portfolio management for high-net-worth clients.",
+    "specialties": [
+      "investing",
+      "market analysis",
+      "portfolio management"
+    ]
   }
 }
